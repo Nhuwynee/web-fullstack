@@ -12,29 +12,23 @@ public class Ex01 {
     }
 
     public static void phanLoaiCau(String text) {
-        text = text.trim();
+        text = text.replace(" ", "");
 
-        int total = 0;
         int cauHoi = 0;
         int camThan = 0;
         int tranThuat = 0;
 
         for (int i = 0; i < text.length(); i++) {
             char c = text.charAt(i);
-
-            if (c == '.' || c == '?' || c == '!') {
-                total++;
-
-                if (c == '?') {
-                    cauHoi++;
-                } else if (c == '!') {
-                    camThan++;
-                } else if (c == '.') {
-                    tranThuat++;
-                }
+            if (c == '?') {
+                cauHoi++;
+            } else if (c == '!') {
+                camThan++;
+            } else if (c == '.') {
+                tranThuat++;
             }
         }
-
+        int total = cauHoi + camThan + tranThuat;
         System.out.println("Tổng số câu: " + total);
         System.out.println("Số câu hỏi (?): " + cauHoi);
         System.out.println("Số câu cảm thán (!): " + camThan);

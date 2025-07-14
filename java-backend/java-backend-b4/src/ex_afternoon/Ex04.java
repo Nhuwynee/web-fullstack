@@ -23,7 +23,7 @@ public class Ex04 {
             } else if (i == str.length - 1) {
                 output.append(str[i].toUpperCase(Locale.ROOT));
             } else {
-                output.append(str[i].substring(0,1));
+                output.append(str[i].substring(0,1).toUpperCase(Locale.ROOT));
             }
         }
 

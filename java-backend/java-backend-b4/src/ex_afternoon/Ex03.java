@@ -52,11 +52,9 @@ public class Ex03 {
         System.out.println("Cách hiện tại: " + count + " ngày");
 
         // g. tìm ngày cách đây 1000 ngày
-        LocalDate thousandDaysAgo = LocalDate.now();
-        for (int i = 0; i < 1000; i++) {
-            thousandDaysAgo = thousandDaysAgo.minusDays(1);
-        }
-        System.out.println("g. 1000 ngày trước: " + thousandDaysAgo.getDayOfMonth() + "/" + thousandDaysAgo.getMonthValue() + "/" + thousandDaysAgo.getYear());
+        LocalDate thousandDaysAgo = LocalDate.now().minusDays(1000);
+        System.out.println("g. 1000 ngày trước: " + thousandDaysAgo.getDayOfMonth() + "/"
+                + thousandDaysAgo.getMonthValue() + "/" + thousandDaysAgo.getYear());
 
         // h. chênh lệch ngày
         Scanner scanner = new Scanner(System.in);

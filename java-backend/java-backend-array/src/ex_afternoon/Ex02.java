@@ -103,10 +103,8 @@ public class Ex02 {
             return arr;
         }
 
-        int[] result = new int[arr.length + 1];
-        for (int i = 0; i < arr.length; i++) {
-            result[i] = arr[i];
-        }
+        int[] result = Arrays.copyOfRange(arr, 0, arr.length);
+
         for (int i = result.length - 1; i > index; i--) {
             result[i] = result[i - 1];
         }

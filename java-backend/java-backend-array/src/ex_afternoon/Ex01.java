@@ -77,9 +77,9 @@ public class Ex01 {
     private static int[] sapXepMangGiamDan(int[] arr) {
         int[] arrNew = Arrays.copyOfRange(arr, 0, arr.length);
         for (int i = 0; i < arrNew.length - 1; i++) {
-            for (int j = 0; j < arrNew.length - 1 - i; j++) {
-                if (arrNew[j] < arrNew[j + 1]) {
-                    swap(arrNew, j, j + 1);
+            for (int j = i + 1; j < arrNew.length; j++) {
+                if (arrNew[i] < arrNew[j]) {
+                    swap(arrNew, i, j);
                 }
             }
         }
@@ -106,17 +106,17 @@ public class Ex01 {
         }
 
         for (int i = 0; i < duong.length - 1; i++) {
-            for (int j = 0; j < duong.length - i - 1; j++) {
-                if (duong[j] < duong[j + 1]) {
-                    swap(duong, j, j + 1);
+            for (int j = i + 1; j < duong.length; j++) {
+                if (duong[i] < duong[j]) {
+                    swap(duong, i, j);
                 }
             }
         }
 
         for (int i = 0; i < am.length - 1; i++) {
-            for (int j = 0; j < am.length - i - 1; j++) {
-                if (am[j] > am[j + 1]) {
-                    swap(am, j, j + 1);
+            for (int j = i + 1; j < am.length; j++) {
+                if (am[i] > am[j]) {
+                    swap(am, i, j);
                 }
             }
         }

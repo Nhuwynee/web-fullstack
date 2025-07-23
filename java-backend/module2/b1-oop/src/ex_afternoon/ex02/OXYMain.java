@@ -20,7 +20,7 @@ public class OXYMain {
         System.out.println("\n - Tọa độ điểm thứ hai =====");
         o2.output();
 
-        System.out.printf("Khoảng cách giữa 2 điểm: %.2f\n", OXY.distance(o1, o2));
+        System.out.printf("\nKhoảng cách giữa 2 điểm: %.2f\n", OXY.distance(o1, o2));
     }
 
 }

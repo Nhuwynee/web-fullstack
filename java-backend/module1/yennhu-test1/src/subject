@@ -1,0 +1,32 @@
+**🔖 BÀI TẬP TỔNG HỢP: QUẢN LÝ DANH SÁCH NHÂN VIÊN**
+
+📌  Team được yêu cầu xây dựng một hệ thống quản lý danh sách nhân viên cho công ty ABC.
+👇 Hãy dùng ArrayList để thực hiện các yêu cầu sau 👇
+
+**1. Gộp danh sách nhân viên từ 2 phòng ban**
+**Yêu cầu:**
+- Công ty có 2 danh sách ArrayList<String> là danh sách nhân viên của phòng Kỹ thuật và phòng Kế toán.
+Vì lỗi nhập liệu nên có 1 số nhân viên bị trùng lặp trong cùng danh sách, và cũng có việc trùng lặp nhân viên giữa 2 danh sách.
+- Gộp lại thành 1 danh sách tổng (không có trùng tên trong từng danh sách).
+- In danh sách tổng ra màn hình.
+**Gợi ý:**
+- Dùng contains() để tránh tên bị lặp.
+
+**2. Đếm số lượng nhân viên theo họ**
+**Yêu cầu:**
+- Thống kê số lượng nhân viên theo từng họ .
+- In danh sách kết quả.
+**Gợi ý: **
+- Tách họ bằng split(" ") → lấy phần tử đầu tiên.
+- Sử dụng startWith khi đếm họ
+
+**3*. Sắp xếp tên nhân viên theo độ dài giảm dần**
+**Yêu cầu:**
+- Sắp xếp danh sách nhân viên theo độ dài tên giảm dần.
+- Nếu 2 tên cùng độ dài, sắp theo thứ tự alphabet.
+- Dùng cách sort thủ công với vòng lặp for đã học ở bài trước
+- Dùng Collection.sort với Comparator để đối chiếu kết quả sort thủ công
+**Gợi ý:  Collection.sort với Comparator**
+- B1: Tạo class NameLengthComparator implements Comparator<String>
+ - B2: Override method compare(String s1, String s2) với logic so sánh tự viết
+ - B3: Gọi Collections.sort(list, new NameLengthComparator())

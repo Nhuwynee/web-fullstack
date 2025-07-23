@@ -1,0 +1,37 @@
+# Quản lý thông tin sinh viên
+## B1: Phân tích yêu cầu đề bài
+
+#### Viết chương trình cho phép nhập thông tin học sinh, bao gồm:
++ Tên HS
++ Điểm Toán
++ Điểm Văn
++ Tính điểm trung bình
++ In ra kết quả
+#### Mục tiêu sử dụng
++ Lớp
++ Đối tượng
++ Thuộc tính
++ Phương thức
+
+## B2: Viết class Student
+
+#### Thuộc tính
+* Tên (String name)
+* Điểm toán (double math)
+* Điểm văn (double literature)
+#### Phương thức:
+* void input(): Nhập tên(String), điểm văn(double), điểm toán(double) với điều kiện kiểm tra:
+    * điểm toán và văn nhập vào (>= 0 và <=10)
+    * tên không chứa kí tự số và kí tự đặc biệt.
+* void output(): in ra Tên, Điểm Văn, Điểm toán, Điểm trung bình
+* double calculateAverageScore(): Tính trung bình của điểm toán và văn.
+## B3: Viết class StudentManager
+* Tạo Arrayslist<Student> students để lưu danh sách sinh viên.
+* Tạo biến số lượng sinh viên người dùng muốn nhập vào.
+* Sử dụng vòng lặp for để gọi hàm input/output để nhập và in ra thông tin.
+
+## B4: Sử dụng AI để tối ưu
+#### Chuẩn bị Context:
+* Vai trò
+* Background
+* Mệnh lệnh

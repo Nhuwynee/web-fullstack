@@ -1,0 +1,12 @@
+    /* Hàm trong String
+    - equals/
+    - length()
+    - concat(): nối 2 chuỗi thành 1 chuỗi mới
+    - charAt(index)
+    - replace()/replaceAll()
+    - substring()
+    - toLowerCase()/ toUpperCase()
+    - trim()
+    - split(String regex)
+    - String.format()
+     */

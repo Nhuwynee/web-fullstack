@@ -29,9 +29,15 @@ public class NumberMain {
         System.out.printf("%s * %s = %s\n",
                 n1.toString(), n2.toString(), Number.mul(n1, n2).getRutGon());
 
+        Number result = Number.div(n1, n2);
         System.out.println("\n===== Thương 2 phân số =====");
-        System.out.printf("%s / %s = %s\n",
-                n1.toString(), n2.toString(), Number.div(n1, n2).getRutGon());
+        if (result == null) {
+            System.out.printf("%s / %s = Không thể chia (phân số thứ 2 = 0)\n",
+                    n1.toString(), n2.toString());
+        } else {
+            System.out.printf("%s / %s = %s\n",
+                    n1.toString(), n2.toString(), result.getRutGon());
+        }
 
         System.out.println("\n===== Dấu của các phân số =====");
         System.out.printf("Phân số 1: %s ", n1);

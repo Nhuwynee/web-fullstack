@@ -108,6 +108,10 @@ public class Number {
     }
 
     public static Number div(Number n1, Number n2) {
+        if (n2.tu == 0) {
+            return null;
+        }
+
         Number newNum = new Number();
 
         newNum.tu = n1.tu * n2.mau;

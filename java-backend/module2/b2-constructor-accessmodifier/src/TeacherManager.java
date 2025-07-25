@@ -25,8 +25,8 @@ public class TeacherManager {
             switch (choose) {
                 case 1:
                     arrTeacher = addTeacher(arrTeacher);
+                    System.out.println("Thêm giảng viên thành công!");
                     break;
-
                 case 2:
                     printTeacher(arrTeacher);
                     break;
@@ -142,9 +142,9 @@ public class TeacherManager {
         }
         Teacher max = ts.get(0);
         for (Teacher t : ts) {
-           if (t.getTeachHours() > max.getTeachHours()) {
-               max = t;
-           }
+            if (t.getTeachHours() > max.getTeachHours()) {
+                max = t;
+            }
         }
         result.add(max);
         return result;

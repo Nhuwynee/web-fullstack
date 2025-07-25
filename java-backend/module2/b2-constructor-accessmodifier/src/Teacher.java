@@ -2,11 +2,12 @@ public class Teacher {
 
     private static int autoId = 1;
 
-    int id;
-    String name;
-    int age;
-    String subject;
-    double teachHours;
+    private int id;
+    private String name;
+    private int age;
+    private String subject;
+    private double teachHours;
+
     static int countTeacher;
 
     public Teacher() {
@@ -58,5 +59,5 @@ public class Teacher {
     public String toString() {
         return String.format("ID: %d | Tên: %s | Tuổi: %d | Môn: %s | Giờ dạy: %.2f",
                 id, name, age, subject, teachHours);
-    } 
+    }
 }

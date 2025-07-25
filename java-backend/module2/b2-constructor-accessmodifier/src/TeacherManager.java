@@ -24,7 +24,7 @@ public class TeacherManager {
 
             switch (choose) {
                 case 1:
-                    arrTeacher = addTeacher(arrTeacher);
+                    addTeacher(arrTeacher);
                     System.out.println("Thêm giảng viên thành công!");
                     break;
                 case 2:

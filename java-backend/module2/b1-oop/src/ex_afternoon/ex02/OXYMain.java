@@ -1,7 +1,5 @@
 package ex_afternoon.ex02;
 
-import ex_afternoon.ex01.Number;
-
 public class OXYMain {
 
     public static void main(String[] args) {

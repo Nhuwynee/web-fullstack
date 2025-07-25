@@ -1,19 +1,20 @@
 package ex_afternoon.ex02;
 
+import java.util.IllegalFormatConversionException;
 import java.util.Scanner;
 
 public class OXY {
-    int x;
-    int y;
+    double x;
+    double y;
 
     public void input() {
         Scanner sc = new Scanner(System.in);
         while (true) {
             try {
                 System.out.print("Nhập x: ");
-                x = Integer.parseInt(sc.nextLine());
+                x = Double.parseDouble(sc.nextLine());
                 break;
-            } catch (NumberFormatException e) {
+            } catch (IllegalFormatConversionException e) {
                 System.out.println("Không hợp lệ! Vui lòng nhập một số nguyên.");
             }
         }
@@ -21,16 +22,16 @@ public class OXY {
         while (true) {
             try {
                 System.out.print("Nhập y: ");
-                y = Integer.parseInt(sc.nextLine());
+                y = Double.parseDouble(sc.nextLine());
                 break;
-            } catch (NumberFormatException e) {
+            } catch (IllegalFormatConversionException e) {
                 System.out.println("Không hợp lệ! Vui lòng nhập một số nguyên.");
             }
         }
     }
 
     public void output() {
-        System.out.printf("(x, y) = (%d, %d)", x, y);
+        System.out.printf("(x, y) = (%.2f, %.2f)", x, y);
     }
 
     public static double distance(OXY o1, OXY o2) {

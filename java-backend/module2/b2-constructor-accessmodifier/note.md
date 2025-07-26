@@ -17,6 +17,7 @@
 **Yêu cầu chức năng:**
 
 1. Thêm giảng viên mới (nhập từ bàn phím)
+
 2. Hiển thị danh sách tất cả giảng viên
 3. Tìm giảng viên theo tên (có thể nhập 1 phần tên)
 4. Hiển thị tổng số giảng viên (sử dụng biến `static`)

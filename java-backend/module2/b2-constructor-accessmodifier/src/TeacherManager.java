@@ -135,18 +135,23 @@ public class TeacherManager {
 
     private static ArrayList<Teacher> findTeacherMaxHours(ArrayList<Teacher> ts) {
         ArrayList<Teacher> result = new ArrayList<>();
-
         if (ts.isEmpty()) {
             System.out.println("Chưa có giảng viên.");
-            return null;
+            return result;
         }
-        Teacher max = ts.get(0);
+
+        double maxHours = ts.get(0).getTeachHours();
         for (Teacher t : ts) {
-            if (t.getTeachHours() > max.getTeachHours()) {
-                max = t;
+            if (t.getTeachHours() > maxHours) {
+                maxHours = t.getTeachHours();
             }
         }
-        result.add(max);
+
+        for (Teacher t : ts) {
+            if (t.getTeachHours() == maxHours) {
+                result.add(t);
+            }
+        }
         return result;
     }
 

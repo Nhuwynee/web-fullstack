@@ -1,3 +1,5 @@
+import ex_team.Student;
+
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -82,6 +84,7 @@ public class TeacherManager {
                 }
             }
         } while (exist);
+
         t.setName(name);
 
         int age;
@@ -144,11 +147,9 @@ public class TeacherManager {
         for (Teacher t : ts) {
             if (t.getTeachHours() > maxHours) {
                 maxHours = t.getTeachHours();
-            }
-        }
-
-        for (Teacher t : ts) {
-            if (t.getTeachHours() == maxHours) {
+                result.clear();
+                result.add(t);
+            } else if (t.getTeachHours() == maxHours) {
                 result.add(t);
             }
         }

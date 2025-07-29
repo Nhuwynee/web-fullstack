@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/b1-oop.iml" filepath="$PROJECT_DIR$/b1-oop.iml" />
+      <module fileurl="file://$PROJECT_DIR$/b3-inheritance.iml" filepath="$PROJECT_DIR$/b3-inheritance.iml" />
     </modules>
   </component>
 </project>

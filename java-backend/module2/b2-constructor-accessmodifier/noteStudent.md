@@ -5,7 +5,7 @@
 
 #### Xây dựng một hệ thống quản lý thông tin học viên
 
-**Mỗi học viên có các thông tin sau:**
+**Person**
 
 * ID: private int id;
 * Họ tên học viên: private String name;
@@ -80,5 +80,3 @@
 - Tương tự, xét thêm if trong vòng for
 
 ***7. Thoát chương trình***
-
-

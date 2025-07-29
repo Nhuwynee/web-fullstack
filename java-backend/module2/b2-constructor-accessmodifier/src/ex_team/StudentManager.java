@@ -7,148 +7,42 @@ public class StudentManager {
     static ArrayList<Student> students = new ArrayList<>();
     static Scanner sc = new Scanner(System.in);
 
-    public static void displayMenu() {
-        System.out.println(">> LỰA CHỌN CHỨC NĂNG <<");
-        System.out.println("++ ----------------------------------------- ++");
-        System.out.println("| 1. Thêm sinh viên mới                       |");
-        System.out.println("| 2. Hiện danh sách tất cả sinh viên          |");
-        System.out.println("| 3. Tìm sinh viên theo tên                   |");
-        System.out.println("| 4. Hiện thị tổng số sinh viên               |");
-        System.out.println("| 5. Sinh viên có điểm cao nhất               |");
-        System.out.println("| 6. Sinh viên có điểm dưới trung bình ( < 5) |");
-        System.out.println("| 7. Exit                                     |");
-        System.out.println("++ ----------------------------------------- ++");
+    public static void addStudent() {
+        Student newStudent = new Student();
+        newStudent.input();
+        students.add(newStudent);
+        System.out.println("Thêm học viên thành công!\n");
     }
 
-    public static void main(String[] args) {
-        while (true) {
-            displayMenu();
-            System.out.print("Lựa chọn của bạn: ");
-            int choice = Integer.parseInt(sc.nextLine());
+    public static void displayStudents(ArrayList<Student> students) {
+        System.out.println("============= Danh sách sinh viên =============");
+        System.out.printf("%-5s | %-20s | %-5s | %-8s\n",
+                "ID", "Tên", "Tuổi", "Điểm TB");
 
-            switch (choice) {
-                case 1:
-
-                    System.out.print("Nhập họ tên: ");
-                    String name = sc.nextLine();
-
-                    System.out.print("Nhập tuổi: ");
-                    int age = Integer.parseInt(sc.nextLine());
-
-                    System.out.print("Nhập điểm trung bình: ");
-                    double score = Double.parseDouble(sc.nextLine());
-
-                    students.add(new Student(name, age, score));
-                    System.out.println("=> Đã thêm sinh viên thành công!");
-                    break;
-
-                case 2:
-                    if (isEmptyList()) break;
-
-                    System.out.println(">> Danh sách tất cả sinh viên:");
-                    for (Student s : students) {
-                        System.out.println(s);
-                    }
-                    break;
-
-                case 3:
-                    if (isEmptyList()) break;
-
-                    System.out.print("1. Tìm chính xác theo tên\n2. Tìm theo từ khóa\nChọn kiểu tìm: ");
-                    int searchType = Integer.parseInt(sc.nextLine());
-                    if (searchType == 1) {
-                        findByName();
-                    } else {
-                        findByText();
-                    }
-                    break;
-
-                case 4:
-                    System.out.println(">> Tổng số sinh viên hiện có: " + students.size());
-                    break;
-
-                case 5:
-                    ArrayList<Student> top = findStudentMaxScore();
-                    if (!top.isEmpty()) {
-                        System.out.println(">> Sinh viên có điểm cao nhất:");
-                        for (Student s : top) {
-                            System.out.println(s);
-                        }
-                    }
-                    break;
-
-                case 6:
-                    ArrayList<Student> weak = findStudentAvgScore();
-                    if (!weak.isEmpty()) {
-                        System.out.println(">> Danh sách sinh viên có điểm < 5:");
-                        for (Student s : weak) {
-                            System.out.println(s);
-                        }
-                    }
-                    break;
-
-                case 7:
-                    System.out.println("Thoát...");
-                    return;
-
-                default:
-                    System.out.println("Chọn sai, vui lòng chọn lại!");
-                    break;
-            }
+        for (Student student : students) {
+            System.out.println(student);
         }
+        System.out.println();
     }
 
-
-    public static ArrayList<Student> findByName() {
+    public static ArrayList<Student> findByName(String keyword) {
         ArrayList<Student> list = new ArrayList<>();
-        System.out.print("Nhập tên cần tìm: ");
-        String x = sc.nextLine().trim();
-        boolean found = false;
-
-        for (Student t : students) {
-            if (t.getName().trim().equalsIgnoreCase(x)) {
-                System.out.println("=> Đã tìm thấy:");
-                System.out.println(t);
-                list.add(t);
-                found = true;
-            }
+        if (isEmptyList()) {
+            return list;
         }
 
-        if (!found) {
-            System.out.println("Không tìm thấy sinh viên nào tên là " + x);
+        for (Student student : students) {
+            if (student.getName().trim().toLowerCase().contains(keyword)) {
+                list.add(student);
+            }
         }
 
         return list;
     }
-
-    public static ArrayList<Student> findByText() {
-        ArrayList<Student> list = new ArrayList<>();
-        System.out.print("Nhập từ khóa cần tìm trong tên: ");
-        String keyword = sc.nextLine().trim().toLowerCase();
-        boolean found2 = false;
-
-        for (Student t : students) {
-            String[] words = t.getName().toLowerCase().split(" ");
-            for (String word : words) {
-                if (word.startsWith(keyword)) {
-                    System.out.println("=> Tìm thấy sinh viên:");
-                    System.out.println(t);
-                    found2 = true;
-                    break;
-                }
-            }
-        }
-
-        if (!found2) {
-            System.out.println("Không có sinh viên nào chứa từ '" + keyword + "' trong tên.");
-        }
-        return list;
-    }
-
 
     private static boolean isEmptyList() {
         if (students.isEmpty()) {
-            System.out.println("Chưa có học viên.");
+            System.out.println("Chưa có học viên.\n");
             return true;
         }
         return false;
@@ -164,11 +58,9 @@ public class StudentManager {
         for (Student s : students) {
             if (s.getAvgScore() > maxScore) {
                 maxScore = s.getAvgScore();
-            }
-        }
-
-        for (Student s : students) {
-            if (s.getAvgScore() == maxScore) {
+                result.clear();
+                result.add(s);
+            } else if (s.getAvgScore() == maxScore) {
                 result.add(s);
             }
         }
@@ -189,4 +81,72 @@ public class StudentManager {
         return result;
     }
 
+
+    public static void displayMenu() {
+        System.out.println(">> LỰA CHỌN CHỨC NĂNG <<");
+        System.out.println("++ ----------------------------------------- ++");
+        System.out.println("| 1. Thêm sinh viên mới                       |");
+        System.out.println("| 2. Hiện danh sách tất cả sinh viên          |");
+        System.out.println("| 3. Tìm sinh viên theo tên                   |");
+        System.out.println("| 4. Hiện thị tổng số sinh viên               |");
+        System.out.println("| 5. Sinh viên có điểm cao nhất               |");
+        System.out.println("| 6. Sinh viên có điểm dưới trung bình ( < 5) |");
+        System.out.println("| 7. Thoát chương trình                       |");
+        System.out.println("++ ----------------------------------------- ++");
+    }
+
+    public static void main(String[] args) {
+        while (true) {
+            displayMenu();
+            System.out.print("Lựa chọn của bạn: ");
+            int choice = Integer.parseInt(sc.nextLine());
+
+            switch (choice) {
+                case 1:
+                    addStudent();
+                    break;
+                case 2:
+                    if (isEmptyList()) {
+                        break;
+                    }
+                    displayStudents(students);
+                    break;
+                case 3:
+                    System.out.print("Nhập tên cần tìm: ");
+                    String keyword = sc.nextLine().trim().toLowerCase();
+                    ArrayList<Student> listByName = findByName(keyword);
+
+                    if (listByName.isEmpty()) {
+                        System.out.println("Không tìm thấy sinh viên nào tên là " + keyword + "\n");
+                        break;
+                    }
+                    displayStudents(listByName);
+                    break;
+                case 4:
+                    System.out.println("Tổng sinh viên trong danh sách là " + Student.getCountStudent());
+                    break;
+                case 5:
+                    ArrayList<Student> studentsMaxScore = findStudentMaxScore();
+                    if (studentsMaxScore.isEmpty()) {
+                        break;
+                    }
+                    displayStudents(studentsMaxScore);
+                    break;
+                case 6:
+                    ArrayList<Student> studentsAvgScore = findStudentAvgScore();
+                    if (studentsAvgScore.isEmpty()) {
+                        break;
+                    }
+                    displayStudents(studentsAvgScore);
+                    break;
+                default:
+                    System.out.print("Chắc chắn muốn thoát chương trình (C/K): ");
+                    String exit = sc.nextLine();
+                    if (exit.equalsIgnoreCase("c")) {
+                        return;
+                    }
+                    break;
+            }
+        }
+    }
 }

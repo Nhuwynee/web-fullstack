@@ -1,4 +1,5 @@
-package ex_afternoon;
+package BaiTapChieu2;
+
 
 import java.math.BigDecimal;
 import java.math.RoundingMode;
@@ -7,7 +8,7 @@ import java.util.Scanner;
 
 public class Main {
     static Scanner sc = new Scanner(System.in);
-    static ArrayList<Person> persons = new ArrayList<>();
+    static ArrayList<Person2> Person2s = new ArrayList<>();
 
 
     private static String getIdentityId(Class<?> clazz) {
@@ -22,7 +23,7 @@ public class Main {
             prefix = "T";
         }
 
-        for (Person p : persons) {
+        for (Person2 p : Person2s) {
             if (clazz.isInstance(p)) {
                 String idStr = p.getId().substring(prefix.length());
                 int id = Integer.parseInt(idStr);
@@ -59,22 +60,24 @@ public class Main {
                 choose = Integer.parseInt(sc.nextLine());
 
                 switch (choose) {
-                    case 1 -> addPerson();
+                    case 1 -> addPerson2();
 
-                    case 2 -> printPerson(persons);
+                    case 2 -> printPerson2(Person2s);
 
-                    case 3 -> findPeson(sc, persons);
+                    case 3 -> findPeson(sc, Person2s);
                     case 4 -> showStudentStatistics();
-                    case 5 -> showTopStudent(persons);
+                    case 5 -> showTopStudent(Person2s);
                     case 6 -> total();
-                    case 7 -> {return;}
+                    case 7 -> {
+                        return;
+                    }
                     default -> System.out.println("Lựa chọn không hợp lệ, xin chọn lại!");
                 }
             } while (choose < 1 || choose > 7);
         }
     }
 
-    private static void addPerson() {
+    private static void addPerson2() {
         System.out.println("Bạn muốn thêm thành viên nào?");
         System.out.println("1. Học viên Backend");
         System.out.println("2. Học viên Fullstack");
@@ -90,38 +93,40 @@ public class Main {
             }
         } while (choose < 1 || choose > 3);
     }
+
     //1 them moi
     private static void add(Class<?> clazz) {
         String id = getIdentityId(clazz);
         System.out.println("Thêm thành viên với id #" + id);
 
-        Person Person = null;
+        Person2 Person2 = null;
 
         if (clazz == StudentBE.class) {
-            Person = new StudentBE();
+            Person2 = new StudentBE();
         } else if (clazz == StudentFT.class) {
-            Person = new StudentFT();
+            Person2 = new StudentFT();
         } else if (clazz == Teacher.class) {
-            Person = new Teacher();
+            Person2 = new Teacher();
         }
 
-        if (Person != null) {
-            Person.setId(id);
-            Person.input(sc);
-            persons.add(Person);
+        if (Person2 != null) {
+            Person2.setId(id);
+            Person2.input(sc);
+            Person2s.add(Person2);
             System.out.println("Thêm thành công !!!");
         } else {
             System.out.println("Không xác định loại thành viên.");
         }
     }
+
     //2 in ra
-    private static void printPerson(ArrayList<Person> Persons) {
+    private static void printPerson2(ArrayList<Person2> Person2s) {
         boolean hasTeacher = false;
         boolean hasStudentFT = false;
         boolean hasStudentBE = false;
 
         // Kiểm tra trước
-        for (Person p : Persons) {
+        for (Person2 p : Person2s) {
             if (p instanceof Teacher) hasTeacher = true;
             else if (p instanceof StudentFT) hasStudentFT = true;
             else if (p instanceof StudentBE) hasStudentBE = true;
@@ -130,7 +135,7 @@ public class Main {
         if (hasTeacher) {
             System.out.println("============================================ Danh sách giảng viên ===========================================");
             new Teacher().printHeader();
-            for (Person p : Persons) {
+            for (Person2 p : Person2s) {
                 if (p instanceof Teacher) {
                     System.out.println(p);
                 }
@@ -141,7 +146,7 @@ public class Main {
         if (hasStudentFT) {
             System.out.println("\n===================================== Danh sách học viên khóa FullStack =====================================");
             new StudentFT().printHeaderSFT();
-            for (Person p : Persons) {
+            for (Person2 p : Person2s) {
                 if (p instanceof StudentFT) {
                     System.out.println(p);
                 }
@@ -152,7 +157,7 @@ public class Main {
         if (hasStudentBE) {
             System.out.println("\n===================================== Danh sách học viên khóa BackEnd =====================================");
             new StudentBE().printHeaderSBE();
-            for (Person p : Persons) {
+            for (Person2 p : Person2s) {
                 if (p instanceof StudentBE) {
                     System.out.println(p);
                 }
@@ -164,33 +169,35 @@ public class Main {
             System.out.println("❌ Không có dữ liệu để hiển thị.");
         }
     }
+
     //3
-    public static void findPeson(Scanner sc, ArrayList<Person> listMembers) {
+    public static void findPeson(Scanner sc, ArrayList<Person2> listMembers) {
         System.out.print("Nhập từ khóa cần tìm (họ tên hoặc email): ");
         String keyword = sc.nextLine().trim().toLowerCase();
 
         // Kiểm tra là email hay tên
         if (isValidEmail(keyword)) {
-            ArrayList<Person> ketQua = findByEmail(keyword, listMembers);
+            ArrayList<Person2> ketQua = findByEmail(keyword, listMembers);
             if (ketQua.isEmpty()) {
                 System.out.println("❌ Không tìm thấy thành viên nào với email \"" + keyword + "\"");
             } else {
                 System.out.println("✅ Kết quả tìm kiếm theo email:");
 
-                printPerson(ketQua);
+                printPerson2(ketQua);
             }
         } else if (isValidName(keyword)) {
-            ArrayList<Person> ketQua = findByName(keyword, listMembers);
+            ArrayList<Person2> ketQua = findByName(keyword, listMembers);
             if (ketQua.isEmpty()) {
                 System.out.println("❌ Không tìm thấy thành viên nào với tên \"" + keyword + "\"");
             } else {
                 System.out.println("✅ Kết quả tìm kiếm theo tên:");
-                printPerson(ketQua);
+                printPerson2(ketQua);
             }
         } else {
             System.out.println("❌ Từ khóa không hợp lệ. Vui lòng nhập tên hoặc email đúng định dạng.");
         }
     }
+
     // Kiểm tra keyword có phải là tên (chỉ chứa chữ và khoảng trắng)
     public static boolean isValidName(String keyword) {
         return keyword.matches("[a-zA-Z\\s]+");
@@ -200,21 +207,24 @@ public class Main {
     public static boolean isValidEmail(String keyword) {
         return keyword.matches("^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-z]{2,}$");
     }
-    public static ArrayList<Person> findByName(String keyword, ArrayList<Person> list) {
-        ArrayList<Person> dsTimTheoTen = new ArrayList<>();
-        for (Person p : persons)
-            if(  p.getName().trim().toLowerCase().contains(keyword)){
+
+    public static ArrayList<Person2> findByName(String keyword, ArrayList<Person2> list) {
+        ArrayList<Person2> dsTimTheoTen = new ArrayList<>();
+        for (Person2 p : Person2s)
+            if (p.getName().trim().toLowerCase().contains(keyword)) {
                 dsTimTheoTen.add(p);
-            };
+            }
+        ;
         return dsTimTheoTen;
     }
 
-    public static ArrayList<Person> findByEmail(String keyword, ArrayList<Person> list) {
-        ArrayList<Person> dsTimTheoEmail = new ArrayList<>();
-        for (Person p : persons)
-            if(  p.getEmail().trim().toLowerCase().contains(keyword)){
+    public static ArrayList<Person2> findByEmail(String keyword, ArrayList<Person2> list) {
+        ArrayList<Person2> dsTimTheoEmail = new ArrayList<>();
+        for (Person2 p : Person2s)
+            if (p.getEmail().trim().toLowerCase().contains(keyword)) {
                 dsTimTheoEmail.add(p);
-            };
+            }
+        ;
         return dsTimTheoEmail;
     }
 
@@ -226,7 +236,7 @@ public class Main {
         int countFTOver3Projects = 0;
         int countTeacherOver30h = 0;
 
-        for (Person p : persons) {
+        for (Person2 p : Person2s) {
             if (p instanceof StudentBE) {
                 countStudentBE++;
             } else if (p instanceof StudentFT) {
@@ -248,12 +258,13 @@ public class Main {
         System.out.println("Số học viên Fullstack có từ 3 dự án trở lên: " + countFTOver3Projects);
         System.out.println("Số giảng viên có hơn 30 giờ dạy: " + countTeacherOver30h);
     }
+
     //5
-    public static void showTopStudent(ArrayList<Person> list) {
+    public static void showTopStudent(ArrayList<Person2> list) {
         StudentBE gioiNhatBackend = null;
         StudentFT gioiNhatFullstack = null;
 
-        for (Person p : list) {
+        for (Person2 p : list) {
             if (p instanceof StudentBE) {
                 StudentBE hv = (StudentBE) p;
                 if (gioiNhatBackend == null || hv.getDiemTrungBinh() > gioiNhatBackend.getDiemTrungBinh()) {
@@ -262,7 +273,7 @@ public class Main {
             } else if (p instanceof StudentFT) {
                 StudentFT hv = (StudentFT) p;
 
-                if (gioiNhatFullstack == null || hv.getDiemTrungBinh()/hv.getSoDuAnThamGia() > gioiNhatFullstack.getDiemTrungBinh()/gioiNhatFullstack.getSoDuAnThamGia()) {
+                if (gioiNhatFullstack == null || hv.getDiemTrungBinh() / hv.getSoDuAnThamGia() > gioiNhatFullstack.getDiemTrungBinh() / gioiNhatFullstack.getSoDuAnThamGia()) {
                     gioiNhatFullstack = hv;
                 }
             }
@@ -288,7 +299,7 @@ public class Main {
     //6
     private static void total() {
         BigDecimal sum = BigDecimal.ZERO;
-        for (Person p : persons) {
+        for (Person2 p : Person2s) {
             if (p instanceof Teacher) {
                 sum = sum.add(((Teacher) p).luong());
             }
@@ -297,14 +308,12 @@ public class Main {
     }
 
 
-
-
     //id tang dan
     //id teacher
 //    private static String getIdTeacher() {
 //        int max = 0;
 //
-//        for (Person p : Persons) {
+//        for (Person2 p : Person2s) {
 //            if (p instanceof Teacher) {
 //                String id = p.getId();//vd T006
 //                String number = id.substring(1);//006
@@ -321,7 +330,7 @@ public class Main {
 //    private static String getIdStudentBE() {
 //        int max = 0;
 //
-//        for (Person p : Persons) {
+//        for (Person2 p : Person2s) {
 //            if (p instanceof StudentBE) {
 //                String id = p.getId();
 //                String number = id.substring(3);
@@ -336,7 +345,7 @@ public class Main {
 //    private static String getIdStudentFT() {
 //        int max = 0;
 //
-//        for (Person p : Persons) {
+//        for (Person2 p : Person2s) {
 //            if (p instanceof StudentFT) {
 //                String id = p.getId();
 //                String number = id.substring(3);

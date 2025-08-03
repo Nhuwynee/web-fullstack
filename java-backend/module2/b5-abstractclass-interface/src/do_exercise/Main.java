@@ -130,9 +130,6 @@ public class Main {
                     default:
                         System.out.println("Lựa chọn không hợp lệ, vui lòng chọn lại!");
                 }
-                if (luachon == 4) {
-                    break;
-                }
             } catch (NumberFormatException e) {
                 System.out.println("Vui lòng nhập số hợp lệ!");
             }
@@ -194,15 +191,14 @@ public class Main {
 
     // Task 3 - 2 : Cập nhật điện thoại
     private static <T extends Phone> void addPhone(T phone) {
-        Class clazz = phone.getClass();
-        phone.setId(getIdentity(clazz));
+        phone.setId(getIdentity(phone.getClass()));
         phone.input(sc);
         phones.add(phone);
         System.out.println("Thêm điện thoại thành công!\n");
 
     }
 
-    private static String getIdentity(Class clazz) {
+    private static String getIdentity(Class<?> clazz) {
         int maxId = 0;
         for (Phone p : phones) {
             if(clazz.isInstance(p)) {

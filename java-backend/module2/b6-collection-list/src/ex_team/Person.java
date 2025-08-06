@@ -1,6 +1,5 @@
-package chieu;
+package ex_team;
 
-import java.util.Objects;
 import java.util.Scanner;
 
 public abstract class Person {
@@ -97,10 +96,5 @@ public abstract class Person {
                 + "Họ tên: " + fullName + "\n"
                 + "Tuổi: " + age + "\n"
                 + "Email: " + email + "\n";
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(getId());
     }
 }

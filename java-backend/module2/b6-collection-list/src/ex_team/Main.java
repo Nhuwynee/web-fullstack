@@ -1,11 +1,18 @@
-package chieu;
+package ex_team;
 
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+import java.time.format.DateTimeParseException;
 import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.LinkedList;
 import java.util.Scanner;
 
 public class Main {
     static Scanner sc = new Scanner(System.in);
     static ArrayList<Person> persons = new ArrayList<>();
+    static ArrayList<Course> courses = new ArrayList<>();
+    static LinkedList<Schedule> schedules = new LinkedList<>();
 
     private static void initializeSampleData() {
         // Create Lecturers first (for Teaching Assistants to reference)
@@ -57,8 +64,6 @@ public class Main {
     }
 
     private static void mainMenu() {
-        initializeSampleData();
-
         System.out.println("===== Màn Hình =====");
         System.out.println("Hệ Thống Quản Lý Academy");
         System.out.println("1. Thêm thành viên");
@@ -70,7 +75,13 @@ public class Main {
         System.out.println("7. Tính học phí của học viên");
         System.out.println("8. Tính  lương của  giảng viên");
         System.out.println("9. Tìm kếm giảng viên có bao nhiêu trợ giảng");
-        System.out.println("10. Thoát...");
+        System.out.println("10. Tạo lớp học");
+        System.out.println("11. Thêm học viên vào lớp học");
+        System.out.println("12. Học viên có điểm trung bình cao nhất trong lớp");
+        System.out.println("13. Thêm buổi giảng mới");
+        System.out.println("14. Xóa buổi giảng theo ngày");
+        System.out.println("15. Hiển thị toàn bộ lịch");
+        System.out.println("16. Thoát chương trình");
     }
 
     // 1 Quân
@@ -84,12 +95,11 @@ public class Main {
         System.out.println("5. Thoát...");
     }
 
-    private static void  processAdd() {
+    private static void processAdd() {
         int choice;
 
         while (true) {
             menuAdd();
-
             System.out.print("Bạn muốn thêm thành viên nào: ");
             choice = Integer.parseInt(sc.nextLine());
 
@@ -175,7 +185,6 @@ public class Main {
         }
     }
 
-
     // 2 Quân
     private static void menuShowPerson() {
         System.out.println("===== Màn Hình =====");
@@ -241,7 +250,7 @@ public class Main {
         String keyword = sc.nextLine().trim().toLowerCase();
 
         ArrayList<Person> ketQua = new ArrayList<>();
-        String kieuTimKiem;
+        String kieuTimKiem = "";
 
         if (isValidEmail(keyword)) {
             for (Person p : persons) {
@@ -355,7 +364,6 @@ public class Main {
             for (Person p : persons) {
                 if (p instanceof TeachingAssistant ta) {
                     ta.removeLecture((Lecturer) personToDelete);
-                    // thêm điều kiện người dùng bị xóa gianrg viên thì có muốn chọn ngkhac thay thế ko
                 }
             }
         }
@@ -364,7 +372,7 @@ public class Main {
         System.out.println("Đã xóa thành viên thành công.");
     }
 
-    // 6 Minh
+    // 6 Minh Sắp xếp danh sách theo điểm trung bình
     private static void menuSortByAVG() {
         int choose;
         while (true) {
@@ -434,7 +442,6 @@ public class Main {
         }
     }
 
-    // Sắp xếp danh sách theo điểm trung bình
     private static <T extends Student> void sortByFor(ArrayList<T> list, boolean ascending) {
         for (int i = 0; i < list.size() - 1; i++) {
             for (int j = i + 1; j < list.size(); j++) {
@@ -451,7 +458,7 @@ public class Main {
         }
     }
 
-    // 7 Minh
+    // 7. Minh
     private static void tuitionStudent() {
         System.out.println("Bạn muốn tính học phí cho học viên nào?");
         System.out.println("1. Học viên Backend");
@@ -480,7 +487,7 @@ public class Main {
         return sum;
     }
 
-    // 8 Thủy
+    // 8. Thủy
     private static void calculateSalary() {
         System.out.println("Hãy lựa chọn: ");
         System.out.println("1. Giảng viên");
@@ -509,7 +516,7 @@ public class Main {
         }
     }
 
-    // 9 Thủy
+    // 9. Thủy
     private static void findSupportsOfTeacherByName() {
         sc.nextLine();
         System.out.print("Nhập id giảng viên cần tra cứu: ");
@@ -555,12 +562,213 @@ public class Main {
         }
     }
 
-    public static void main(String[] args) {
+    // 10. Thêm khóa học - Như
+    private static void addNewCourse() {
+        Course newCourse = new Course();
+        do {
+            newCourse.setId(getRandomIdentify());
+        } while (!checkIdentify(newCourse.getId()));
+        newCourse.input();
+        courses.add(newCourse);
+        System.out.println("Thêm mới lớp học thành công!");
+    }
+
+    // 11. Thêm học viên vào lớp học - Như
+    public static void addStudentToClass() {
+        ArrayList<Student> students = getList(Student.class);
+        if (courses.isEmpty()) {
+            System.out.println("Hiện chưa có lớp học nào.");
+            return;
+        }
+
+        System.out.println("=== DANH SÁCH LỚP HỌC ===");
+        for (int i = 0; i < courses.size(); i++) {
+            System.out.printf("%d. %s - %s\n", i + 1, courses.get(i).getId(), courses.get(i).getName());
+        }
+
         int choice;
+        while(true) {
+            try {
+                System.out.print("Chọn lớp học để thêm học viên: ");
+                choice = Integer.parseInt(sc.nextLine());
+
+                if (choice < 1 || choice > courses.size()) {
+                    System.out.println("Lựa chọn không hợp lệ!");
+                    continue;
+                }
+                break;
+            } catch (NumberFormatException e) {
+                System.out.println("Vui lòng nhập số hợp lệ!");
+            }
+        }
+
+        Course selectedCourse = courses.get(choice - 1);
+
+        // học viên chưa có lớp
+        ArrayList<Student> studentInAllClasses = new ArrayList<>();
+        for (Student s : selectedCourse.getStudents()) {
+            studentInAllClasses.add(s);
+        }
+        // studentInAllClasses.addAll(selectedCourse.getStudents());
+
+        ArrayList<Student> studentsNotInClass = new ArrayList<>();
+        for (Student s : students) {
+            if (!studentInAllClasses.contains(s)) {
+                studentsNotInClass.add(s);
+            }
+        }
+
+        if (studentsNotInClass.isEmpty()) {
+            System.out.println("Tất cả học viên đã có lớp.");
+            return;
+        }
 
         while (true) {
-            mainMenu();
+            System.out.println("=== DANH SÁCH HỌC VIÊN CHƯA VÀO LỚP ===");
+            for (int i = 0; i < studentsNotInClass.size(); i++) {
+                System.out.printf("%d. %s - %s\n", i + 1, studentsNotInClass.get(i).getId(), studentsNotInClass.get(i).getFullName());
+            }
 
+            System.out.print("Chọn học viên để thêm: ");
+            int studentChoice = Integer.parseInt(sc.nextLine());
+            if (studentChoice < 1 || studentChoice > studentsNotInClass.size()) {
+                System.out.println("Lựa chọn không hợp lệ!");
+                continue;
+            }
+
+            Student selectedStudent = studentsNotInClass.get(studentChoice - 1);
+            selectedCourse.setStudents(selectedStudent);
+            studentsNotInClass.remove(selectedStudent);
+            System.out.printf("Đã thêm học viên %s vào lớp %s.\n", selectedStudent.getFullName(), selectedCourse.getName());
+            System.out.println("Muốn tiếp tục chọn hay không ? (Y/N)");
+            String choose = sc.nextLine();
+            if (choose.equalsIgnoreCase("Y")) {
+                continue;
+            }
+            System.out.println("Hoàn thành thêm học viên.");
+            break;
+        }
+    }
+
+    // 12. Tìm học viên điểm cao nhất - Quân
+    private static void findStudentMaxScore() {
+        if (courses.isEmpty()) {
+            System.out.println("Hiện tại chưa có lớp học!");
+            return;
+        }
+
+        System.out.println("===== DANH SÁCH LỚP HỌC =====");
+        for (int i = 0; i < courses.size(); i++) {
+            System.out.println((i + 1) + ". " + courses.get(i).getId() + " - " + courses.get(i).getName());
+        }
+
+        ArrayList<Student> students;
+        while (true) {
+            try {
+                System.out.print("Chọn lớp: ");
+                int choiceCourse = Integer.parseInt(sc.nextLine());
+
+                if (choiceCourse < 0 || choiceCourse > courses.size()) {
+                    System.out.println("Lựa chọn không hợp lệ!");
+                    continue;
+                }
+
+                students = courses.get(choiceCourse - 1).getStudents();
+                break;
+            } catch (NumberFormatException e) {
+                System.out.println("Vui lòng nhập một số nguyên!");
+            }
+        }
+
+        if (students.isEmpty()) {
+            System.out.println("Hiện tại lớp chưa có học viên nào!");
+            return;
+        }
+
+        ArrayList<Student> listMaxScore = new ArrayList<>();
+        double max = students.get(0).getAvgScore();
+        for (Student student : students) {
+            if (student.getAvgScore() > max) {
+                max = student.getAvgScore();
+                listMaxScore.clear();
+                listMaxScore.add(student);
+            } else if (student.getAvgScore() == max) {
+                listMaxScore.add(student);
+            }
+        }
+
+        System.out.println("Danh sách sinh viên có điểm cao nhất trong lớp: ");
+        displayList(listMaxScore);
+    }
+
+    // 13. Thêm buổi giảng dạy - Thủy
+    private static void addSchedule() {
+        Schedule newSchedule = new Schedule();
+        System.out.println("=== Thêm buổi giảng mới ===");
+        newSchedule.input();
+        schedules.add(newSchedule);
+    }
+
+    //14. Xóa lịch dạy - Minh
+    private static void deleteSchedule() {
+        LocalDate dateToDelete = null;
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+        String keyword;
+
+        while (true) {
+            System.out.println("Nhập ngày-tháng-năm cần xóa (dd/MM/yyyy):");
+            keyword = sc.nextLine().trim();
+            try {
+                dateToDelete = LocalDate.parse(keyword, formatter);
+                break;
+            } catch (DateTimeParseException e) {
+                System.out.println("Ngày nhập không hợp lệ! Vui lòng nhập lại.\n");
+            }
+        }
+
+        Iterator<Schedule> i = schedules.iterator();
+        boolean found = false;
+
+        while (i.hasNext()) {
+            Schedule s = i.next();
+            if (s.getDay() != null && s.getDay().equals(dateToDelete)) {
+                i.remove();
+                found = true;
+            }
+        }
+
+        if (found) {
+            System.out.println("Đã xóa lịch có ngày " + keyword);
+        } else {
+            System.out.println("Không tìm thấy lịch có ngày " + keyword);
+        }
+    }
+
+    //15. Hiển thị lịch dạy - Minh
+    private static void displaySchedule() {
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+        if (schedules.isEmpty()) {
+            System.out.println("Danh sách buổi giảng trống.");
+            return;
+        }
+        int count = 0;
+        for (Schedule s : schedules) {
+            System.out.println("Lịch học thứ: " + (++count));
+
+            String dayFormatted = (s.getDay() != null) ? s.getDay().format(formatter) : "Chưa có ngày";
+            String content = (s.getContent() != null && !s.getContent().isEmpty()) ? s.getContent() : "Chưa có nội dung";
+
+            System.out.println("Ngày: " + dayFormatted);
+            System.out.println("Nội dung: " + content);
+            System.out.println("---------------------------\n");
+        }
+    }
+
+    public static void main(String[] args) {
+        initializeSampleData();
+        int choice;
+        while (true) {
+            mainMenu();
             System.out.print("Lựa chọn của bạn: ");
             choice = Integer.parseInt(sc.nextLine());
 
@@ -574,7 +782,14 @@ public class Main {
                 case 7 -> tuitionStudent();
                 case 8 -> calculateSalary();
                 case 9 -> findSupportsOfTeacherByName();
-                case 10 -> {
+                case 10 -> addNewCourse();
+                case 11 -> addStudentToClass();
+                case 12 -> findStudentMaxScore();
+                case 13 -> addSchedule();
+                case 14 -> deleteSchedule();
+                case 15 -> displaySchedule();
+                case 16 -> {
+                    System.err.println("Kết thúc chương trình!");
                     return;
                 }
                 default -> System.out.println("Lựa chọn không hợp lệ xin chọn lại!\n");

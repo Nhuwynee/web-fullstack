@@ -514,7 +514,7 @@ public class Main {
         for (Phone p : phones) {
             if (p instanceof OldPhone oldPhone) {
                 total = total.add(oldPhone.getTotalPrice());
-            }else if( p instanceof NewPhone newPhone) {
+            } else if( p instanceof NewPhone newPhone) {
                 total = total.add(newPhone.getTotalPrice());
             }
         }

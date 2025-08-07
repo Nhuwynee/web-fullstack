@@ -22,7 +22,6 @@ public class StackStudy {
 //        System.out.println(strings.peek()); // -> lỗi runtime EmptyStackException
         // -> cần check isEmpty() khi thao tác trên Stack
 
-
         /// Bài tập kinh điển: Quy đổi số thập phân sang hệ nhị phân
         Stack<Integer> integers = new Stack<>();
         Scanner sc = new Scanner(System.in);

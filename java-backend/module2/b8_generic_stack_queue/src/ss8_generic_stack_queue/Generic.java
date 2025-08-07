@@ -1,6 +1,7 @@
 package ss8_generic_stack_queue;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
 
@@ -58,37 +59,37 @@ public class Generic {
 
 
 /// Tự tạo một lớp Generic
-class Animal<T> {
-    private final List<T> values = new ArrayList<>();
+class Animal<E> implements Iterable<E> {
+    private final List<E> values = new ArrayList<>();
 
-    public void add(T value) {
+    public void add(E value) {
         values.add(value);
     }
 
-    public List<T> getValues() {
+    public List<E> getValues() {
         return values;
     }
 
 
     /// Vì đã implements interface Iterable<T> cho Animal<T>
     /// -> cần triển khai phương thức trừu tượng iterator() của interface Iterator
-//    @Override
-//    public @NotNull Iterator<T> iterator() {
-//        return values.iterator();
-//    }
+    @Override
+    public Iterator<E> iterator() {
+        return values.iterator();
+    }
 }
 
 
 class PrintUtil {
-    public static <T> void printArray(Animal<T> animal) {
-        for (T item : animal.getValues()) {
-            System.out.println(item);
-        }
-
-        /// Có thể lặp cho đối tượng animal không???
-//        for (T item : animal) {// animal đang là kiểu Animal -> không phải 1 đối tượng có thể lặp (Iterable)
-//            // -> Cần implements interface Iterable<T> cho Animal<T>
+    public static <E> void printArray(Animal<E> animal) {
+//        for (E item : animal.getValues()) {
 //            System.out.println(item);
 //        }
+
+        /// Có thể lặp cho đối tượng animal không???
+        for (E item : animal) {// animal đang là kiểu Animal -> không phải 1 đối tượng có thể lặp (Iterable)
+            // -> Cần implements interface Iterable<T> cho Animal<T>
+            System.out.println(item);
+        }
     }
 }

@@ -53,12 +53,6 @@ public class Ex02 {
         return newMatrix;
     }
 
-    private static int[][] masterRomateMatrix90(int[][] matrix) {
-
-
-        return matrix;
-    }
-
     private static void inMang2Chieu(int[][] arr) {
         for (int i = 0; i < arr.length; i++) {
             for (int j = 0; j < arr[i].length; j++) {

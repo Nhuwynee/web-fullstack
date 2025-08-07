@@ -726,17 +726,16 @@ public class Main {
             }
         }
 
-        Iterator<Schedule> i = schedules.iterator();
-        boolean found = false;
+//        LocalDate finalDateToDelete = dateToDelete;
+//        boolean found = schedules.removeIf(s -> s.getDay() != null && s.getDay().equals(finalDateToDelete));
 
-        while (i.hasNext()) {
-            Schedule s = i.next();
+        boolean found = false;
+        for (Schedule s : schedules) {
             if (s.getDay() != null && s.getDay().equals(dateToDelete)) {
-                i.remove();
+                schedules.remove(s);
                 found = true;
             }
         }
-
         if (found) {
             System.out.println("Đã xóa lịch có ngày " + keyword);
         } else {

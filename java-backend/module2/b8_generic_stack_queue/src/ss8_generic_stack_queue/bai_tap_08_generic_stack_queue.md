@@ -18,6 +18,11 @@
     * Dùng thêm một Stack<T> redoStack trong TaskManager<T>.
     * Kiểm tra rỗng trước khi redo.
 
+* **Hướng làm:**
+  Dưới đây là **hướng làm chức năng Redo**:
+
+---
+
 #### 4. Tìm và xử lý công việc ưu tiên cao nhất trong Queue
 
 * **Gợi ý:**

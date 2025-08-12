@@ -44,14 +44,12 @@ public class NewPhone extends Phone {
             try {
                 System.out.print("Nhập số lượng: ");
                 int input = Integer.parseInt(sc.nextLine().trim());
-                if (input < 0) {
-                    System.out.println("Số lượng không được âm!");
-                } else {
-                    setQuantity(input);
-                    break;
-                }
+                setQuantity(input);
+                break;
             } catch (NumberFormatException e) {
                 System.out.println("Vui lòng nhập số nguyên hợp lệ!");
+            } catch (IllegalArgumentException e) {
+                System.out.println(e.getMessage());
             }
         }
     }

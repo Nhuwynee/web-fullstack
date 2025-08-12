@@ -42,7 +42,7 @@ public class OldPhone extends Phone implements Promotion {
 
             if (!input.endsWith("%")) {
                 System.out.println("Vui lòng nhập kèm ký hiệu % (ví dụ: 80%)");
-                continue; // lặp lại không chạy tiếp
+                continue;
             }
 
             String numberPart = input.substring(0, input.length() - 1);
@@ -69,15 +69,22 @@ public class OldPhone extends Phone implements Promotion {
 
     @Override
     public BigDecimal getTotalPrice() {
-        String value = batteryStatus.substring(0, batteryStatus.length() - 1);
-        BigDecimal percent = new BigDecimal(value).divide(new BigDecimal("100"));
-        return getPrice().multiply(percent);
+        try {
+            String value = batteryStatus.substring(0, batteryStatus.length() - 1);
+            BigDecimal percent = new BigDecimal(value).divide(new BigDecimal("100"));
+            return getPrice().multiply(percent);
+        } catch (NullPointerException | NumberFormatException | StringIndexOutOfBoundsException e) {
+            throw new IllegalStateException("Trạng thái pin không hợp lệ: " + batteryStatus, e);
+        }
     }
 
 
 
     @Override
     public BigDecimal promote(Float proVal) {
+        if (proVal < 0 || proVal > 100) {
+            throw new IllegalArgumentException("Phần trăm giảm giá phải từ 0 đến 100.");
+        }
         BigDecimal discountPercent = BigDecimal.valueOf(proVal).divide(BigDecimal.valueOf(100));
         BigDecimal discountMultiplier = BigDecimal.ONE.subtract(discountPercent);
         return this.getPrice().multiply(discountMultiplier).setScale(0, RoundingMode.HALF_UP);

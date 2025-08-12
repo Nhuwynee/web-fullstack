@@ -106,6 +106,8 @@ public abstract class Phone implements Comparable<Phone> {
                 break;
             } catch (NumberFormatException e) {
                 System.out.println("Lỗi nhập giá không hợp lệ");
+            } catch (IllegalArgumentException e) {
+                System.out.println(e.getMessage());
             }
         }
     }
@@ -116,14 +118,12 @@ public abstract class Phone implements Comparable<Phone> {
             try {
                 System.out.print("Nhập thời gian bảo hành (dd/MM/yyyy): ");
                 LocalDate time = LocalDate.parse(sc.nextLine().trim(), formatter);
-                if (time.isAfter(LocalDate.now())) {
-                    setWarrantyPeriod(time);
-                    break;
-                } else {
-                    System.out.println("Ngày bảo hành không thể trước ngày hiện tại (" + LocalDate.now() + ").");
-                }
+                setWarrantyPeriod(time);
+                break;
             } catch (DateTimeException e) {
                 System.out.println("Lỗi nhập ngày không hợp lệ");
+            } catch (IllegalArgumentException e) {
+                System.out.println(e.getMessage());
             }
         }
     }
@@ -219,6 +219,5 @@ public abstract class Phone implements Comparable<Phone> {
 //        System.out.print("Nhập hãng điện thoại: ");
 //        this.manufacturer = sc.nextLine();
 //    }
+
 }
-
-

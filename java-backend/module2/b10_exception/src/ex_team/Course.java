@@ -1,11 +1,16 @@
 package ex_team;
 
-import java.util.*;
+import ex_team.custom_exception.NullOrEmptyException;
+
+import java.util.LinkedHashSet;
+import java.util.Scanner;
+import java.util.Set;
 
 public class Course {
     private String id;
     private String name;
     private final Set<Student> students = new LinkedHashSet<>();
+    private Set<Lecturer> lecturers = new LinkedHashSet<>();
 
     public Course() {
     }
@@ -13,6 +18,14 @@ public class Course {
     public Course(String id, String name) {
         this.id = id;
         this.name = name;
+    }
+
+    public Set<Lecturer> getLecturers() {
+        return lecturers;
+    }
+
+    public void setLecturers(Set<Lecturer> lecturers) {
+        this.lecturers = lecturers;
     }
 
     public String getId() {
@@ -62,13 +75,29 @@ public class Course {
         StringBuilder studentOutput = new StringBuilder();
 
         for (Student student : students) {
-            studentOutput.append("\t+").append(student.getId()).append(": ").append(student.getFullName()).append("\n");
+            try {
+                studentOutput.append("\t+").append(student.getId()).append(": ").append(student.getFullName()).append("\n");
+            } catch (NullOrEmptyException e) {
+                System.out.println(e.getMessage());
+            }
+        }
+
+        StringBuilder lecturersOutput = new StringBuilder();
+
+        for (Lecturer lecturer : lecturers) {
+            try {
+                studentOutput.append("\t+").append(lecturer.getId()).append(": ").append(lecturer.getFullName()).append("\n");
+            } catch (NullOrEmptyException e) {
+                System.out.println(e.getMessage());
+            }
         }
 
         return "Mã lớp học: " + this.id + "\n"
                 + "Tên: " + this.name + "\n"
                 + "Danh sách lớp học: \n"
-                + studentOutput;
+                + studentOutput
+                + "Danh sách giảng viên: \n"
+                + lecturersOutput;
     }
 
 }

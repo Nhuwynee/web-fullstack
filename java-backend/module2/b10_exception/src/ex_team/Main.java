@@ -1,5 +1,8 @@
 package ex_team;
 
+import ex_team.custom_exception.*;
+
+import java.lang.NumberFormatException;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.time.format.DateTimeParseException;
@@ -82,7 +85,8 @@ public class Main {
         System.out.println("17. Tìm học viên theo ID (set/map)");
         System.out.println("18. Tra cứu lớp học theo id (set/map)");
         System.out.println("19. Lịch dạy của từng giảng viên.");
-        System.out.println("20. Thoát chương trình");
+        System.out.println("20. Thêm giảng viên vào lớp.");
+        System.out.println("21. Thoát chương trình");
     }
 
     // 1 Quân
@@ -148,7 +152,11 @@ public class Main {
         do {
             person.setId(getRandomIdentify());
         } while (!checkIdentify(person.getId()));
-        person.input();
+        try {
+            person.input();
+        } catch (InvalidEmailException | NumberFormatException | InvalidAgeException e) {
+            System.out.println(e.getMessage());
+        }
         persons.add(person);
         System.out.println("Thêm thành viên mới thành công!\n");
     }
@@ -165,7 +173,11 @@ public class Main {
             System.out.println("Giảng viện hổ trợ: ");
             for (int i = 0; i < lecturers.size(); i++) {
                 Lecturer lecturer = lecturers.get(i);
-                System.out.println((i + 1) + ". " + lecturer.getId() + ": " + lecturer.getFullName());
+                try {
+                    System.out.println((i + 1) + ". " + lecturer.getId() + ": " + lecturer.getFullName());
+                } catch (NullOrEmptyException e) {
+                    System.out.println(e.getMessage());
+                }
             }
             System.out.println((lecturers.size() + 1) + ". " + "Dừng chọn.");
 
@@ -248,23 +260,27 @@ public class Main {
     }
 
     // 3 Như
-    public static void findPerson() {
+    public static void findPerson() throws PersonNotFoundException{
         System.out.print("Nhập từ khóa cần tìm (họ tên hoặc email): ");
         String keyword = sc.nextLine().trim().toLowerCase();
 
         ArrayList<Person> ketQua = new ArrayList<>();
 
         for (Person p : persons) {
-            if (p.getEmail().contains(keyword) || p.getFullName().contains(keyword)) {
-                ketQua.add(p);
+            try {
+                if (p.getEmail().contains(keyword) || p.getFullName().contains(keyword)) {
+                    ketQua.add(p);
+                }
+            } catch (NullOrEmptyException e) {
+                System.out.println(e.getMessage());
             }
         }
 
-        if (ketQua.isEmpty()) {
-            System.out.println("Không tìm thấy thành viên nào.\n");
-        } else {
+        if (!ketQua.isEmpty()) {
             System.out.println("Kết quả tìm kiếm :");
             displayList(ketQua);
+        } else {
+            throw new PersonNotFoundException("Không tìm thấy!");
         }
     }
 
@@ -340,16 +356,15 @@ public class Main {
 
     // 6 Minh Sắp xếp danh sách theo điểm trung bình
     private static void menuSortByAVG() {
-        int choose;
         while (true) {
-            do {
-                System.out.println("===== Màn Hình 4 =====\nSẮP XẾP THEO ĐIỂM TRUNG BÌNH");
-                System.out.println("1. Học viên backend");
-                System.out.println("2. Học viên fullstack");
-                System.out.println("3. Trở về menu chính");
+            System.out.println("===== Màn Hình 4 =====\nSẮP XẾP THEO ĐIỂM TRUNG BÌNH");
+            System.out.println("1. Học viên backend");
+            System.out.println("2. Học viên fullstack");
+            System.out.println("3. Trở về menu chính");
 
+            try {
                 System.out.print("Mời bạn lựa chọn: ");
-                choose = Integer.parseInt(sc.nextLine());
+                int choose = Integer.parseInt(sc.nextLine());
 
                 switch (choose) {
                     case 1:
@@ -363,7 +378,9 @@ public class Main {
                     default:
                         System.out.println("Lựa chọn không hợp lệ, xin chọn lại!");
                 }
-            } while (choose < 1 || choose > 3);
+            } catch (NumberFormatException e) {
+                System.out.println("Vui lòng nhập số!");
+            }
         }
     }
 
@@ -382,8 +399,18 @@ public class Main {
 
         System.out.println("1. Tăng dần theo điểm trung bình");
         System.out.println("2. Giảm dần theo điểm trung bình");
-        System.out.print("Chọn cách sắp xếp: ");
-        int choose = Integer.parseInt(sc.nextLine());
+        int choose;
+
+        while (true) {
+            try {
+                System.out.print("Chọn cách sắp xếp: ");
+                choose = Integer.parseInt(sc.nextLine());
+                break;
+            } catch (NumberFormatException e) {
+                System.out.println("Vui lòng nhập số.");
+            }
+        }
+
 
         if (choose == 1) {
             sortByFor(filteredList, true);
@@ -400,8 +427,16 @@ public class Main {
             System.out.println("Học viên thứ " + count++);
 
             System.out.println("ID: " + student.getId());
-            System.out.println("Tên: " + student.getFullName());
-            System.out.println("Email: " + student.getEmail());
+            try {
+                System.out.println("Tên: " + student.getFullName());
+            } catch (NullOrEmptyException e) {
+                System.out.println(e.getMessage());
+            }
+            try {
+                System.out.println("Email: " + student.getEmail());
+            } catch (NullOrEmptyException e) {
+                System.out.println(e.getMessage());
+            }
             System.out.println("Điểm trung bình: " + student.getAvgScore());
             System.out.println("Xếp loại: " + student.getClassify());
             System.out.println("----------------------------");
@@ -431,15 +466,20 @@ public class Main {
         System.out.println("2. Học viên Fullstack");
         System.out.println("3. Tất cả");
         int choose;
-        do {
-            choose = Integer.parseInt(sc.nextLine());
-            switch (choose) {
-                case 1 -> System.out.println("Tong hoc phi backend" + totalTuition(StudentBE.class));
-                case 2 -> System.out.println("Tong hoc phi Fullend" + totalTuition(StudentFS.class));
-                case 3 -> System.out.println("Tong tat hoc phi " + totalTuition(Student.class));
-                default -> System.out.println("Bạn đã nhập sai ! Vui lòng chọn 1 - 2.");
+        while (true) {
+            try {
+                choose = Integer.parseInt(sc.nextLine());
+                switch (choose) {
+                    case 1 -> System.out.println("Tong hoc phi backend" + totalTuition(StudentBE.class));
+                    case 2 -> System.out.println("Tong hoc phi Fullend" + totalTuition(StudentFS.class));
+                    case 3 -> System.out.println("Tong tat hoc phi " + totalTuition(Student.class));
+                    default -> System.out.println("Bạn đã nhập sai ! Vui lòng chọn 1 - 2.");
+                }
+                break;
+            } catch (NumberFormatException e) {
+                System.out.println("Vui lòng chỉ nhập số");
             }
-        } while (choose < 1 || choose > 3);
+        }
     }
 
     private static <T extends Student> double totalTuition(Class<T> type) {
@@ -589,25 +629,41 @@ public class Main {
         while (true) {
             System.out.println("=== DANH SÁCH HỌC VIÊN CHƯA VÀO LỚP ===");
             for (int i = 0; i < studentsNotInClass.size(); i++) {
-                System.out.printf("%d. %s - %s\n", i + 1,
-                        studentsNotInClass.get(i).getId(),
-                        studentsNotInClass.get(i).getFullName());
+                try {
+                    System.out.printf("%d. %s - %s\n", i + 1,
+                            studentsNotInClass.get(i).getId(),
+                            studentsNotInClass.get(i).getFullName());
+                } catch (NullOrEmptyException e) {
+                    System.out.println(e.getMessage());
+                }
             }
 
-            System.out.print("Chọn học viên để thêm: ");
-            int studentChoice = Integer.parseInt(sc.nextLine());
-            if (studentChoice < 1 || studentChoice > studentsNotInClass.size()) {
-                System.out.println("Lựa chọn không hợp lệ!");
-                continue;
+            int studentChoice;
+            while (true) {
+                try {
+                    System.out.print("Chọn học viên để thêm: ");
+                    studentChoice = Integer.parseInt(sc.nextLine());
+                    if (studentChoice < 1 || studentChoice > studentsNotInClass.size()) {
+                        System.out.println("Lựa chọn không hợp lệ!");
+                        continue;
+                    }
+                    break;
+                } catch (NumberFormatException e) {
+                    System.out.println("Phải nhập số");
+                }
             }
 
             Student selectedStudent = studentsNotInClass.get(studentChoice - 1);
             studentsInClass.add(selectedStudent);
             studentsNotInClass.remove(selectedStudent);
 
-            System.out.printf("Đã thêm học viên %s vào lớp %s.\n",
-                    selectedStudent.getFullName(),
-                    selectedCourse.getName());
+            try {
+                System.out.printf("Đã thêm học viên %s vào lớp %s.\n",
+                        selectedStudent.getFullName(),
+                        selectedCourse.getName());
+            } catch (NullOrEmptyException e) {
+                System.out.println(e.getMessage());
+            }
 
             System.out.println("Muốn tiếp tục chọn hay không ? (Y/N)");
             String choose = sc.nextLine();
@@ -756,7 +812,7 @@ public class Main {
 //        }
 //    }
 
-    public static void findStudentByIdMap() {
+    public static void findStudentByIdMap() throws StudentNotFoundException {
         Map<String, Student> studentMap = new HashMap<>();
         for (Student s : getList(Student.class)) {
             studentMap.put(s.getId(), s);
@@ -767,9 +823,13 @@ public class Main {
 
         Student foundStudent = studentMap.get(id);
         if (foundStudent != null) {
-            System.out.printf("Tìm thấy học viên: %s - %s\n", foundStudent.getId(), foundStudent.getFullName());
+            try {
+                System.out.printf("Tìm thấy học viên: %s - %s\n", foundStudent.getId(), foundStudent.getFullName());
+            } catch (NullOrEmptyException e) {
+                System.out.println(e.getMessage());
+            }
         } else {
-            System.out.println("Không tìm thấy học viên nào với ID này.");
+            throw new StudentNotFoundException("Không tìm thấy hc viên!");
         }
     }
 
@@ -799,8 +859,12 @@ public class Main {
 
         int count = 0;
         System.out.println("=== DANH SÁCH GIẢNG VIÊN ===");
-        for (Teacher t : getList(Teacher.class)) {
-            System.out.printf("%d. %s - %s\n", count + 1, t.getId(), t.getFullName());
+        for (Lecturer t : getList(Lecturer.class)) {
+            try {
+                System.out.printf("%d. %s - %s\n", count + 1, t.getId(), t.getFullName());
+            } catch (NullOrEmptyException e) {
+                System.out.println(e.getMessage());
+            }
             count++;
         }
 
@@ -820,7 +884,7 @@ public class Main {
             }
         }
 
-        Teacher selectedTeacher = getList(Teacher.class).get(choice - 1);
+        Lecturer selectedTeacher = getList(Lecturer.class).get(choice - 1);
 
         Set<Schedule> schedulesOfTeacher = selectedTeacher.getScheduleOfTeacher();
         if (schedulesOfTeacher == null) {
@@ -848,12 +912,21 @@ public class Main {
                         schedulesNotOfTeacher.get(i).getContent());
             }
 
-            System.out.print("Chọn lịch dạy để thêm: ");
-            int scheduleChoice = Integer.parseInt(sc.nextLine());
-            if (scheduleChoice < 1 || scheduleChoice > schedulesNotOfTeacher.size()) {
-                System.out.println("Lựa chọn không hợp lệ!");
-                continue;
+            int scheduleChoice;
+            while (true) {
+                try {
+                    System.out.print("Chọn lịch dạy để thêm: ");
+                    scheduleChoice = Integer.parseInt(sc.nextLine());
+                    if (scheduleChoice < 1 || scheduleChoice > schedulesNotOfTeacher.size()) {
+                        System.out.println("Lựa chọn không hợp lệ!");
+                        continue;
+                    }
+                    break;
+                } catch (NumberFormatException e) {
+                    System.out.println("Chỉ nhaajp số.");
+                }
             }
+
 
             Schedule selectedSchedule = schedulesNotOfTeacher.get(scheduleChoice - 1);
             schedulesOfTeacher.add(selectedSchedule);
@@ -872,16 +945,20 @@ public class Main {
         }
     }
 
-    public static void managerScheduleOfTeacher() {
-        Set<Teacher> teachers = new LinkedHashSet<>(getList(Teacher.class));
-        if (teachers.isEmpty()) {
+    public static void managerScheduleOfTeacher() throws NumberFormatException {
+        Set<Lecturer> lecturers = new LinkedHashSet<>(getList(Lecturer.class));
+        if (lecturers.isEmpty()) {
             System.out.println("Chưa có giảng viên nào.");
         }
 
         int count = 0;
         System.out.println("=== DANH SÁCH GIẢNG VIÊN ===");
-        for (Teacher t : teachers) {
-            System.out.printf("%d. %s - %s\n", count + 1, t.getId(), t.getFullName());
+        for (Lecturer t : lecturers) {
+            try {
+                System.out.printf("%d. %s - %s\n", count + 1, t.getId(), t.getFullName());
+            } catch (NullOrEmptyException e) {
+                System.out.println(e.getMessage());
+            }
             count++;
         }
 
@@ -897,11 +974,11 @@ public class Main {
                 }
                 break;
             } catch (NumberFormatException e) {
-                System.out.println("Vui lòng nhập số hợp lệ!");
+                System.out.println("Vui lòng chỉ nhập số.");
             }
         }
 
-        Teacher selectedTeacher = getList(Teacher.class).get(choice - 1);
+        Lecturer selectedTeacher = getList(Lecturer.class).get(choice - 1);
         Set<Schedule> schedulesOfTeacher = selectedTeacher.getScheduleOfTeacher();
 
         if (schedulesOfTeacher == null) {
@@ -909,9 +986,74 @@ public class Main {
             return;
         }
 
-        System.out.println("Lịch dạy của giảng viên: " + selectedTeacher.getId() + " - " + selectedTeacher.getFullName());
+        try {
+            System.out.println("Lịch dạy của giảng viên: " + selectedTeacher.getId() + " - " + selectedTeacher.getFullName());
+        } catch (NullOrEmptyException e) {
+            System.out.println(e.getMessage());
+        }
+
         for (Schedule schedule : schedulesOfTeacher) {
             System.out.println(schedule.toString());
+        }
+    }
+
+    // Ex: Thêm giảng viên cho lớp học
+    public static void addLecturesToClass() throws TeacherNotFoundException {
+        if (courses.isEmpty()) {
+            System.out.println("Hiện chưa có lớp học nào.");
+            return;
+        }
+
+        Set<Lecturer> lecturers = new LinkedHashSet<>(getList(Lecturer.class));
+        System.out.print("Nhập id giảng viên bạn muốn thêm vào lớp: ");
+        String key = sc.nextLine();
+
+        Lecturer selectedLecturer = null;
+        for (Lecturer s : lecturers) {
+            if (key.equalsIgnoreCase(s.getId())) {
+                selectedLecturer = s;
+            }
+        }
+
+        if (selectedLecturer == null) {
+            throw new TeacherNotFoundException("Không tìm thấy giảng viên muốn thêm vào lớp.");
+        }
+
+
+        int count = 0;
+        System.out.println("=== DANH SÁCH LỚP HỌC MUỐN THÊM ===");
+        for (Course c : courses) {
+            System.out.printf("%d. %s - %s\n", count + 1, c.getId(), c.getName());
+            count++;
+        }
+
+        int choice;
+        while (true) {
+            try {
+                System.out.print("Chọn lớp học để thêm giảng viên: ");
+                choice = Integer.parseInt(sc.nextLine());
+
+                if (choice < 1 || choice > count) {
+                    System.out.println("Lựa chọn không hợp lệ!");
+                    continue;
+                }
+                break;
+            } catch (NumberFormatException e) {
+                System.out.println("Vui lòng nhập số hợp lệ!");
+            }
+        }
+
+        Course selectedCourse = courses.get(choice - 1);
+
+        Set<Lecturer> lecturersInClass = selectedCourse.getLecturers();
+
+        for (Lecturer l : lecturersInClass) {
+            if (selectedLecturer.equals(l)) {
+                System.out.println("Giảng viên đã có trong lớp.");
+                return;
+            } else {
+                lecturersInClass.add(selectedLecturer);
+            }
         }
     }
 
@@ -942,7 +1084,13 @@ public class Main {
             switch (choice) {
                 case 1 -> processAdd();
                 case 2 -> processShowPerson();
-                case 3 -> findPerson();
+                case 3 -> {
+                    try {
+                        findPerson();
+                    } catch (PersonNotFoundException e) {
+                        System.out.println(e.getMessage());;
+                    }
+                }
                 case 4 -> menuUpdate();
                 case 5 -> menuDelete();
                 case 6 -> menuSortByAVG();
@@ -956,10 +1104,23 @@ public class Main {
                 case 14 -> deleteSchedule();
                 case 15 -> displaySchedule();
                 case 16 -> addScheduleOfTeacher();
-                case 17 -> findStudentByIdMap();
+                case 17 -> {
+                    try {
+                        findStudentByIdMap();
+                    } catch (StudentNotFoundException e) {
+                        System.out.println(e.getMessage());
+                    }
+                }
                 case 18 -> findCourseByIdMap();
                 case 19 -> managerScheduleOfTeacher();
                 case 20 -> {
+                    try {
+                        addLecturesToClass();
+                    } catch (TeacherNotFoundException e) {
+                        System.out.println(e.getMessage());
+                    }
+                }
+                case 21 -> {
                     System.err.println("Kết thúc chương trình!");
                     return;
                 }

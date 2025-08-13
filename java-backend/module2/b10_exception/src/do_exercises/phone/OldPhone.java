@@ -78,8 +78,6 @@ public class OldPhone extends Phone implements Promotion {
         }
     }
 
-
-
     @Override
     public BigDecimal promote(Float proVal) {
         if (proVal < 0 || proVal > 100) {

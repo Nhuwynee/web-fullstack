@@ -7,11 +7,13 @@ public class Student {
     private String name;
     private double score;
 
-    public void input() {
+    public void input(boolean isIdUpdate) {
         Scanner sc = new Scanner(System.in);
 
-        System.out.print("Nhập vào ID: ");
-        this.id = sc.nextLine();
+        if (isIdUpdate) {
+            System.out.print("Nhập vào ID: ");
+            this.id = sc.nextLine();
+        }
 
         System.out.print("Nhập vào tên: ");
         this.name = sc.nextLine();
@@ -19,6 +21,7 @@ public class Student {
         System.out.print("Nhập vào điểm: ");
         this.score = Double.parseDouble(sc.nextLine());
     }
+
 
     public void output() {
         System.out.println("ID: " + this.id);

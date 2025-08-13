@@ -3,17 +3,27 @@ package ss11_file_regex;
 import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Scanner;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
 public class StudentManagement {
     private static final Logger logger = Logger.getLogger(StudentManagement.class.getName());
-
-    private static final String PATH_STUDENT_FILE = "src/ss11_file_regex/data/student.csv";
+    private static Scanner sc = new Scanner(System.in);
+    private static final String PATH_STUDENT_FILE = "E:\\web-fullstack\\java-backend\\module2\\b11_12_file_regex\\src\\ss11_file_regex\\data\\student.csv";
 
     public static void main(String[] args) {
         showList();
+        System.out.println("==== Create ====");
         create();
+        showList();
+
+        System.out.println("==== Update ====");
+        update();
+        showList();
+
+        System.out.println("==== Delete ====");
+        delete();
         showList();
     }
 
@@ -68,7 +78,7 @@ public class StudentManagement {
         List<Student> students = readFile(PATH_STUDENT_FILE);
 
         Student student = new Student();
-        student.input();
+        student.input(true);
         students.add(student);
 
         writeFile(students);
@@ -77,11 +87,47 @@ public class StudentManagement {
 
     /// Hãy viết phương thức cập nhật dữ liệu một sinh viên theo ID
     public static void update() {
+        System.out.println("Nhập id sinh viên muốn cập nhật: ");
+        String id = sc.nextLine();
 
+        boolean found = false;
+
+        List<Student> students = readFile(PATH_STUDENT_FILE);
+        for (Student s : students) {
+            if (id.equalsIgnoreCase(s.getId())) {
+                found = true;
+                s.input(false);
+            }
+        }
+
+        if (!found) {
+            System.out.println("Không tìm thấy id sinh viên.");
+        }
+
+        writeFile(students);
     }
 
     /// Hãy viết phương thức xóa sinh viên theo ID
     public static void delete() {
+        System.out.println("Nhập id sinh viên muốn xóa: ");
+        String id = sc.nextLine();
 
+        boolean found = false;
+        List<Student> students = readFile(PATH_STUDENT_FILE);
+
+        for (int i = 0; i < students.size(); i++) {
+            if (students.get(i).getId().equalsIgnoreCase(id)) {
+                found = true;
+                students.remove(students.get(i));
+            }
+        }
+
+//        found = students.removeIf(student -> id.equalsIgnoreCase(student.getId()));
+
+        if (!found) {
+            System.out.println("Không tìm thấy id sinh viên.");
+        }
+
+        writeFile(students);
     }
 }

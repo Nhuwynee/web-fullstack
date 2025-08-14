@@ -1,0 +1,56 @@
+<!-- CSS 
+ - Có 3 chỗ đặt CSS:
+    1. CSS Inline
+    2. CSS Internal - Viết trong thẻ style
+    3. CSS External - Tạo file .css hoàn toàn riêng biệt và liên kết nó với file HTML (kết nối qua thẻ link)
+
+- font-size: px, rem, %, vwvh (nên học để reponsive)
+- align và justify-items
+align-items: center; : căn ngang
+justify-items : căn dọc
+
+- id -> class -> thuộc tính
+
+ -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="container">
+        <h3>Nhuw</h3>
+        <h3>Xin chào mọi người</h3>
+        <h3>Hello</h3>
+    </div>
+    <h3>Hello</h3>
+    <div class="h3">tạm biệt</div>
+</body>
+</html>
+<style>
+    * {
+        padding: 0;
+        margin: 0;
+    }
+    .container h3:first-child {
+        color: brown;
+    }
+    .container h3:nth-child(2) {
+        color: rgb(5, 113, 77);
+    }
+    .container h3:last-child {
+        color: blueviolet;
+    }
+    .container {
+        background: rgb(255, 216, 255);
+        width: 400px;
+        height: 400px;
+        display: flex;
+        justify-content: center;
+        /* background-color: violet; */
+    }
+
+</style>

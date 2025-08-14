@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            display: flex;
+            height: 100vh;
+            justify-content: center;
+            align-items: center;
+            background-color: aliceblue;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        .list {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+            width: 40vw;
+            padding: 0 15px;
+        }
+
+        .container {
+            display: grid;
+            grid-template-rows: 1fr 1fr 1fr;
+            background-color: white;
+        }
+
+        img {
+            width: 15vw;
+        }
+        
+        .title {
+            font-weight: 700;
+            font-size: 1.2vw;
+        }
+
+        .content {
+            text-align: start;
+        }
+
+        .sub_title {
+            font-size: 1vw;
+            font-weight: 500;
+            color: gray;
+        }
+
+        a {
+            text-decoration: none;
+            color: black;
+        }
+
+        a:hover {
+            color: rgb(86, 30, 138);
+        }
+
+        @media only screen and (max-width: 600px) {
+            img {
+                background-color: pink;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="list">
+            <img src="img/b3-1.png" alt="Ảnh video">
+            <div class="content">
+                <p class="title"><a href="#">How to compete against CS degrees (as a seft-taught dev)</a></p>
+                <p class="sub_title">SuperSimpleDev</p>
+                <p class="sub_title view">1.5K views . 4 months ago</p>
+            </div>
+        </div>
+        <div class="list">
+            <img src="img/b3-2.png" alt="Ảnh video">
+            <div class="content">
+                <p class="title"><a href="#">How to compete against CS degrees (as a seft-taught dev)</a></p>
+                <p class="sub_title">SuperSimpleDev</p>
+                <p class="sub_title view">1.5K views . 4 months ago</p>
+            </div>
+        </div>
+        <div class="list">
+            <img src="img/b3-3.png" alt="Ảnh video">
+            <div class="content">
+                <p class="title"><a href="#">How to compete against CS degrees (as a seft-taught dev)</a></p>
+                <p class="sub_title">SuperSimpleDev</p>
+                <p class="sub_title view">1.5K views . 4 months ago</p>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

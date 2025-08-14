@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            font-size: 20px;
+        }
+        .container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+        }
+
+        header {
+            background-color: pink;
+            height: 10vh;
+        }
+
+        .sidebar {
+            background-color: bisque;
+        }
+
+        main,
+        header,
+        footer {
+            margin-bottom: 10px;
+        }
+
+        main,
+        header,
+        footer,
+        nav,
+        .sidebar
+         {
+            border-radius: 10px;
+            text-align: center;
+            align-content: center;
+        }
+
+        .article {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        nav {
+            background-color: turquoise;
+            height: 10vh;
+            
+        }
+
+        .text {
+            background-color: orange;
+            border-radius: 10px;
+            text-align: left;
+            padding: 10px;
+            font-size: 15px;
+        }
+
+        footer {
+            background-color: rgb(59, 181, 59);
+            height: 10vh;
+        }
+
+    </style>
+</head>
+
+<body>
+    <header>Header</header>
+    <main>
+        <div class="container">
+            <div class="sidebar">
+                Sidebar
+            </div>
+                <div class="article">
+                    <nav>Nav</nav>
+                    <div class="text">
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Porro sint, molestias quos corporis
+                            distinctio numquam commodi assumenda ipsa. Modi exercitationem obcaecati nisi, laudantium
+                            quae
+                            veritatis sint? Quis quas quam quibusdam?</p>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Porro sint, molestias quos corporis
+                            distinctio numquam commodi assumenda ipsa. Modi exercitationem obcaecati nisi, laudantium
+                            quae
+                            veritatis sint? Quis quas quam quibusdam?</p>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Porro sint, molestias quos corporis
+                            distinctio numquam commodi assumenda ipsa. Modi exercitationem obcaecati nisi, laudantium
+                            quae
+                            veritatis sint? Quis quas quam quibusdam?</p>
+                    </div>
+                </div>
+        </div>
+    </main>
+    <footer>Footer</footer>
+</body>
+
+</html>

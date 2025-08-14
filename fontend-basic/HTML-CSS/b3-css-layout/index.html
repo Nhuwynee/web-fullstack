@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .global {
+            background-image: url("welcome.png");
+            background-repeat: no-repeat;
+            width: 600px;
+            height: 400px;
+            background-position: center;
+            transition: ease-in-out 0.5s;
+          }
+
+          div:hover {
+            scale: 1.1;
+          }
+        .content {
+            display: flex;
+            justify-content: center;
+            text-align: center;
+            align-items: center;
+            font-size: 80px;
+            color: aliceblue;
+            height: 90%;
+            margin: auto;
+            text-wrap: 10px;
+            transform: rotate(5deg);
+        }
+    </style>
+</head>
+<body>
+        <div class="global">
+            <span class="content">Global</span>
+        </div>
+</body>
+</html>

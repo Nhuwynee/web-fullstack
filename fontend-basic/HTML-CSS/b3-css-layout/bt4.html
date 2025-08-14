@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            display: flex;
+            height: 100vh;
+            justify-content: center;
+            align-items: center;
+            background-color: aliceblue;
+        }
+
+        .container {
+            padding: 10px;
+            width: 700px;
+            justify-content: space-between;
+        }
+
+        .container, .left, .right, ul {
+            display: flex;
+            gap: 20px;
+            background-color: white;
+            align-items: center;
+        }
+
+
+        .profile-image {
+            background-image: url("brand_2.jpg");
+            width: 50px;
+            height: 40px;
+            background-size: contain;
+            background-repeat: no-repeat;
+        }
+        
+        a {
+            text-decoration: none;
+        }
+
+        li {
+            list-style-type: none;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="left">
+            <div class="logo">LOGO</div>
+            <ul>
+                <li><a href="">link-one</a></li>
+                <li><a href="">link-two</a></li>
+                <li><a href="">link-three</a></li>
+            </ul>
+        </div>
+        <div class="right">
+            <button class="notifications">1 new notification</button>
+            <div class="profile-image"></div>
+        </div>
+
+    </div>
+</body>
+</html>

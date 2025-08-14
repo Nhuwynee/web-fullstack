@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bài tập 2 - Blog ngắn</title>
+    <style>
+        * {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        #container,
+        #container .section {
+            display: flex;
+            justify-content: center;
+            text-align: left;
+        }
+
+        #container .section {
+            flex-direction: column;
+            width: 60%;
+        }
+
+        .content h2,
+        .tacgia h2 {
+            color: rgb(2, 199, 133);
+        }
+
+        .tacgia {
+            background-color: rgb(224, 255, 245);
+            border-left: rgb(2, 199, 133) solid 5px;
+            padding-left: 30px;
+        }
+
+        /* đổi ngược nội dung */
+        .main-content {
+            display: flex;
+            flex-direction: column-reverse;
+        }
+
+        .main-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+       
+        /* .content {
+            border: red solid 1px;
+        } */
+    </style>
+</head>
+
+<body>
+    <div id="container">
+        <div class="section">
+            <h1>Tìm hiểu về lập trình Web</h1>
+            <div class="main-content">
+                <div class="content">
+                    <h2>1. Lập trình web là gì ?</h2>
+                    <p>Lập trình web là quá trình tạo ra các ứng dụng và trang web hoạt động trên internet hoặc mạng nội
+                        bộ.
+                    </p>
+                    <p>Nó bao gồm việc sử dụng các ngôn ngữ lập trình và công cụ để xây dựng giao diện người dùng, xử lý
+                        dữ liệu
+                        và đảm bảo tính năng tương tác của trang web.</p>
+                </div>
+
+                <div class="content">
+                    <h2>2. Lập trình front-end (phía người dùng):</h2>
+                    <p>Nhiệm vụ: Xây dựng giao diện người dùng mà người dùng nhìn thấy và tương tác trực tiếp. </p>
+                    <p>Công cụ và ngôn ngữ: HTML, CSS, JavaScript, và các framework như React, Angular, Vue.js. </p>
+                </div>
+
+                <div class="content">
+                    <h2>3. Lập trình back-end (phía máy chủ):</h2>
+                    <p>Nhiệm vụ: Xử lý logic nghiệp vụ, quản lý cơ sở dữ liệu, đảm bảo tính bảo mật và tối ưu hiệu suất.
+                    </p>
+                    <p>Công cụ và ngôn ngữ: PHP, Python, Java, Node.js, và các cơ sở dữ liệu như MySQL, PostgreSQL.</p>
+                </div>
+            </div>
+            <hr>
+            <div class="tacgia">
+                <h2>Thông tin tác giả</h2>
+                <p>Tác giả: Lưu Ngọc Yến Như</p>
+                <p>Hiện đang là lập trình viên tại <strong>Techzen</strong>, đam mê với <em>công nghệ web</em> và chia
+                    sẻ
+                    kiến thức cho cộng đồng.</p>
+            </div>
+        </div>
+
+    </div>
+</body>
+
+</html>

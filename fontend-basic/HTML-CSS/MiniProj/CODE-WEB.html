@@ -1,0 +1,668 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <link rel="icon" href="logo.png" type="image/x-icon">
+    <title>TOEIC/IELTS MASTER DA NANG</title>
+    <script type="text/javascript">
+        function submitForm() {
+            const name = document.getElementById("name").value;
+            const email = document.getElementById("email").value;
+            const tel = document.getElementById("tel").value;
+            const you = document.getElementById("you").value;
+            if (name === "" || email === "" || tel === "" || you === "") {
+                alert('Bạn chưa nhập đủ thông tin. Vui lòng kiểm tra và nhập !');
+            } else {
+                alert('Đăng ký thành công ! TOEIC/IELTS MASTER DA NANG xin cảm ơn bạn.');
+            }
+        }
+    </script>
+    <style>
+        * {
+            margin: 0 auto;
+            padding: 0;
+        }
+        html {scroll-behavior: smooth;}
+        body {
+            width: 960px;
+            box-sizing: border-box;
+        }
+        /*  Font chữ   */
+        .contact pre, .comment p, .part p, .khoahoc h1, .khoahoc p, .khoahoc a, .secret p, .secret h2,
+        .itemitem h3, .itemitem p, .texthead h3, .receive h3 {
+            font-family: Cambria, Cochin, Georgia, Times, Times New Roman, serif;
+        }
+        .receive h3, .danhgia h1, .doingu_heading, .last_doingu h3, .subcri .txtform, .texthead h1,
+        .content p, .content h2 a, .title h1, .menu ul li a {
+            font-family: Candara, sans-serif;
+        }
+        /*   Display: flex   */
+        .slogan h1, .slogan h3, .container, .item, .itemitem, .itemitem h3, .itemitem p, .khoahoc h1, .khoahoc p, .khoahoc a {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+        }
+        /*  Transition   */
+        .frame, .item, .doingu img, .radius, .square {transition: transform 0.5s ease;}
+        .frame:hover, .item:hover, .doingu img:hover, .radius:hover, .square:hover {transform: scale(1.1); }
+
+        /*  Font tiêu đề Header và Footer */
+        .name_web, .heading {font-family: 'Perpetua Titling MT',sans-serif;}
+
+        /*  Chỉnh vài ảnh img  */
+        .poster, .radius, .square {
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+        /*---------------------------------------HEADER-------------------------------------------*/
+        /*----------------------------------------------------------------------------------------*/
+        header {
+            height: 150px;
+            background-color: #eec9d1;
+            flex-shrink: 1;
+            flex-grow: 1;
+        }
+        header img {
+            height: 80%;
+            padding: 15px;
+            float: left;
+        }
+        .slogan h1, .slogan h3 {
+            padding-right: 120px;
+            font-weight: 100;
+        }
+        .name_web {
+            padding-top: 10px;
+            font-size: 55px;
+            color: #033661; /* xanh */
+        }
+        .slogan h3 {
+            font-size: 25px;
+            color: #c53f85; /* hồng */
+            font-family: 'Berlin Sans FB',sans-serif;
+        }
+        /* ----------- Chỉnh khung search ------------- */
+        .search {position: relative;}
+        .search input {
+            float: right;
+            border: #fff;
+            padding: 2px 0px;
+            margin: 10px 30px;
+        }
+        #search-btn img {
+            position: absolute;
+            right: 2%;
+            top: -8%;
+        }
+        /* ----------- Chỉnh thanh MENU --------------- */
+        .menu {
+            position: sticky;
+            top: 0;
+            height: 40px;
+            background-color: #f2fbff;
+            border-bottom: 4px solid #a5e2ff;
+            z-index: 100;
+        }
+        .menu ul {
+            list-style-type: none;
+            text-align: center;
+            display: flex;
+            flex-wrap: wrap;
+        }
+        .menu ul li {
+            border-left: 4px solid #a5e2ff;
+            float: left;
+            font-size: 24px;
+            flex: 1 1 150px;  /* flex-shrink  flex-grow */
+        }
+        .menu ul li a {
+             line-height: 40px;
+             text-decoration: none;
+             color: #32436e;
+        }
+        .menu ul li:first-child {border-left: none;}
+        .menu ul li:hover a {
+             font-size: 27px;
+             color: #c53f85;
+             font-weight: bold;
+        }
+        /* ---------------- Chỉnh Poster ----------------- */
+        .poster {
+            height: 350px;
+            background-image: url(background.png);
+        }
+        /* ---------------- Chỉnh các Title MENU -------------- */
+        .title h1 {
+            font-size: 50px;
+            margin-top: 50px;
+            display: inline-block;
+            color: #c53f85;
+            border-bottom: 5px solid #033661;
+            font-style: italic;
+        }
+        /*------------------------------------- TRANG CHỦ ----------------------------------*/
+        /*-----------------------------------------------------------------------------------*/
+        section {
+            margin-top: 40px;
+            display: flex;
+            flex-wrap: wrap;
+        }
+        .frame img {
+            width: 385px;
+            height: 200px;
+        }
+        .frame:hover {box-shadow: inset -75px -75px 400px rgba(230, 230, 250, 1); }
+        .frame1, .frame2 { margin-bottom: 30px;}
+        .frame1, .frame4, .background2, .background3 { background-color: #dff6ff;} /* xanh */
+        .frame2, .frame3, .background1, .background4 { background-color: #f9e9f6;}
+        .background {
+            margin: 20px;
+            height: 350px;
+            border: 5px solid #fff;
+        }
+        .content h2 a {
+            margin-left: 10px;
+            font-size: 30px;
+            text-decoration: none;
+        }
+        .content1 h2 a, .content4 h2 a {color: #6e2264;}
+        .content2 h2 a, .content3 h2 a {color: #033661;}
+        .content p {
+            width: 350px;
+            font-weight: 800;
+            font-size: 16px;
+            text-align: justify;
+        }
+        /*---------------------------------------- GIỚI THIỆU --------------------------------*/
+        /*-----------------------------------------------------------------------------------*/
+        .texthead h1 {
+            margin: 10px 200px;
+            font-size: 40px;
+            color: #32436e;
+            font-style: italic;
+        }
+        .texthead h1, .texthead h3, .secret p {text-align: center;}
+        .texthead h3 {
+            color: #555658;
+            margin: 10px 100px;
+            line-height: 30px;
+        }
+        .container {
+            width: 960px;
+            height: 1500px;
+        }
+        .item:first-child h3, .item:first-child p { color: white;}
+        .item1, .item2 {
+            width: 40%;
+            height: 450px;
+            margin-bottom: 20px;
+        }
+        .item1 {
+            background: #1d3351;
+            margin-left: 80px;
+            margin-right: 50px;
+        }
+        .item2 { background: #fff2fe; }
+        .item3, .item4, .item5 {
+            width: 28%;
+            height: 200px;
+            margin-right: 40px;
+            background: #fff;
+        }
+        .item3 { margin-left: 40px; }
+        .item5 {margin-right: 0; }
+        .itemitem {
+            width: 90%;
+            height: 400px;
+            border: 1px solid #32436e;
+        }
+        .item3 .itemitem, .item4 .itemitem, .item5 .itemitem { height: 300px;}
+        .item1 .itemitem { border: 1px solid #fff;}
+        .itemitem img {
+            width: 90%;
+            height: 100px;
+            margin-top: 10px;
+        }
+        .item1 img, .item2 img { height: 50%;}
+        .itemitem .icon {
+            width: 70px;
+            height: 70px;
+        }
+        .itemitem h3, .itemitem p {
+            width: 90%;
+            text-align: justify;
+            margin: 3px 0;
+            color: #32436e;
+        }
+        .secret {margin-top: 100px;}
+        .secret h2 {
+            color: #c53f85;
+            font-size: 35px;
+            margin: 20px 20px 20px 380px;
+        }
+        .secret p {
+            float: right;
+            width: 600px;
+            color: #1d3351;
+            font-style: italic;
+            font-size: 20px;
+            font-weight: 600;
+        }
+        /*----------------------------------------- KHÓA HỌC -------------------------------*/
+        /*----------------------------------------------------------------------------------*/
+        .khoahoc .frame {
+            border-radius: 30px;
+            height: 400px;
+        }
+        .khoahoc img {
+            border-top-left-radius: 30px; 
+            border-top-right-radius: 30px;
+            height: 60%;
+        }
+        .khoahoc h1, .khoahoc p, .khoahoc a {
+            color: #033661;
+            font-weight: 600;
+            margin-top: 12px;
+        }
+        .khoahoc h1 { font-size: 32px; }
+        .khoahoc p { font-size: 22px; }
+        .khoahoc a {
+            text-decoration: none;
+            color: #c53f85;
+            font-size: 28px;
+        }
+        .frame a:hover {
+            color: #ff737a;
+            font-size: 30px;
+        }
+        /*------------ FORM ĐĂNG KÝ CỦA KHÓA HỌC ---------------*/
+        .subcri {
+            background: #f8dedf;
+            border-top: 4px dashed #ff737a;
+            border-radius: 0;
+            height: 300px;
+            margin-top: 50px;
+            display: flex;
+            flex-wrap: wrap;
+            padding: 40px;
+        }
+        .form { flex: 1;}
+        .form input {
+            width: 250px;
+            height: 40px;
+            margin: 20px 10px 10px 30px;
+            font-size: 20px;
+        }
+        .form input::placeholder, .receive input::placeholder {font-size: 15px;}
+        .txtform h1  {
+            color: #32436e;
+            font-size: 40px;
+            font-weight: bold;
+        }
+        .txtform h2 {
+            color: #ee101a;
+            font-style: italic;
+            font-size: 30px;
+            margin-bottom: 30px;
+        }
+        .txtform h2 b { font-size: 50px;}
+        .subcri .txtform {
+            flex: 2;
+            margin: 25px 30px 0px 50px;
+        }
+        .txtform form button {
+            height: 40px;
+            background: #033661;
+            border: 4px solid white;
+            width: 120px;
+            color: white;
+            border-radius: 10px;
+            font-size: 20px;
+        }
+        .dangky button:hover {
+            background: #dff6ff;
+            border: 4px solid #245176;
+            color: #033661;
+        }
+        /*-------------------------------------- ĐỘI NGŨ -------------------------------------*/
+        /*-----------------------------------------------------------------------------------*/
+        .doingu_heading, .last_doingu h3 {
+            color: #f66565;
+            margin: 15px;
+        }
+        .doingu_heading, .last_doingu h3, .part p {
+            text-align: center;
+            font-size: 25px;
+        }
+        .radius {
+            width: 250px;
+            height: 250px;
+            border: 4px solid #32436e;
+            border-radius: 50%;
+            margin: 0 25px;
+        }
+        .teacher1 { background-image: url('teacher1.png');}
+        .teacher2 { background-image: url('teacher2.png');}
+        .part { margin: 40px 70px;}
+        .part p {
+            line-height: 50px;
+            font-weight: 400;
+        }
+        /*---------------------------------------- ĐÁNH GIÁ -------------------------------*/
+        /*----------------------------------------------------------------------------------*/
+        .student1, .teacher1 {float: left;}     /*   img đánh giá và đội ngũ   */
+        .student2, .teacher2 {float: right;}
+        .student1 {background-image: url('student1.png');}
+        .student2 {background-image: url('student2.png');}
+        .square {
+            width: 450px;
+            height: 380px;
+            border-radius: 40px;
+            background-position: center;
+            margin: 0 30px;
+        }
+        .danhgia h1 {
+            text-align: center;
+            font-size: 40px;
+            color: #033661;
+        }
+        .comment {margin: 30px 0 20px 0;}
+        .comment p {
+            font-size: 22px;
+            line-height: 30px;
+            text-align: justify;
+            margin: 10px 0;
+            color: #245176;
+        }
+        /*--------------------------------------- FOOTER -----------------------------------*/
+        /*-----------------------------------------------------------------------------------*/
+        .footer {
+            height: 250px;
+            background: #033661;
+        }
+        .footer, .information {
+            display: flex;
+            flex-wrap: wrap;
+        }
+        .information {flex: 3;}
+        .receive, .contact {flex: 1;}
+        .heading {
+            font-size: 40px;
+            color: #f9e9f6;
+            font-weight: 100;
+            padding-top: 20px;
+            margin: 20px;
+            width: 650px;
+        }
+        .contact pre {
+            float: left;
+            margin: 0 30px;
+            font-size: 20px;
+            color: #dee8ef;
+        }
+        .img_contact img {
+            width: 30px;
+            height: 30px;
+            margin-top: 70px;
+            margin-right: 15px;
+            border-radius: 8px;
+        }
+        .receive h3 {
+            margin: 30px;
+            font-size: 20px;
+            color: #f9e9f6;
+            font-weight: 400;
+        }
+        .receive input {
+            width: 200px;
+            height: 35px;
+            display: block;
+            margin: 0 20px 20px 0;
+        }
+        .receive button {
+            width: 70px;
+            height: 35px;
+            background: #a5e2ff;
+            border: 4px solid white;
+            color: #033661;
+            border-radius: 10px;
+            font-size: 18px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <img class="logo" src="icon-logo.png" alt="Alternate Text" />
+        <div class="slogan">
+            <h1 class="name_web">TOEIC / IELTS MASTER</h1>
+            <h3>Master English - Master your life</h3>
+        </div>
+        <div class="search">
+                <input type="text" id="search-text" name="search">
+                <button id="search-btn"><img class="img" src="search.gif" alt="Alternate Text" /></button>
+        </div>
+    </header>
+    <main>
+        <div class="menu">
+            <ul>
+                <li><a href="#trangchu"><b>Trang chủ</b></a></li>
+                <li><a href="#gioithieu"><b>Giới thiệu</b></a></li>
+                <li><a href="#khoahoc"><b>Khóa học</b></a></li>
+                <li><a href="#doingu"><b>Đội ngũ</b></a></li>
+                <li><a href="#danhgia"><b>Đánh giá</b></a></li>
+                <li><a href="CODE-CV.html"><b>Liên hệ</b></a></li>
+            </ul>
+        </div>
+        <div class="poster"></div>
+        <!-----------------------------TRANG CHỦ ---------------------------------->
+        <div id="trangchu" class="title">
+            <h1>Trang chủ</h1>
+        </div>
+        <section>
+            <div class="frame frame1">
+                <div class="background background1">
+                    <img src="gioithieu.jpg" alt="Gioi thieu" />
+                    <div class="content content1">
+                        <h2><a href="#gioithieu">Giới thiệu</a></h2>
+                        <p>TOEIC / IELTS Master Đà Nẵng là một Đội ngũ tập hợp những giảng viên tiếng Anh- TOEIC Master Đà Nẵng là trung tâm đào tạo TOEIC số 1 Đà Nẵng  hiện nay, và hỗ trợ 30% học phí các khoá TOEIC tháng 5, 6/2023.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="frame frame2">
+                <div class="background background2">
+                    <img src="khoahoc.jpg" alt="Khóa học" />
+                    <div class="content content2">
+                        <h2><a href="#khoahoc">Khóa học</a></h2>
+                        <p class="t" style="float: left; width: 200px; padding-left: 20px;">
+                            - Toeic 4 kĩ năng <br />
+                            - IELTS 4.0-5.5   <br />
+                            - IELTS 5.5-7.0   <br />
+                            - IELTS 7.0-8.5   <br />
+                        </p>
+                        <h3 style="color: #763143; text-decoration: underline; font-size: 25px;">5 Courses</h3>
+                    </div>
+                </div>
+            </div>
+            <div class="frame frame3">
+                <div class="background background3">
+                    <img src="doingu.jpg" alt="Đội ngũ" />
+                    <div class="content content3">
+                        <h2><a href="#doingu">Đội ngũ</a></h2>
+                        <p>Nổi tiếng với lời uyên bố mạnh mẽ: “Nói không với Tây Balo”, trung tâm luôn đảm bảo đội ngũ giáo viên đều là những cá nhân đáp ứng đầy đủ các yêu cầu  về chuyên môn, nghiệp vụ giảng dạy.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="frame frame4">
+                <div class="background background4">
+                    <img src="danhgia.jpg" alt="Đội ngũ" />
+                    <div class="content content4">
+                        <h2><a href="#danhgia">Đánh giá</a></h2>
+                        <p>Đây là nơi mình cực kỳ  recommend học TOEIC và IELTS ở Đà Nẵng. Giáo viên chuyên môn cực kỳ cao. Nhờ vậy em đã vượt qua target đặt ra ban đầu (IELTS 7.0) </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!----------------------------------- GIỚI THIỆU ------------------------------------>
+        <div id="gioithieu" class="title">
+            <h1>Giới thiệu</h1>
+        </div>
+        <div class="texthead">
+            <h1>TẠI SAO NÊN HỌC TOEIC/IELTS TẠI MASTER DA NANG ?</h1>
+            <hr style="width: 450px; align-items: center;" />
+            <h3>Bạn đang muốn tìm một nơi học Ngoại ngữ chất lượng, không nhàm chán với giá cả phải chăng? Các khoá học TOEIC/IELTS tại IELTS Master sẽ giúp bạn điều đó</h3>
+        </div>
+        <section class="container">
+            <div class="item item1">
+                <div class="itemitem">
+                    <img class="icon" src="icon-people.png" alt="Alternate Text" />
+                    <h3>Đội ngũ giáo viên</h3>
+                    <p>Đội ngũ giáo viên "xịn sò" 8.0+ với hơn 5 năm kinh nghiệm giảng dạy và đầy nhiệt huyết.</p>
+                    <img src="people.png" alt="Alternate Text" />
+                </div>
+            </div>
+            <div class="item item2">
+                <div class="itemitem">
+                    <img class="icon" src="icon-act.png" alt="Alternate Text" />
+                    <h3>Nhiều hoạt động thú vị</h3>
+                    <p>Luyện tập qua brainstorming, teamwork, outdoor ... giúp nhanh chóng "ngấm kiến thức"</p>
+                    <img src="act.png" alt="Alternate Text" />
+                </div>
+            </div>
+            <div class="item item3">
+                <div class="itemitem">
+                    <img class="icon" src="icon-student.png" alt="Alternate Text" />
+                    <h3>Online/offline</h3>
+                    <p>Linh hoạt chuyển đổi giữa việchọc offline trực tiếp tại trung tâm và học online tại nhà.</p>
+                    <img src="student.png" alt="Alternate Text" />
+                </div>
+            </div>
+            <div class="item item4">
+                <div class="itemitem">
+                    <img class="icon" src="icon-medal.png" alt="Alternate Text" />
+                    <h3>Cam kết đầu ra</h3>
+                    <p>Nếu sau khóa học bạn vẫn không đạt được target thì sẽ được học lại 100% miễn phí. </p>
+                    <img src="medal.png" alt="Alternate Text" />
+                </div>
+            </div>
+            <div class="item item5">
+                <div class="itemitem">
+                    <img class="icon" src="icon-time.png" alt="Alternate Text" />
+                    <h3>89k/h</h3>
+                    <p>Học phí rẻ nhất hệ mặt trời chỉ từ 89k/h là đã có thể học IELTS/TOEIC chất lượng cao</p>
+                    <img src="time.png" alt="Alternate Text" />
+                </div>
+            </div>
+            <div class="secret">
+                <h2>Bật mí nè !!!</h2>
+                <p>ĐÂY CHÍNH LÀ LỘ TRÌNH MÀ IELTS FIGHTER ĐÃ ÁP DỤNG ĐỂ GIÚP HÀNG NGHÌN BẠN HỌC VIÊN XUẤT SẮC VƯỢT VŨ MÔN THÀNH CÔNG TRONG SUỐT 6 NĂM QUA.
+</p>
+                <img src="gthieu.jpg.png" alt="Alternate Text" />
+            </div>
+        </section>
+        <!---------------------------------------------------- KHÓA HỌC ------------------------------------------------>
+        <div id="khoahoc" class="title">
+            <h1>Khóa học</h1>
+        </div>
+        <section class="khoahoc">
+            <div class="frame frame1">
+                <img src="course1.png" alt="Alternate Text" />
+                <h1>TOEIC 4 kĩ năng</h1>
+                <p>Học từ con số 0 lộ trình tinh gọn</p>
+                <a href="#sub">Đăng ký</a>
+            </div>
+            <div class="frame frame2">
+                <img src="course2.png" alt="Alternate Text" />
+                <h1>IELTS 4.5-5.5</h1>
+                <p>Toàn diện 4 kỹ năng trên 5.0</p>
+                <a href="#sub">Đăng ký</a>
+            </div>
+            <div class="frame frame3">
+                <img src="course3.png" alt="Alternate Text" />
+                <h1>IELTS 5.5-7.0</h1>
+                <p>Đột phá 1 band trong 3 tháng</p>
+                <a href="#sub">Đăng ký</a>
+            </div>
+            <div class="frame frame4">
+                <img src="course4.png" alt="Alternate Text" />
+                <h1>IELTS 5.5-7.0</h1>
+                <p>Đột phá 1 band trong 3 tháng</p>
+                <a href="#sub">Đăng ký</a>
+            </div>
+            <!-------- FORM ĐKI --------->
+            <div id="sub" class="subcri">
+                <div class="form">
+                    <input id="name" type="text" name="name" placeholder="Họ và tên" /> <br />
+                    <input id="tel" type="text" name="tel" placeholder="Số điện thoại" /> <br />
+                    <input id="email" type="text" name="email" placeholder="Email" /> <br />
+                    <input id="you" type="text" name="you" placeholder="Bạn là" /> <br />
+                </div>
+                <div class="txtform">
+                    <h1>Tham gia khóa học TẠI ĐÂY</h1> <br />
+                    <h2> <b>ĐĂNG KÝ </b>NGAY TRONG HÔM NAY ĐỂ ĐƯỢC ƯU ĐÃI HỌC THỬ FREE 5 BUỔI</h2>
+                    <form class="dangky" action="/search" method="GET">
+                        <button type="button" onclick="submitForm()">Đăng ký</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+        <!---------------------------------- ĐỘI NGŨ ----------------------------------->
+        <div id="doingu" class="title">
+            <h1>Đội ngũ</h1>
+        </div>
+        <section class="doingu">
+            <div class="doingu_heading">
+                <h2>300+ GIÁO VIÊN XUẤT SẮC Giàu nhiệt huyết và kinh nghiệm sẵn sàng cùng bạn chinh phục đỉnh IELTS/TOEIC</h2>
+            </div>
+            <div class=" part part1">
+                <div class="radius teacher1"></div>
+                <p><b>Mr. Nam - 8.0 IELTS </b> - Tốt nghiệp: Loại giỏi Học viện Ngoại Giao 8.0 IELTS Speaking - Ngôn ngữ: Tiếng Anh và tiếng Hàn Quốc - Nguyên Phó Chủ tịch Hội Sinh viên Học viện Ngoại giao </p>
+            </div>
+            <div class=" part part2">
+                <div class="radius teacher2"></div>
+                <p><b>Ms. Thương - 8.0 IELTS- IELTS 8.0 overall </b>- Từng đạt 70% học bổng THPT Hoa Kỳ IDC - Giải Đồng cuộc thi Hùng biện Tiếng Anh TP Hà Nội  Tham gia các chương trình: AIESEC, IM Venture, VietAbroader, VYMUN </p>
+            </div>
+            <div class="last_doingu">
+                <h3>Đảm bảo chất lượng, truyền đạt kiến thức cho từng học viên </h3>
+                <img style="width: 960px; margin-top: 15px;" src="teachers.png" alt="Alternate Text" />
+            </div>
+        </section>
+        <!-------------------------------------- ĐÁNH GIÁ ----------------------------------------->
+        <div id="danhgia" class="title">
+            <h1>Đánh giá</h1>
+        </div>
+        <section class="danhgia">
+            <h1><i>HỌC VIÊN NÓI GÌ VỀ MASTER ?</i></h1>
+            <div class="comment">
+                <div class="square student1"></div>
+                <p><i>"Giáo trình rất hay, phù hợp để có thể sử dụng vào  công việc và học tập... Giáo viên tâm lý, khi chịu khó lắng nghe mọi học viên, giúp học viên khắc phục những nhược điểm hay mắc phải trong cách học tiếng Anh. Tôi cảm nhận mỗi thành viên trong lớp đều có sự thay đổi rõ rệt... Sau 6 tháng cùng khóa học của MASTER, tôi cảm thấy tự tin hơn nhiều với khả năng giao tiếp tiếng Anh của mình.<br /> Và nếu có cơ hội, tôi sẽ dành thời gian để trải nghiệm thêm lần nữa với cách học này". <br />–Bạn Hoàn Mỹ– sinh viên Đại học HUFLIT.</i></p>
+            </div>
+            <div class="comment">
+                <div class="square student2"></div>
+                <p><i>"Là một kỹ sư công nghệ thông tin, suốt ngày làm việc trong văn phòng với máy tính, ít được giao tiếp. Vì vậy, khả năng nói tiếng Anh của mình rất yếu. Nhưng qua lớp học giao tiếp này và cộng thêm vốn từ vựng tiếng Anh của ngành công nghệ thông tin khi đọc tài liệu mình thể tự tin giao tiếp với mọi người. Phương pháp học dễ hiểu và hiểu quả. Bạn cũng có thể “bắt chước” phương pháp học này để học các ngoại ngữ khác".<br /> – Qúy Khoa – kỹ sư Công nghệ thông tin.</i></p>
+            </div>
+        </section>
+        <!------------------------------------------ FOOTER -------------------------------------->
+        <div class="footer">
+            <div class="information">
+                <h1 class="heading">TOEIC / IELTS MASTER DA NANG</h1>
+                <div class="contact">
+                    <pre><i>Address:    30 Cao Thang Hai Chau, TP Da Nang <br />Tel:             0925910564 <br />Website:    www.masterdanang.com <br />Email:        lnyenhuwynee@gmail.com</i></pre>
+                    <div class="img_contact">
+                        <img src="fb.jpg" alt="Alternate Text" />
+                        <img src="ins.jpg" alt="Alternate Text" />
+                        <img src="phone.jpg" alt="Alternate Text" />
+                        <img src="email.jpg" alt="Alternate Text" />
+                    </div>
+                </div>
+            </div>
+            <div class="receive">
+                <h3>Đăng ký nhận tin</h3>
+                <input type="text" name="name" placeholder="Họ và tên" />
+                <input type="text" name="email" placeholder="Email" />
+                <button type="submit">Gửi</button>
+            </div>
+        </div>
+    </main>
+</body>
+</html>

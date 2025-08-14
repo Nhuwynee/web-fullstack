@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<style>
+    * {
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+    }
+
+    header {
+        display: flex;
+        height: 90px;
+        align-items: center;
+        padding: 10px;
+        background-color: rgb(101, 101, 100);
+        border: 2px solid #fff;
+    }
+
+    .logo {
+        width: 80px;
+        height: 80px;
+        margin-left: 30px;
+        border-radius: 50%;
+        object-fit: cover;
+    }
+
+    nav {
+        flex: 1;
+    }
+
+    nav ul {
+        display: flex;
+        list-style: none;
+        justify-content: right;
+        margin-right: 50px;
+    }
+
+    nav ul li {
+        padding: 10px 50px;
+        font-size: 1.4rem;
+        font-weight: 500;
+        color: #fff;
+    }
+
+    .container {
+        display: flex;
+    }
+
+    .sidebar {
+        width: 320px;
+        background-color: brown;
+        height: 900px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-between;
+        padding-bottom: 20px;
+        border: 2px solid #fff;
+    }
+
+    .sidebar .box {
+        width: 260px;
+        height: 170px;
+        background-color: rgb(166, 166, 170);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .sidebar :nth-child(1) {
+        border-radius: 10px;
+        margin-top: 10px;
+    }
+
+    .content {
+        display: flex;
+        flex: 1;
+        flex-direction: column;
+    }
+
+    .content .title {
+        width: 100%;
+        height: 50px;
+        background-color: brown;
+        border: 2px solid #fff;
+
+    }
+
+    .content .title ul {
+        height: 100%;
+        list-style: none;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0 100px
+    }
+
+    .content .title ul li {
+        padding: 10px 20px;
+        text-transform: uppercase;
+        color: #fff;
+    }
+
+    .content-box {
+        padding: 20px;
+        background-color: #e5e5ea;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        align-content: flex-start;
+    }
+
+    .content-box .box-description {
+        width: calc(25% - 7.5px);
+        height: calc((850px - 40px) / 3 - 6.67px);
+        margin-bottom: 10px;
+        background-color: #fff;
+        border: 1px solid #ccc;
+        box-sizing: border-box;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        padding: 10px;
+        color: #333;
+    }
+</style>
+
+<body>
+    <header>
+        <img class="logo"
+            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRIaMXhE3XHAA6sZzv3Y_2IK8zz38IotvzIlIGPnH54xdrkfYRMDTa7syjCr-NWUua7m9s&usqp=CAU"
+            alt="Logo">
+        <nav>
+            <ul>
+                <li>Header link one</li>
+                <li>Header link two</li>
+                <li>Header link three</li>
+                <li>Header link four</li>
+            </ul>
+        </nav>
+    </header>
+    <div class="container">
+        <div class="sidebar">
+            <div class="box">
+                <p>Placehoder for image</p>
+            </div>
+            <div class="box">
+                <p>box1</p>
+            </div>
+            <div class="box">
+                <p>box2</p>
+            </div>
+            <div class="box">
+                <p>box3</p>
+            </div>
+        </div>
+        <div class="content">
+            <div class="title">
+                <ul>
+                    <li>Latest articled</li>
+                    <li>Most viewd</li>
+                    <li>Features</li>
+                </ul>
+            </div>
+            <div class="content-box">
+                <div class="box-description">
+
+                </div>
+                <div class="box-description">
+
+                </div>
+                <div class="box-description">
+
+                </div>
+                <div class="box-description">
+
+                </div>
+                <div class="box-description">
+
+                </div>
+                <div class="box-description">
+
+                </div>
+                <div class="box-description">
+
+                </div>
+                <div class="box-description">
+
+                </div>
+                <div class="box-description">
+
+                </div>
+                <div class="box-description">
+
+                </div>
+                <div class="box-description">
+
+                </div>
+                <div class="box-description">
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>

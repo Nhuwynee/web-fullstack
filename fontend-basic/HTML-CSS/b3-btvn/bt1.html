@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin-top: 10px;
+        }
+
+        .header,
+        ul {
+            display: flex;
+        }
+
+        .header {
+            justify-content: space-between;
+        }
+
+        img {
+            width: 150px;
+            height: 150px;
+        }
+
+        ul {
+            list-style-type: none;
+            gap: 10px;
+        }
+
+        a {
+            text-decoration: none;
+            font-weight: 500;
+            margin: 0px 20px;
+            color: gray;
+        }
+
+        li {
+            display: flex;
+            border-radius: 10px;
+            text-align: center;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .content {
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            margin-top: 10%;
+        }
+
+        .text_content {
+            font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+            color: palevioletred;
+            font-size: 4vw;
+            margin: 15px 0px;
+        }
+
+        input {
+            width: 30vw;
+            height: 4vh;
+            border-radius: 20px;
+            border: 1px solid grey;
+            padding: 0px 15px;
+            box-sizing: border-box;
+        }
+
+        button {
+            padding: 7px;
+            border-radius: 5px;
+            border: none;
+            margin-top: 20px;
+        }
+
+        .container {
+            padding: 0px 15px;
+        }
+
+        button:hover {
+            cursor: pointer;
+            background-color: rgb(255, 235, 238);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="header_left">
+                <ul>
+                    <li><a href="#">About</a></li>
+                    <li><a href="#">Store</a></li>
+                    <li><a href="#">About</a></li>
+                    <li><a href="#">Store</a></li>
+                    <li><a href="#">About</a></li>
+                    <li><a href="#">Store</a></li>
+                    <li><a href="#">About</a></li>
+                    <li><a href="#">Store</a></li>
+                </ul>
+            </div>
+            <div class="header_right">
+                <ul>
+                    <li><a href="">Profile</a></li>
+                    <li><a href="">Settings</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="content">
+            <img src="https://timbaby.net/wp-content/uploads/2022/11/anh-avatar-dep-cho-con-gai.jpg" alt="LOGO">
+            <h1 class="text_content">THE ODIN PROJECT</h1>
+            <input type="text" name="search" id="search" placeholder="Nhập thông tin">
+            <div class="button_content">
+                <button>Do the thing!</button>
+                <button>Do the orther thing!</button>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

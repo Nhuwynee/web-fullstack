@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Follow Pets</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+
+        }
+
+        body {
+            background-color: aliceblue;
+            padding: 20px;
+        }
+
+        .user-list {
+            display: flex;
+            flex-direction: column;
+            width: 500px;
+        }
+
+        .user {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background-color: white;
+            box-shadow: 20px 20px 50px grey;
+            padding: 10px 20px;
+            border-radius: 10px;
+            margin-bottom: 10px;
+        }
+
+        .user-info {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .user img {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+
+        .details {
+            display: flex;
+            flex-direction: column;
+            gap: 3px;
+        }
+
+        .details .name {
+            font-weight: bold;
+            font-size: 18px;
+        }
+
+        .details .desc,
+        .details .tag {
+            color: gray;
+        }
+
+        .follow-btn {
+            padding: 8px 16px;
+            background-color: #4a90e2;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        .follow-btn:hover {
+            background-color: #357bd8;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="user-list">
+        <div class="user">
+            <div class="user-info">
+                <img src="https://timbaby.net/wp-content/uploads/2022/11/anh-avatar-dep-cho-con-gai.jpg" alt="oliver">
+                <div class="details">
+                    <div class="name">oliver</div>
+                    <div class="desc">the cat</div>
+                    <div class="tag">Popular</div>
+                </div>
+            </div>
+            <button class="follow-btn">Follow</button>
+        </div>
+
+        <div class="user">
+            <div class="user-info">
+                <img src="https://timbaby.net/wp-content/uploads/2022/11/anh-avatar-dep-cho-con-gai.jpg" alt="mimi">
+                <div class="details">
+                    <div class="name">Mimi</div>
+                    <div class="desc">Sleepy Cat</div>
+                    <div class="tag">Popular</div>
+                </div>
+            </div>
+            <button class="follow-btn">Follow</button>
+        </div>
+
+        <div class="user">
+            <div class="user-info">
+                <img src="https://timbaby.net/wp-content/uploads/2022/11/anh-avatar-dep-cho-con-gai.jpg" alt="rex">
+                <div class="details">
+                    <div class="name">Rex</div>
+                    <div class="desc">Happy Bulldog</div>
+                    <div class="tag">Popular</div>
+                </div>
+            </div>
+            <button class="follow-btn">Follow</button>
+        </div>
+    </div>
+
+</body>
+
+</html>

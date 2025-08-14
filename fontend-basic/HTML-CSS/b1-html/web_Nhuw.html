@@ -1,0 +1,537 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EGA Food - Trang Chủ</title>
+    <style>
+        /* Reset và font chung */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            color: #333;
+        }
+        
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+        
+        header {
+            background: white;
+            padding: 10px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid #ddd;
+        }
+        
+        .logo-container {
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo {
+            height: 40px;
+        }
+        
+        .brand-name {
+            margin: 0 10px;
+            color: red;
+        }
+        
+        nav a {
+            margin: 0 10px;
+        }
+        
+        /* Hero Banner */
+        .hero {
+            background: #4a2c2a;
+            color: white;
+            text-align: center;
+            padding: 30px 0;
+        }
+        
+        .hero img {
+            width: 300px;
+            margin: 10px 0;
+        }
+        
+        .cta-button {
+            background: red;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            margin: 10px 0;
+            cursor: pointer;
+        }
+        
+        /* Menu Categories */
+        .menu-section {
+            padding: 20px;
+            text-align: center;
+        }
+        
+        .menu-grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 20px;
+        }
+        
+        .menu-item {
+            width: 150px;
+        }
+        
+        .menu-item img {
+            width: 100px;
+        }
+        
+        /* Promotions */
+        .promo-section {
+            padding: 20px;
+            text-align: center;
+        }
+        
+        .promo-grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 20px;
+        }
+        
+        .promo-item {
+            width: 200px;
+        }
+        
+        .promo-item img {
+            width: 100px;
+        }
+        
+        .price {
+            color: red;
+        }
+        
+        .order-button {
+            background: orange;
+            color: white;
+            border: none;
+            padding: 5px 10px;
+            cursor: pointer;
+        }
+        
+        /* Combos */
+        .combo-section {
+            padding: 20px;
+            text-align: center;
+        }
+        
+        .combo-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 20px;
+            margin-top: 20px;
+        }
+        
+        .combo-container img {
+            width: 100px;
+        }
+        
+        .quantity-input {
+            width: 50px;
+        }
+        
+        /* Gợi ý cho bạn */
+        .suggestion-section {
+            padding: 20px;
+            background: #f9f9f9;
+        }
+        
+        .suggestion-header {
+            font-size: 24px;
+            margin-bottom: 15px;
+        }
+        
+        .suggestion-subheader {
+            font-size: 18px;
+            margin: 15px 0;
+        }
+        
+        .suggestion-item {
+            margin: 10px 0;
+            padding: 10px;
+            background: white;
+            border-radius: 5px;
+        }
+        
+        .stars {
+            color: gold;
+            font-size: 18px;
+        }
+        
+        .see-all {
+            text-align: right;
+            margin-top: 15px;
+            color: red;
+        }
+        
+        /* Nhà cung cấp uy tín */
+        .provider-section {
+            padding: 20px;
+            margin-top: 20px;
+        }
+        
+        .promo-news {
+            background: white;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        
+        .promo-details {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 10px;
+            color: #666;
+        }
+        
+        /* Footer */
+        footer {
+            background: white;
+            padding: 20px;
+            border-top: 1px solid #ddd;
+            text-align: center;
+        }
+        
+        .footer-content {
+            display: flex;
+            justify-content: center;
+            gap: 50px;
+            margin: 20px 0;
+        }
+        
+        .footer-column ul {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .newsletter-input {
+            padding: 5px;
+        }
+        
+        .subscribe-button {
+            background: red;
+            color: white;
+            border: none;
+            padding: 5px 10px;
+            cursor: pointer;
+        }
+        
+        .social-links a {
+            color: black;
+            margin: 0 5px;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <header>
+        <div class="logo-container">
+            <img src="https://bizweb.dktcdn.net/thumb/large/100/559/903/products/product-image-1-e343dbd4-2dae-4dc3-99da-a9b388809ab3.jpg?v=1742360900393" alt="EGA Food Logo" class="logo">
+            <h1 class="brand-name">EGA FOOD</h1>
+        </div>
+        <nav>
+            <a href="#">Đặt hàng nhanh</a>
+            <a href="#">Menu</a>
+            <a href="#">Khuyến mãi</a>
+            <a href="#">Đặt bàn</a>
+            <a href="#">Tin tức</a>
+            <a href="#">Giỏ hàng</a>
+        </nav>
+    </header>
+
+    <!-- Hero Banner -->
+    <section class="hero">
+        <h2>PIZZA ĐẶC BIỆT HÔM NAY</h2>
+        <p>Giá sốc: 50% Off</p>
+        <img src="https://bizweb.dktcdn.net/thumb/large/100/559/903/products/product-image-1-e343dbd4-2dae-4dc3-99da-a9b388809ab3.jpg?v=1742360900393" alt="Pizza">
+        <button class="cta-button">Đặt ngay</button>
+    </section>
+
+    <!-- Menu Categories -->
+    <section class="menu-section">
+        <h2>Lựa chọn thực đơn</h2>
+        <div class="menu-grid">
+            <div class="menu-item">
+                <img src="https://bizweb.dktcdn.net/thumb/large/100/559/903/products/product-image-1-e343dbd4-2dae-4dc3-99da-a9b388809ab3.jpg?v=1742360900393" alt="Gà Rán">
+                <p>Gà Rán</p>
+            </div>
+            <div class="menu-item">
+                <img src="https://bizweb.dktcdn.net/thumb/large/100/559/903/products/product-image-1-e343dbd4-2dae-4dc3-99da-a9b388809ab3.jpg?v=1742360900393" alt="Mì Ý">
+                <p>Mì Ý</p>
+            </div>
+            <div class="menu-item">
+                <img src="https://bizweb.dktcdn.net/thumb/large/100/559/903/products/product-image-1-e343dbd4-2dae-4dc3-99da-a9b388809ab3.jpg?v=1742360900393" alt="Pizza">
+                <p>Pizza</p>
+            </div>
+            <div class="menu-item">
+                <img src="https://bizweb.dktcdn.net/thumb/large/100/559/903/products/product-image-1-e343dbd4-2dae-4dc3-99da-a9b388809ab3.jpg?v=1742360900393" alt="Cơm">
+                <p>Cơm</p>
+            </div>
+            <div class="menu-item">
+                <img src="https://bizweb.dktcdn.net/thumb/large/100/559/903/products/product-image-1-e343dbd4-2dae-4dc3-99da-a9b388809ab3.jpg?v=1742360900393" alt="Salad">
+                <p>Salad</p>
+            </div>
+            <div class="menu-item">
+                <img src="https://bizweb.dktcdn.net/thumb/large/100/559/903/products/product-image-1-e343dbd4-2dae-4dc3-99da-a9b388809ab3.jpg?v=1742360900393" alt="Bánh">
+                <p>Bánh</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Promotions -->
+    <section class="promo-section">
+        <h2>Khuyến mãi Online</h2>
+        <div class="promo-grid">
+            <div class="promo-item">
+                <img src="https://bizweb.dktcdn.net/thumb/large/100/559/903/products/product-image-1-e343dbd4-2dae-4dc3-99da-a9b388809ab3.jpg?v=1742360900393" alt="Gà Rán">
+                <p>Gà Rán (4 Miếng)</p>
+                <p class="price">129,000₫</p>
+                <button class="order-button">Tùy chọn</button>
+            </div>
+            <div class="promo-item">
+                <img src="https://bizweb.dktcdn.net/thumb/large/100/559/903/products/product-image-1-e343dbd4-2dae-4dc3-99da-a9b388809ab3.jpg?v=1742360900393" alt="Burger Zinger">
+                <p>Burger Zinger (1 Phần)</p>
+                <p class="price">51,000₫</p>
+                <button class="order-button">Đặt ngay</button>
+            </div>
+            <div class="promo-item">
+                <img src="https://bizweb.dktcdn.net/thumb/large/100/559/903/products/product-image-1-e343dbd4-2dae-4dc3-99da-a9b388809ab3.jpg?v=1742360900393" alt="Burger Flava">
+                <p>Burger Gà Quay Flava (1 Phần)</p>
+                <p class="price">47,000₫</p>
+                <button class="order-button">Đặt ngay</button>
+            </div>
+        </div>
+    </section>
+
+      <section class="promo-section">
+        <img src="https://bizweb.dktcdn.net/100/559/903/themes/1004156/assets/banner_image.jpg?1747748934258" alt="">
+     </section>
+
+
+    <!-- Gợi ý cho bạn -->
+    <section class="suggestion-section">
+        <h2 class="suggestion-header">Gợi ý cho bạn</h2>
+        
+        <h3 class="suggestion-subheader">Gà rán</h3>
+        <h3 class="suggestion-subheader">Burger</h3>
+        <h3 class="suggestion-subheader">Pizza</h3>
+        
+        <hr>
+        
+        <div class="suggestion-item">
+            <p><strong>Gà Rán (4 Miếng)</strong></p>
+            <div class="stars">★★★★★</div>
+            <p class="price">129.000đ</p>
+        </div>
+        
+        <div class="suggestion-item">
+            <p><strong>Gà Rán (2 Miếng)</strong></p>
+            <div class="stars">☆☆☆☆☆</div>
+            <p class="price">69.000đ</p>
+        </div>
+        
+        <div class="suggestion-item">
+            <p><strong>Gà Rán (6 Miếng)</strong></p>
+            <div class="stars">☆☆☆☆☆</div>
+            <p class="price">159.000đ</p>
+        </div>
+        
+        <div class="suggestion-item">
+            <p><strong>Gà Rán (9 Miếng)</strong></p>
+            <div class="stars">☆☆☆☆☆</div>
+            <p class="price">239.000đ</p>
+        </div>
+        
+        <div class="suggestion-item">
+            <p><strong>Combo C (1 người) (1 miếng gà + 1 pizza hải sản S + 1 phần khoai tây chiên lớn + 1 chai coca 390ml)</strong></p>
+            <div class="stars">☆☆☆☆☆</div>
+            <p class="price">159.000đ</p>
+            <img src="https://bizweb.dktcdn.net/thumb/large/100/559/903/products/product-image-1-e343dbd4-2dae-4dc3-99da-a9b388809ab3.jpg?v=1742360900393" alt="Combo C" style="width: 200px; margin-top: 10px;">
+        </div>
+        
+        <div class="suggestion-item">
+            <p><strong>Combo A (2 người) (4 Miếng Gà Rán + 1 Phần Khoai Tây Lớn + 2 Coca)</strong></p>
+            <div class="stars">☆☆☆☆☆</div>
+            <p class="price">159.000đ</p>
+        </div>
+        
+        <div class="suggestion-item">
+            <p><strong>Combo H (1 Người)(1 Miếng Gà + Mì Ý Truyền Thống + Coca Cola)</strong></p>
+            <div class="stars">☆☆☆☆☆</div>
+            <p class="price">159.000đ</p>
+        </div>
+        
+        <div class="see-all">
+            <a href="#">Xem tất cả ></a>
+        </div>
+    </section>
+
+    <!-- Nhà cung cấp uy tín -->
+    <section class="provider-section">
+        <h2>Nhà cung cấp uy tín</h2>
+        
+        <h3>Bảng tin khuyến mãi</h3>
+        
+        <div class="promo-news">
+            <p><strong>Ngày kèm đó ăn vật: Giảm giá đặc biệt cho các món chính giao</strong></p>
+            <p>Bạn là fan của đồ chính giao truyền thống? "Vay thị trường vài ngày cho bàn đây" Chương trình công từ chức ngày hầu.</p>
+            <div class="promo-details">
+                <span>Số xe/2023</span>
+                <a href="#">Xem chi tiết</a>
+            </div>
+        </div>
+        
+        <div class="promo-news">
+            <p><strong>Thứ 2: Cây nhạc lương, tối đa đặc biệt cho bán sáng thanh gọn</strong></p>
+            <p>Thứ 2 bạn là ngày thứ thách nhất trong bản. Sau ngày cuối tuần thứ giới, việc quay lại giằng quay cùng việc thiếu.</p>
+            <div class="promo-details">
+                <span>Số xe/2023</span>
+                <a href="#">Xem chi tiết</a>
+            </div>
+        </div>
+        
+        <div class="promo-news">
+            <p><strong>Thực trạng lên chức thuyền nêu combo pizza và nước ngự sâu trợi tiện</strong></p>
+            <p>Bạn đang tìm kiếm một bữa ăn ngon kinh tế cùng bạn bè quây quần? Đừng bỏ lỡ khuyến mãi hấp dẫn này...</p>
+            <div class="promo-details">
+                <span>Số xe/2023</span>
+                <a href="#">Xem chi tiết</a>
+            </div>
+        </div>
+        
+        <div class="promo-news">
+            <p><strong>Đơn số: Việc GBT; Thường Thúc M Y Nghi Hà Văn</strong></p>
+            <p>Bạn là fan của mì Ý và bạn tìm kiếm những món đặt biệt? "Vay thị đây chính tích vuỳi chính cho bán".</p>
+            <div class="promo-details">
+                <span>Số xe/2023</span>
+                <a href="#">Xem chi tiết</a>
+            </div>
+        </div>
+        
+        <div class="see-all">
+            <a href="#">Xem tất cả ></a>
+        </div>
+    </section>
+
+    <!-- Combos -->
+    <section class="combo-section">
+        <h2>Combo C (1 người)</h2>
+        <div class="combo-container">
+            <img src="https://bizweb.dktcdn.net/thumb/large/100/559/903/products/product-image-1-e343dbd4-2dae-4dc3-99da-a9b388809ab3.jpg?v=1742360900393" alt="Combo Pizza">
+            <div>
+                <p>(1 miếng gà + 1 pizza hải sản S + 1 phần khoai tây chiên lớn + 1 chai coca 390ml)</p>
+                <p class="price">159,000₫</p>
+                <input type="number" value="1" min="1" class="quantity-input">
+                <button class="order-button">Đặt ngay</button>
+            </div>
+        </div>
+    </section>
+
+     <section class="provider-section">
+        <h2>Nhà cung cấp uy tín</h2>
+        
+        <h3>Bảng tin khuyến mãi</h3>
+        
+        <div class="promo-news">
+            <p><strong>Ngày kèm đó ăn vật: Giảm giá đặc biệt cho các món chính giao</strong></p>
+            <p>Bạn là fan của đồ chính giao truyền thống? "Vay thị trường vài ngày cho bàn đây" Chương trình công từ chức ngày hầu.</p>
+            <div class="promo-details">
+                <span>Số xe/2023</span>
+                <a href="#">Xem chi tiết</a>
+            </div>
+        </div>
+        
+        <div class="promo-news">
+            <p><strong>Thứ 2: Cây nhạc lương, tối đa đặc biệt cho bán sáng thanh gọn</strong></p>
+            <p>Thứ 2 bạn là ngày thứ thách nhất trong bản. Sau ngày cuối tuần thứ giới, việc quay lại giằng quay cùng việc thiếu.</p>
+            <div class="promo-details">
+                <span>Số xe/2023</span>
+                <a href="#">Xem chi tiết</a>
+            </div>
+        </div>
+        
+        <div class="promo-news">
+            <p><strong>Thực trạng lên chức thuyền nêu combo pizza và nước ngự sâu trợi tiện</strong></p>
+            <p>Bạn đang tìm kiếm một bữa ăn ngon kinh tế cùng bạn bè quây quần? Đừng bỏ lỡ khuyến mãi hấp dẫn này...</p>
+            <div class="promo-details">
+                <span>Số xe/2023</span>
+                <a href="#">Xem chi tiết</a>
+            </div>
+        </div>
+        
+        <div class="promo-news">
+            <p><strong>Đơn số: Việc GBT; Thường Thúc M Y Nghi Hà Văn</strong></p>
+            <p>Bạn là fan của mì Ý và bạn tìm kiếm những món đặt biệt? "Vay thị đây chính tích vuỳi chính cho bán".</p>
+            <div class="promo-details">
+                <span>Số xe/2023</span>
+                <a href="#">Xem chi tiết</a>
+            </div>
+        </div>
+        
+        <div class="see-all">
+            <a href="#">Xem tất cả ></a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div>
+            <img src="https://bizweb.dktcdn.net/thumb/large/100/559/903/products/product-image-1-e343dbd4-2dae-4dc3-99da-a9b388809ab3.jpg?v=1742360900393" alt="EGA Food Logo" class="logo">
+            <p>EGA Food</p>
+            <p>Chú ý: Chúng tôi đang đổi nhãn vỏ túi, hãy kiểm tra thông tin đơn hàng, ngày hết hạn trước khi dùng.</p>
+        </div>
+        
+        <div class="footer-content">
+            <div class="footer-column">
+                <h3>Hỗ trợ khách hàng</h3>
+                <ul>
+                    <li>Câu hỏi thường gặp</li>
+                    <li>Thời gian giao hàng</li>
+                    <li>Điều khoản</li>
+                    <li>Giới thiệu</li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3>Chính sách</h3>
+                <ul>
+                    <li>Chính sách đổi trả</li>
+                    <li>Chính sách bảo mật</li>
+                </ul>
+            </div>
+        </div>
+        
+        <div>
+            <h3>Đánh giá nhận thưởng</h3>
+            <p>Bạn muốn nhận khoản thưởng từ 68,000₫ khi tham gia ngay công đồng trên ứng dụng này?</p>
+            <input type="email" placeholder="Email của bạn..." class="newsletter-input">
+            <button class="subscribe-button">Đăng ký</button>
+        </div>
+        
+        <p>Hotline: 19006750 | Email: support@sapo.vn</p>
+        <p class="social-links">Mạng xã hội: 
+            <a href="#">Facebook</a> | 
+            <a href="#">YouTube</a> | 
+            <a href="#">TikTok</a> | 
+            <a href="#">Instagram</a>
+        </p>
+    </footer>
+
+</body>
+</html>

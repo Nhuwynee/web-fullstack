@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BT1 - Trang cá nhân của Như</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        #container,
+        #container .section {
+            display: flex;
+            justify-content: center;
+            text-align: center;
+        }
+
+        #container {
+            margin: 100px 0px;
+        }
+
+        #container .section {
+            flex-direction: column;
+            height: 400px;
+            width: 500px;
+            margin: 20px;
+            padding: 40px;
+            background-color: rgb(255, 237, 240);
+        }
+
+        .title h2 {
+            color: brown;
+            margin: 15px 0;
+        }
+
+        #container img {
+            width: 10vw;
+            height: 20vh;
+            border-radius: 50% 50% 0 0;
+            border-style: dashed;
+            border-color: rgb(255, 99, 146);
+            object-fit: cover; /* rõ ảnh hơn */
+            background-position: center;
+        }
+
+        #container .section:hover {
+            background-color: rgb(234, 250, 255);
+        }
+
+        #container img:hover {
+            border-color: rgb(161, 99, 255);
+            cursor: pointer;
+        }
+
+        .content em {
+            color: blueviolet;
+        }
+
+        .content a {
+            text-decoration: none;
+            color: red;
+            font-weight: 600;
+        }
+
+        .content p {
+            margin: 10px;
+            /* text-transform: uppercase; */
+        }
+    </style>
+</head>
+
+<body>
+    <div id="container">
+        <div class="section">
+            <div class="title">
+                <h1>Chào mừng đến với trang của Như !</h1>
+                <h2>Lưu Ngọc Yến Như</h2>
+                <img src="https://timbaby.net/wp-content/uploads/2022/11/anh-avatar-dep-cho-con-gai.jpg"
+                    alt="Ảnh đại diện">
+            </div>
+            <div class="content">
+                <p>Mình đang học ở <strong>Techzen</strong>, nơi đã cho mình rất nhiều cơ hội để phát triển bản thân.
+                    Mình cực kỳ đam mê <em>lập trình Web</em> và luôn muốn học thêm những công nghệ mới</p>
+                <p>Để biết thêm thông tin, hãy truy cập <a href="https://www.facebook.com/nhuwynee"
+                        target="_blank">Google</a></p>
+            </div>
+        </div>
+
+    </div>
+</body>
+
+</html>

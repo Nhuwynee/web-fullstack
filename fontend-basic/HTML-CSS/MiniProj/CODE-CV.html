@@ -1,0 +1,276 @@
+﻿<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <link rel="icon" href="cv3.png" type="image/x-icon">
+    <title>MY CV</title>
+    <style>
+        *{
+            margin: 0 auto;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        html { background-image: url('background-main5.jpg');}
+        html, .avatar {
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+        /*  Hiệu ứng  */
+        .avatar, .radius, .head, .head h1 { transition: transform 0.5s ease;}
+        .radius:hover, .head:hover, .head:hover h1 { transform: scale(1.1);}
+        .avatar:hover { transform: scale(1.2);}
+        /*  Font chữ  */
+        .column1 h1, .column1 h2, .introduce p, .item1 p, .item2 p, .item2 ul li {
+            font-family: Constantia, sans-serif;
+        }
+        /*  Màu chữ  */
+        .column1 h1, .radius p, .item1 p, .item2 p, .item2 ul li {color: #293c42;} /* Màu xanh đen */
+
+        .main-content {
+            width: 960px;
+            display: flex;
+            background: #ebfbff;
+            height: 1425px;
+        }
+        .column1 {
+            width: 450px;
+            height: 100%;
+            background-color: #fff;
+        }
+        .column2 {
+            flex-grow: 1;
+            height: 100%;
+            background: #ffe5e0; /* màu hồng */
+        }
+        .frame-pink {
+            background: #ffe5e0;
+            width: 25%;
+            height: 250px;
+        }
+        .column1 h1, .column1 h2 {
+            position: relative;
+            font-weight: 900;
+            text-align: center;
+            bottom: 190px;
+        }
+        .column1 h1 {
+            animation: color 1.2s ease-in-out;
+            bottom: 190px;
+            font-size: 45px;
+            font-style: italic;
+        }
+        @keyframes color {
+            0% {
+                color: #293c42;
+            }
+            100% {
+                color: aliceblue;
+            }
+        }
+        .column1 h2 {
+            margin-top: 10px;
+            font-size: 30px;
+            color: #ab3c69; /* Màu hồng rượu */
+        }
+        .avatar {
+            width: 250px;
+            height: 250px;
+            border-radius: 50%;
+            background-image: url('ava.jpg');
+            border: 3px solid #293c42;
+            position: relative;
+            bottom: 150px;
+        }
+        .information {
+            position: relative;
+            bottom: 100px;
+            left: -150px;
+        }
+        .radius {
+            position: relative;
+            background: #ffe5e0;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            margin-bottom: 10px;
+        }
+        .radius img {  
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            position: absolute;
+        }
+        .radius p {
+            font-size: 22px;
+            font-family: Cambria, Cochin, Georgia, Times, Times New Roman, serif;
+            font-weight: 900;
+            position: absolute;
+            left: 70px;
+            top: 15px;
+        }
+        .information {margin-bottom: -80px;}
+        .introduce p {
+            width: 85%;
+            font-size: 25px;
+            border-top: 5px dashed #293c42;
+            padding-top: 20px;
+            line-height: 40px;
+            text-align: justify;
+            font-weight: 400;
+        }
+        /*      Khung tiêu đề    start */
+        .head {
+            margin-top: 35px;
+            position: relative;
+            text-align: center;
+            width: 80%;
+            height: 50px;
+            border-top-right-radius: 20px;
+            border-bottom-right-radius: 20px;
+            border: 1px solid #293c42;
+            border-left: 10px solid #293c42;
+            background: #fff;
+        }
+        .head h1 {
+            animation: text-indent 1.5s ease;
+            font-size: 28px;
+            font-weight: bold;
+            position: absolute;
+            bottom: 6px;
+            left: 15px;
+            color: #ab3c69;
+            font-style: inherit;
+        }
+        /*      Khung tiêu đề    end */
+        @keyframes text-indent {
+        0% {
+            text-indent: 0;
+        }
+        100% {
+            text-indent: 50px;
+        }
+        }
+        /*  Hiệu ứng START */
+        .head h1 {transition: all 0.7s ease-out;}
+        .head:hover h1 {
+            transform: translateX(70px);
+            font-size: calc(100% + 18px);
+            height: 25px;
+            line-height: 15px;
+        }
+        /* Hiệu ứng END */
+        /* ------------  Định dạng cho thẻ bao bọc các thẻ skill --------*/
+        .chart-layout {
+            width: 80%;
+            height: 16px;
+            border: 1px solid #ab3c69;
+            border-radius: 10px;
+            margin: 0 40px;
+        }
+        /* ------------- Định dạng chung cho thẻ hiển thị skill --------*/
+        .skills {
+            float: left;
+            width: var(--percent);
+            background: #ab3c69;
+            height: 14px;
+            border-radius: 10px;
+            animation: growth ease-in-out 1.5s;
+        }
+        .item1 p {
+            font-size: 20px;
+            margin: 25px 22px 22px 40px;
+            font-weight: bold;
+        }
+        @keyframes growth {
+            from {
+                opacity: 0; /* Độ trong suốt */
+                width: 0;
+            }
+            to {
+                opacity: 1;
+                width: var(--percent);
+            }
+        }
+        /*---------------------------------- COLUMN RIGHT ------------------------------*/
+        .item2 p, .item2 ul li {
+            width: 450px;
+            font-size: 20px;
+            text-align: justify;
+            font-weight: 500;
+            margin-top: 10px;
+            line-height: 35px;
+        }
+    </style>
+</head>
+<body>
+        <div class="main-content">
+            <div class="column column1">
+                <!-- Thành phần con của cột trái -->
+                    <div class="frame-pink"></div>
+                    <h1>Lưu Ngọc Yến Như</h1>
+                    <h2>DEVELOPER</h2>
+                    <div class="avatar"></div>
+                    <div class="information">
+                        <div class="radius">
+                            <img src="cv-phone.png" alt="Alternate Text" />
+                            <p>0925910564</p>
+                        </div>
+                        <div class="radius">
+                            <img src="cv-fb.png" alt="Alternate Text" />
+                            <p>fb.com.nhuwynee</p>
+                        </div>
+                        <div class="radius">
+                            <img style="width: 30px; height: 30px;" src="cv-gmail.png" alt="Alternate Text" />
+                            <p>lnyenhuwynee@gmail.com</p>
+                        </div>
+                        <div class="radius">
+                            <img src="cv-address.png" alt="Alternate Text" />
+                            <p style="width: 400px; ">Cù Chính Lan, Đà Nẵng</p>
+                        </div>
+                    </div>
+                    <div class="introduce">
+                        <p><i>Xin chào, tôi là Lưu Ngọc Yến Như, 19 tuổi. Tôi sinh ra và lớn lên tại thành phố Đà Nẵng.Hiện tại tôi đang theo học chuyên ngành Công nghệ thông tin, Trường Đại học Sư phạm Kỹ Thuật, Đà Nẵng.</i></p>
+                    </div>
+                    <div class="item item1">
+                        <div class="head"><h1>KHẢ NĂNG</h1></div>
+                        <p>HTML</p>
+                        <div class="chart-layout">
+                            <div class="skills html" style="--percent: 80%;"></div>
+                        </div>
+                        <p>CSS</p>
+                        <div class="chart-layout">
+                            <div class="skills c" style="--percent: 80%;"></div>
+                        </div>
+                        <p>PYTHON</p>
+                        <div class="chart-layout">
+                            <div class="skills python" style="--percent: 30%;"></div>
+                        </div>
+                    </div>
+            </div>
+            <div class="column column2">
+                <!-- Thành phần con 1 của cột phải -->
+                <div class="item item2">
+                    <div class="head"><h1>MỤC TIÊU</h1></div>
+                    <p>- Mong muốn được làm việc tại Công ty trong lĩnh vực Công nghệ thông tin để tích lũy thêm nhiều kinh nghiệm xử lý công việc hiệu quả, nhanh chóng. <br />- Trở thành một nhân viên IT chuyên nghiệp, mang đến nhiều sản phẩm tốt nhất cho khách hàng.</p>
+                </div>
+                <div class="item item2">
+                    <div class="head"><h1>HỌC VẤN</h1></div>
+                    <p><b>Đã từng học tại</b><br />Trường Trung học cơ sở Huỳnh Thúc Kháng <br />Trường Trung học phổ thông Thái Phiên, Đà Nẵng <b>Đang theo học tại</b><br />Trường Đại học Sư Phạm Kỹ Thuật - Đà Nẵng <br />Chuyên ngành : Công nghệ thông tin <br />Khoa : Công nghệ số <br />Lớp sinh hoạt : 22T1 <br />Mã sinh viên : 22115053122128 <br /></p>
+                    </div>
+                <div class="item item2">
+                    <div class="head"><h1>ƯU ĐIỂM</h1></div>
+                    <ul style="margin-left: 30px;">
+                        <li>Dễ hòa nhập với môi trường mới.</li>
+                        <li>Khả năng làm việc dưới áp lực cao.</li>
+                        <li>Có tinh thần làm việc trách nhiệm, chịu khó.</li>
+                        <li>Tin học văn phòng tốt.</li>
+                    </ul>
+                </div>
+                <div class="item item2">
+                    <div class="head"><h1>HOẠT ĐỘNG</h1></div>
+                    <p><b>Chiến dịch Mùa hè xanh <br />10/2020 - 5/2023 <br /></b>- Tham gia vào các hoạt động, sự kiện của câu lạc bộ.<br />- Vận động quyên góp, ủng hộ các trẻ em nghèo ở các tỉnh miền núi phía Bắc.<br /><b>Tham gia Hiến tóc cho những bệnh nhân ung thư<br />2/2020</b><br />
+                    </div>
+            </div>
+        </div>
+</body>
+</html>

@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <title>Demo Transition & Animation CSS</title>
+  <style>
+    body {
+      background: #0f172a;
+      color: white;
+      font-family: Arial, sans-serif;
+      text-align: center;
+      padding: 40px;
+    }
+
+    h1 {
+      font-size: 2.5rem;
+      margin-bottom: 30px;
+      animation: typing 4s steps(20) infinite alternate;
+      white-space: nowrap;
+      overflow: hidden;
+      border-right: 3px solid orange;
+      width: 20ch; /* số ký tự */
+    }
+
+    /* Hiệu ứng chữ gõ máy */
+    @keyframes typing {
+      from { width: 0; }
+      to   { width: 20ch; }
+    }
+
+    /* Transition demo */
+    .box {
+      width: 100px;
+      height: 100px;
+      background: tomato;
+      margin: 40px auto;
+      transition: all 0.5s ease;
+    }
+    .box:hover {
+      width: 150px;
+      height: 150px;
+      background: lime;
+      transform: rotate(45deg);
+    }
+
+    /* Animation demo */
+    .circle {
+      width: 80px;
+      height: 80px;
+      background: dodgerblue;
+      border-radius: 50%;
+      margin: 30px auto;
+      position: relative;
+      animation: move 3s infinite alternate ease-in-out;
+    }
+    @keyframes move {
+      0%   { left: 0; top: 0; background: dodgerblue; }
+      50%  { left: 200px; top: 50px; background: violet; }
+      100% { left: 0; top: 100px; background: tomato; }
+    }
+
+    /* Nút nhấp nháy */
+    .btn {
+      padding: 12px 24px;
+      background: linear-gradient(45deg, #f59e0b, #ef4444);
+      border: none;
+      color: white;
+      font-size: 18px;
+      cursor: pointer;
+      border-radius: 8px;
+      animation: pulse 1.5s infinite;
+    }
+    @keyframes pulse {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.1); }
+    }
+  </style>
+</head>
+<body>
+  <h1>Xin chào CSS Animation ✨</h1>
+
+  <div class="box"></div>
+  <p>👉 Di chuột vào ô vuông để thấy <b>transition</b></p>
+
+  <div class="circle"></div>
+  <p>👉 Quả bóng dùng <b>@keyframes animation</b></p>
+
+  <button class="btn">Nhấn vào tôi</button>
+</body>
+</html>

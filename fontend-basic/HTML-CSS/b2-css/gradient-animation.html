@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>CSS Gradients & Animations — Full Guide + Live Examples</title>
+  <style>
+        :root {
+        --bg: #0f172a; /* slate-900 */
+        --panel: #0b1224;
+        --card: #111827;
+        --muted: #9ca3af;
+        --fg: #e5e7eb;
+        --brand-1: #06b6d4; /* cyan-500 */
+        --brand-2: #8b5cf6; /* violet-500 */
+        --brand-3: #22c55e; /* green-500 */
+        --brand-4: #ef4444; /* red-500 */
+        }
+
+        * {
+        box-sizing: border-box;
+        }
+
+        html, body {
+        height: 100%;
+        }
+
+        body {
+        margin: 0;
+        font-family: system-ui, -apple-system, Segoe UI, Roboto, Inter, Ubuntu, Cantarell, 'Noto Sans', sans-serif;
+        color: var(--fg);
+        background: 
+            radial-gradient(1000px 600px at 10% -10%, rgba(139,92,246,.25), transparent 60%),
+            radial-gradient(800px 500px at 110% 10%, rgba(34,197,94,.2), transparent 60%),
+            linear-gradient(180deg, #0b1020, var(--bg));
+        }
+
+        h1 {
+        font-size: clamp(28px, 5vw, 44px);
+        margin: 24px 0 6px;
+        }
+
+        h2 {
+        font-size: clamp(20px, 3.2vw, 28px);
+        margin: 24px 0 10px;
+        }
+
+        p {
+        color: var(--muted);
+        }
+
+        .container {
+        max-width: 1100px;
+        margin: 0 auto;
+        padding: 24px;
+        }
+
+        .grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+        gap: 16px;
+        }
+
+        .card {
+        background: linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,.02));
+        border: 1px solid rgba(255,255,255,.08);
+        border-radius: 16px;
+        padding: 16px;
+        position: relative;
+        overflow: hidden;
+        }
+
+        .chip {
+        font-size: 12px;
+        letter-spacing: .3px;
+        color: #0a0a0a;
+        background: linear-gradient(90deg, var(--brand-1), var(--brand-2));
+        display: inline-block;
+        padding: 4px 8px;
+        border-radius: 999px;
+        font-weight: 700;
+        }
+
+        /* ===================== GRADIENTS ===================== */
+        .demo-box {
+        height: 150px;
+        border-radius: 12px;
+        border: 1px solid rgba(255,255,255,.06);
+        }
+
+        /* Linear gradient variations */
+        .linear-basic {
+        background: linear-gradient(90deg, #60a5fa, #34d399);
+        }
+
+        .linear-angle {
+        background: linear-gradient(135deg, #f472b6 0%, #22d3ee 40%, #a78bfa 100%);
+        }
+
+        .linear-repeating {
+        background:
+            repeating-linear-gradient(45deg, #0000 0 10px, #00000022 10px 20px),
+            repeating-linear-gradient(90deg, #ec4899 0 12px, #22c55e 12px 24px, #3b82f6 24px 36px);
+        }
+
+        /* Radial gradient variations */
+        .radial-circle {
+        background:
+            radial-gradient(circle at 30% 30%, #22d3ee 0%, #0ea5e9 40%, transparent 60%),
+            linear-gradient(180deg, #0f172a, #111827);
+        }
+
+        .radial-ellipse {
+        background:
+            radial-gradient(120% 80% at 70% 30%, #a78bfa 0%, #4c1d95 70%, #0000 71%),
+            linear-gradient(180deg, #111827, #0b1020);
+        }
+
+        .radial-repeating {
+        background:
+            repeating-radial-gradient(circle at 50% 50%, #ffffff20 0 6px, #ffffff00 6px 12px),
+            linear-gradient(180deg, #0b1224, #0b1020);
+        }
+
+        /* Conic gradient variations */
+        .conic-basic {
+        background: conic-gradient(
+            from 0deg at 50% 50%, 
+            #22c55e 0 120deg, 
+            #3b82f6 120deg 240deg, 
+            #ef4444 240deg 360deg
+        );
+        }
+
+        .conic-repeating {
+        background:
+            repeating-conic-gradient(from -10deg, #ffffff1a 0 10deg, #0000 10deg 20deg),
+            radial-gradient(300px 300px at 120% -20%, #06b6d433, transparent),
+            linear-gradient(180deg, #0d1328, #0a1022);
+        }
+
+        /* Gradient text */
+        .gradient-text {
+        font-size: 32px;
+        font-weight: 800;
+        line-height: 1.1;
+        margin: 0 0 6px;
+        background: linear-gradient(90deg, #22d3ee, #a78bfa, #22c55e);
+        -webkit-background-clip: text;
+        background-clip: text;
+        -webkit-text-fill-color: transparent;
+        color: transparent;
+        }
+
+        /* Gradient borders */
+        .border-gradient {
+        border: 8px solid transparent;
+        border-image: linear-gradient(90deg, #22c55e, #a78bfa, #22d3ee) 1;
+        }
+
+        /* Masked gradient (fade out bottom) */
+        .mask-fade {
+        mask-image: linear-gradient(180deg, black 70%, transparent 100%);
+        -webkit-mask-image: linear-gradient(180deg, black 70%, transparent 100%);
+        }
+
+        /* ===================== ANIMATIONS ===================== */
+        /* Transitions */
+        .btn {
+        display: inline-block;
+        padding: 12px 18px;
+        border-radius: 999px;
+        border: 1px solid rgba(255,255,255,.12);
+        font-weight: 600;
+        text-decoration: none;
+        color: var(--fg);
+        background: linear-gradient(90deg, #334155, #1f2937);
+        background-size: 200% 100%;
+        background-position: 0% 0%;
+        transition: transform .2s ease, box-shadow .2s ease, background-position .5s ease;
+        }
+
+        .btn:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 8px 24px rgba(0,0,0,.25);
+        background-position: 100% 0%;
+        }
+
+        /* Keyframes basics */
+        @keyframes spin {
+        to { transform: rotate(360deg); }
+        }
+
+        .spinner {
+        width: 48px;
+        height: 48px;
+        border-radius: 999px;
+        border: 4px solid #ffffff22;
+        border-top-color: var(--brand-1);
+        animation: spin 1s linear infinite;
+        margin: 0 auto;
+        }
+
+        /* Easing demos */
+        @keyframes slide {
+        0% { transform: translateX(0) }
+        100% { transform: translateX(180px) }
+        }
+
+        .ease-linear { animation: slide 1500ms linear infinite alternate }
+        .ease-ease   { animation: slide 1500ms ease infinite alternate }
+        .ease-cubic  { animation: slide 1500ms cubic-bezier(.2,.8,.2,1) infinite alternate }
+        .ease-steps  { animation: slide 1500ms steps(6) infinite alternate }
+
+        /* Direction, delay, fill-mode, play-state */
+        @keyframes pulseColor {
+        0%   { background: linear-gradient(90deg,#22d3ee,#a78bfa) }
+        50%  { background: linear-gradient(90deg,#22c55e,#22d3ee) }
+        100% { background: linear-gradient(90deg,#a78bfa,#22c55e) }
+        }
+
+        .card.pulse {
+        animation-name: pulseColor;
+        animation-duration: 3s;
+        animation-timing-function: ease-in-out;
+        animation-delay: .2s;
+        animation-iteration-count: infinite;
+        animation-direction: alternate;
+        animation-fill-mode: both;
+        animation-play-state: running;
+        background-size: 200% 200%;
+        }
+
+        /* Shorthand variant */
+        .shimmer {
+        --shine: linear-gradient(120deg, #ffffff09 0%, #ffffff33 20%, #ffffff09 40%);
+        background:
+            var(--shine) 0 0/200% 100% no-repeat,
+            linear-gradient(180deg, #111827, #0b1224);
+        animation: shimmer-move 1.8s ease-in-out .4s infinite;
+        }
+
+        @keyframes shimmer-move {
+        to { background-position: 200% 0, 0 0 }
+        }
+
+        /* Performance tip */
+        .perf {
+        will-change: transform, opacity;
+        transition: transform .3s ease, opacity .3s ease;
+        }
+
+        .perf:hover {
+        transform: translateY(-4px) scale(1.01);
+        opacity: .98;
+        }
+
+        /* Reduced motion */
+        @media (prefers-reduced-motion: reduce) {
+        * {
+            animation-duration: .001ms !important;
+            animation-iteration-count: 1 !important;
+            transition-duration: 0ms !important;
+        }
+        }
+
+        /* Utility */
+        .row {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        }
+
+        .pill {
+        font-size: 12px;
+        color: #0a0a0a;
+        background: #fff;
+        border-radius: 999px;
+        padding: 2px 8px;
+        display: inline-block;
+        }
+
+        .bar {
+        height: 10px;
+        width: 200px;
+        background: #ffffff10;
+        border-radius: 8px;
+        position: relative;
+        }
+
+        .dot {
+        width: 18px;
+        height: 18px;
+        background: #fff;
+        border-radius: 999px;
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        }
+
+        code {
+        background: #00000033;
+        padding: 2px 6px;
+        border-radius: 6px;
+        }
+
+        .small {
+        font-size: 13px;
+        }
+
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>CSS Gradients & Animations — Demo</h1>
+    <p class="small">Tài liệu này minh họa <b>linear/radial/conic</b> (kể cả dạng <i>repeating</i>), gradient cho <b>text</b>, <b>border</b>, <b>mask</b>, và các thuộc tính animation/transition đầy đủ: <code>animation-name</code>, <code>duration</code>, <code>timing-function</code>, <code>delay</code>, <code>iteration-count</code>, <code>direction</code>, <code>fill-mode</code>, <code>play-state</code> + shorthand.</p>
+
+    <h2>1. Linear Gradients</h2>
+    <div class="grid">
+      <div class="card">
+        <span class="chip">linear-gradient()</span>
+        <div class="demo-box linear-basic"></div>
+        <p class="small">Cú pháp cơ bản: <code>linear-gradient( góc|hướng, màu1 [vị trí] , màu2 [vị trí], ...)</code>. Ở đây dùng góc <code>90deg</code>.</p>
+      </div>
+      <div class="card">
+        <span class="chip">Stops &amp; Angle</span>
+        <div class="demo-box linear-angle"></div>
+        <p class="small">Đặt <b>color stops</b> với phần trăm để điều khiển pha trộn màu.</p>
+      </div>
+      <div class="card">
+        <span class="chip">repeating-linear-gradient()</span>
+        <div class="demo-box linear-repeating"></div>
+        <p class="small">Lặp lại theo mẫu để tạo sọc/họa tiết.</p>
+      </div>
+    </div>
+
+    <h2>2. Radial Gradients</h2>
+    <div class="grid">
+      <div class="card">
+        <span class="chip">circle at x y</span>
+        <div class="demo-box radial-circle"></div>
+        <p class="small">Cú pháp: <code>radial-gradient(shape size at pos, ...)</code>. Ở đây là <code>circle at 30% 30%</code>.</p>
+      </div>
+      <div class="card">
+        <span class="chip">ellipse &amp; extent</span>
+        <div class="demo-box radial-ellipse"></div>
+        <p class="small">Có thể dùng ellipse + kích thước tùy ý (ví dụ 120% 80%).</p>
+      </div>
+      <div class="card">
+        <span class="chip">repeating-radial</span>
+        <div class="demo-box radial-repeating"></div>
+        <p class="small">Tạo vòng tròn lặp dạng sóng/đốm.</p>
+      </div>
+    </div>
+
+    <h2>3. Conic Gradients</h2>
+    <div class="grid">
+      <div class="card">
+        <span class="chip">conic-gradient()</span>
+        <div class="demo-box conic-basic"></div>
+        <p class="small">Tốt cho biểu đồ quạt: <code>conic-gradient(from góc at tâm, màu start end, ...)</code>.</p>
+      </div>
+      <div class="card">
+        <span class="chip">repeating-conic</span>
+        <div class="demo-box conic-repeating"></div>
+        <p class="small">Tạo pattern nan quạt/checkerboard.</p>
+      </div>
+    </div>
+
+    <h2>4. Gradient đặc biệt</h2>
+    <div class="grid">
+      <div class="card border-gradient">
+        <p class="gradient-text">Gradient Text &amp; Border</p>
+        <p class="small">Text: <code>background-clip:text</code> + <code>-webkit-text-fill-color:transparent</code>.<br>Border: <code>border-image: linear-gradient(...) 1</code>.</p>
+      </div>
+      <div class="card shimmer mask-fade">
+        <p><b>Mask &amp; Shimmer</b></p>
+        <p class="small">Shimmer di chuyển bằng <code>background-position</code> trong <code>@keyframes</code>. Phía dưới có <code>mask-image</code> để làm mờ dần cạnh.</p>
+      </div>
+      <div class="card perf">
+        <p><b>Nút dùng transition</b></p>
+        <a class="btn" href="#">Di chuột để xem hiệu ứng</a>
+        <p class="small">Dùng <code>transition</code> cho tương tác nhanh; animate <b>transform/opacity</b> để mượt.</p>
+      </div>
+    </div>
+
+    <h2>5. Animations cơ bản</h2>
+    <div class="grid">
+      <div class="card">
+        <div class="spinner" aria-label="Loading"></div>
+        <p class="small">Spinner quay: <code>@keyframes spin</code> + <code>animation: 1s linear infinite</code>.</p>
+      </div>
+      <div class="card pulse">
+        <p><b>Shorthand &amp; Thuộc tính</b></p>
+        <p class="small">Ở thẻ này: <code>animation-name</code>, <code>duration</code>, <code>timing-function</code>, <code>delay</code>, <code>iteration-count</code>, <code>direction</code>, <code>fill-mode</code>, <code>play-state</code>.</p>
+      </div>
+      <div class="card">
+        <p><b>Timing functions</b></p>
+        <div class="row"><span class="pill">linear</span><div class="bar"><div class="dot ease-linear"></div></div></div>
+        <div class="row"><span class="pill">ease</span><div class="bar"><div class="dot ease-ease"></div></div></div>
+        <div class="row"><span class="pill">cubic-bezier</span><div class="bar"><div class="dot ease-cubic"></div></div></div>
+        <div class="row"><span class="pill">steps(6)</span><div class="bar"><div class="dot ease-steps"></div></div></div>
+        <p class="small">Chọn nhịp chuyển động phù hợp hành vi.</p>
+      </div>
+    </div>
+
+    <h2>6. Ghi nhớ nhanh (cheatsheet)</h2>
+    <div class="card">
+      <ul class="small">
+        <li><b>Linear</b>: <code>linear-gradient( to right | 45deg, color stop... )</code></li>
+        <li><b>Radial</b>: <code>radial-gradient( circle|ellipse size at x y, ... )</code></li>
+        <li><b>Conic</b>: <code>conic-gradient( from deg at x y, color start end, ... )</code></li>
+        <li><b>Repeating</b>: thay <code>repeating-*</code> để lặp pattern.</li>
+        <li><b>Text</b>: gradient vào <code>background</code> + <code>background-clip:text</code> + <code>-webkit-text-fill-color:transparent</code>.</li>
+        <li><b>Border</b>: <code>border-image: linear-gradient(...) 1</code> hoặc mask với <code>padding-box</code>.</li>
+        <li><b>Mask</b>: <code>mask-image: linear-gradient(black → transparent)</code> (Safari: thêm <code>-webkit-mask-image</code>).</li>
+        <li><b>Transition</b>: <code>transition: property duration timing delay</code>.</li>
+        <li><b>Animation</b> (shorthand): <code>animation: name duration timing delay iter direction fill play-state</code>.</li>
+        <li><b>Easing</b>: <code>ease | linear | ease-in | ease-out | ease-in-out | cubic-bezier() | steps()</code>.</li>
+        <li><b>Hiệu năng</b>: Ưu tiên <code>transform</code> &amp; <code>opacity</code>, dùng <code>will-change</code> cho phần tử tương tác.</li>
+        <li><b>Truy cập</b>: Tôn trọng <code>@media (prefers-reduced-motion: reduce)</code>.</li>
+      </ul>
+    </div>
+
+    <p class="small">💡 Mẹo: Bạn có thể điều khiển màu trong gradient qua <code>var(--color)</code> và animate <b>CSS variables</b> để đổi sắc mượt mà.</p>
+  </div>
+</body>
+</html>

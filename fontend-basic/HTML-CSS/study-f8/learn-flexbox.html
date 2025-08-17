@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<title>Flexbox Playground</title>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    margin: 0; padding: 0;
+    background: #f0f2f5;
+  }
+  h2 {
+    text-align: center;
+    padding: 10px;
+  }
+  .controls {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center;
+    background: #fff;
+    padding: 15px;
+    border-bottom: 2px solid #ddd;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+  }
+  .controls button {
+    padding: 6px 12px;
+    border: none;
+    border-radius: 6px;
+    background: #007bff;
+    color: white;
+    cursor: pointer;
+    transition: 0.2s;
+    font-size: 13px;
+  }
+  .controls button:hover { background: #0056b3; }
+  
+  .container {
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    align-items: stretch;
+    align-content: stretch;
+    flex-direction: row;
+    gap: 10px;
+    min-height: 300px;
+    padding: 20px;
+    background: #e9ecef;
+    border: 3px dashed #aaa;
+  }
+  .item {
+    background: #ff6b6b;
+    color: white;
+    padding: 20px;
+    font-weight: bold;
+    text-align: center;
+    border-radius: 6px;
+    flex: 0 1 100px; /* grow shrink basis */
+    transition: all 0.3s ease;
+  }
+  .item:nth-child(2) { background: #4dabf7; }
+  .item:nth-child(3) { background: #51cf66; }
+  .item:nth-child(4) { background: #ffa94d; }
+  .item:nth-child(5) { background: #845ef7; }
+
+  /* Box hiển thị CSS */
+  .status {
+    background: #222;
+    color: #0f0;
+    padding: 15px;
+    margin: 0;
+    font-family: monospace;
+    font-size: 14px;
+    white-space: pre-line;
+  }
+</style>
+</head>
+<body>
+
+<h2>🎨 Flexbox Playground</h2>
+
+<div class="controls">
+  <!-- justify-content -->
+  <button onclick="setFlex('justifyContent','flex-start')">justify-start</button>
+  <button onclick="setFlex('justifyContent','center')">justify-center</button>
+  <button onclick="setFlex('justifyContent','flex-end')">justify-end</button>
+  <button onclick="setFlex('justifyContent','space-between')">space-between</button>
+  <button onclick="setFlex('justifyContent','space-around')">space-around</button>
+  <button onclick="setFlex('justifyContent','space-evenly')">space-evenly</button>
+  
+  <!-- align-items -->
+  <button onclick="setFlex('alignItems','flex-start')">align-start</button>
+  <button onclick="setFlex('alignItems','center')">align-center</button>
+  <button onclick="setFlex('alignItems','flex-end')">align-end</button>
+  <button onclick="setFlex('alignItems','stretch')">align-stretch</button>
+  
+  <!-- align-content -->
+  <button onclick="setFlex('alignContent','flex-start')">alignContent-start</button>
+  <button onclick="setFlex('alignContent','center')">alignContent-center</button>
+  <button onclick="setFlex('alignContent','flex-end')">alignContent-end</button>
+  <button onclick="setFlex('alignContent','space-between')">alignContent-between</button>
+  <button onclick="setFlex('alignContent','space-around')">alignContent-around</button>
+  <button onclick="setFlex('alignContent','stretch')">alignContent-stretch</button>
+  
+  <!-- flex-direction -->
+  <button onclick="setFlex('flexDirection','row')">row</button>
+  <button onclick="setFlex('flexDirection','row-reverse')">row-reverse</button>
+  <button onclick="setFlex('flexDirection','column')">column</button>
+  <button onclick="setFlex('flexDirection','column-reverse')">column-reverse</button>
+  
+  <!-- wrap -->
+  <button onclick="setFlex('flexWrap','nowrap')">nowrap</button>
+  <button onclick="setFlex('flexWrap','wrap')">wrap</button>
+  <button onclick="setFlex('flexWrap','wrap-reverse')">wrap-reverse</button>
+  
+  <!-- order demo -->
+  <button onclick="reorder()">Đổi order item 1 & 5</button>
+  
+  <!-- grow/shrink demo -->
+  <button onclick="grow()">Toggle flex-grow</button>
+  <button onclick="shrink()">Toggle flex-shrink</button>
+</div>
+
+<div class="container" id="flexContainer">
+  <div class="item" id="i1">Item 1</div>
+  <div class="item" id="i2">Item 2</div>
+  <div class="item" id="i3">Item 3</div>
+  <div class="item" id="i4">Item 4</div>
+  <div class="item" id="i5">Item 5</div>
+</div>
+
+<pre class="status" id="statusBox"></pre>
+
+<script>
+  const container = document.getElementById('flexContainer');
+  const statusBox = document.getElementById('statusBox');
+  const i1 = document.getElementById('i1');
+  const i5 = document.getElementById('i5');
+  const i2 = document.getElementById('i2');
+  const i3 = document.getElementById('i3');
+  const i4 = document.getElementById('i4');
+
+  // Hàm update hiển thị CSS hiện tại
+  function updateStatus() {
+    let css = `
+display: flex;
+flex-direction: ${container.style.flexDirection || 'row'};
+flex-wrap: ${container.style.flexWrap || 'nowrap'};
+justify-content: ${container.style.justifyContent || 'flex-start'};
+align-items: ${container.style.alignItems || 'stretch'};
+align-content: ${container.style.alignContent || 'stretch'};
+`;
+    statusBox.textContent = css;
+  }
+
+  function setFlex(prop, val) {
+    container.style[prop] = val;
+    updateStatus();
+  }
+
+  function reorder() {
+    if (i1.style.order === "5") {
+      i1.style.order = "0";
+      i5.style.order = "0";
+    } else {
+      i1.style.order = "5";
+      i5.style.order = "-1";
+    }
+    updateStatus();
+  }
+
+  function grow() {
+    let growVal = i2.style.flexGrow === "1" ? "0" : "1";
+    i2.style.flexGrow = growVal;
+    i3.style.flexGrow = growVal;
+    updateStatus();
+  }
+
+  function shrink() {
+    let shrinkVal = i4.style.flexShrink === "0" ? "1" : "0";
+    i4.style.flexShrink = shrinkVal;
+    updateStatus();
+  }
+
+  // Khởi tạo ban đầu
+  updateStatus();
+</script>
+
+</body>
+</html>

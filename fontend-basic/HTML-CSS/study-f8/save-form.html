@@ -6,17 +6,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>BT9 - Form Option</title>
     <style>
-        body {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
+        #result {
+            margin-top: 20px;
+            padding: 15px;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            background: #f9f9f9;
+            font-size: 16px;
         }
     </style>
 </head>
 
 <body>
     <h1>Khảo sát ý kiến</h1>
-    <form action="">
+    <form id="surveyForm">
         <div>
             <div>
                 <h3>Bạn thích ăn gì nhất ?</h3>
@@ -52,29 +55,39 @@
             <input type="submit" value="Gửi khảo sát">
         </div>
     </form>
-</body>
-<script>
-    document.querySelector("form").addEventListener("submit", function (e) {
-        e.preventDefault(); 
 
-        let eat = document.querySelector("input[name='eat']:checked");
-        let eatValue = eat ? eat.nextElementSibling.innerText : "Chưa chọn món ăn";
+    <!-- Kết quả sẽ hiện ở đây -->
+    <div id="result"></div>
 
-        let drinks = document.querySelectorAll("input[name='drink']:checked");
-        let drinkValues = [];
-        drinks.forEach(d => {
-            drinkValues.push(d.nextElementSibling.innerText);
+    <script>
+        document.getElementById("surveyForm").addEventListener("submit", function (e) {
+            e.preventDefault(); // Ngăn submit thật
+
+            // Lấy món ăn (radio)
+            let eat = document.querySelector("input[name='eat']:checked");
+            let eatValue = eat ? eat.nextElementSibling.innerText : "Chưa chọn món ăn";
+
+            // Lấy đồ uống (checkbox)
+            let drinks = document.querySelectorAll("input[name='drink']:checked");
+            let drinkValues = [];
+            drinks.forEach(d => {
+                drinkValues.push(d.nextElementSibling.innerText);
+            });
+            let drinkResult = drinkValues.length > 0 ? drinkValues.join(", ") : "Chưa chọn đồ uống";
+
+            // Lấy thành phố (select)
+            let city = document.getElementById("city");
+            let cityValue = city.options[city.selectedIndex].text;
+
+            // Hiện kết quả vào <div>
+            document.getElementById("result").innerHTML = `
+                <h2>Kết quả khảo sát</h2>
+                <p>🍜 Món ăn bạn chọn: <b>${eatValue}</b></p>
+                <p>🥤 Đồ uống bạn chọn: <b>${drinkResult}</b></p>
+                <p>🏙️ Khu vực bạn sống: <b>${cityValue}</b></p>
+            `;
         });
-        let drinkResult = drinkValues.length > 0 ? drinkValues.join(", ") : "Chưa chọn đồ uống";
+    </script>
+</body>
 
-        let city = document.getElementById("city");
-        let cityValue = city.options[city.selectedIndex].text;
-
-        alert(
-            "Món ăn bạn chọn: " + eatValue +
-            "\nĐồ uống bạn chọn: " + drinkResult +
-            "\nKhu vực bạn sống: " + cityValue
-        );
-    });
-</script>
 </html>

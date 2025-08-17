@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gradient Demo Full</title>
+  <style>
+    body {
+      margin: 0;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      font-family: Arial, sans-serif;
+      color: white;
+      text-align: center;
+      transition: background 1s ease;
+      background: linear-gradient(45deg, #1e90ff, #00c9ff); /* mặc định */
+    }
+
+    h1 {
+      margin-bottom: 25px;
+      text-shadow: 2px 2px 5px rgba(0,0,0,0.4);
+    }
+
+    .btn-group {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      max-width: 800px;
+      justify-content: center;
+    }
+
+    .btn {
+      padding: 12px 25px;
+      border: none;
+      border-radius: 25px;
+      color: white;
+      font-size: 15px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: 0.3s;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.25);
+    }
+
+    .btn:hover {
+      transform: scale(1.1);
+    }
+
+    /* Gradient mẫu cho nút */
+    .btn.linear  { background: linear-gradient(45deg, #1e90ff, #00c9ff); }
+    .btn.radial  { background: radial-gradient(circle, #ff416c, #ff4b2b); }
+    .btn.conic   { background: conic-gradient(red, yellow, lime, cyan, blue, magenta, red); }
+    .btn.extra1  { background: linear-gradient(to right, #ff8008, #ffc837); }
+    .btn.extra2  { background: radial-gradient(circle at top left, #8e2de2, #4a00e0); }
+    .btn.extra3  { background: conic-gradient(from 90deg at 50% 50%, pink, purple, cyan, pink); }
+  </style>
+</head>
+<body>
+  <h1>🌈 Demo Tất Cả Gradient CSS</h1>
+  <div class="btn-group">
+    <button class="btn linear" onclick="changeGradient('linear-gradient(45deg, #1e90ff, #00c9ff)')">Linear Gradient</button>
+    <button class="btn radial" onclick="changeGradient('radial-gradient(circle, #ff416c, #ff4b2b)')">Radial Gradient</button>
+    <button class="btn conic" onclick="changeGradient('conic-gradient(red, yellow, lime, cyan, blue, magenta, red)')">Conic Gradient</button>
+    <button class="btn extra1" onclick="changeGradient('linear-gradient(to right, #ff8008, #ffc837)')">Linear Cam</button>
+    <button class="btn extra2" onclick="changeGradient('radial-gradient(circle at top left, #8e2de2, #4a00e0)')">Radial Tím</button>
+    <button class="btn extra3" onclick="changeGradient('conic-gradient(from 90deg at 50% 50%, pink, purple, cyan, pink)')">Conic Fancy</button>
+  </div>
+
+  <script>
+    function changeGradient(gradient) {
+      document.body.style.background = gradient;
+    }
+  </script>
+</body>
+</html>

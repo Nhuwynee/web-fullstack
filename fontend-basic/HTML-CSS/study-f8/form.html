@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Form Demo Full Attributes</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg, #667eea, #764ba2);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      padding: 20px;
+    }
+    .form-container {
+      background: #fff;
+      padding: 25px;
+      border-radius: 12px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+      max-width: 600px;
+      width: 100%;
+    }
+    h2 {
+      text-align: center;
+      margin-bottom: 20px;
+      color: #333;
+    }
+    .form-group {
+      margin-bottom: 15px;
+    }
+    .form-group label {
+      display: block;
+      margin-bottom: 6px;
+      font-weight: bold;
+      color: #444;
+    }
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+      width: 100%;
+      padding: 10px;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+      font-size: 14px;
+      transition: all .3s ease;
+    }
+    .form-group input:focus,
+    .form-group select:focus,
+    .form-group textarea:focus {
+      border-color: #667eea;
+      outline: none;
+      box-shadow: 0 0 5px rgba(102,126,234,.6);
+    }
+    .form-group .icon {
+      margin-right: 6px;
+      vertical-align: middle;
+      fill: #667eea;
+    }
+    .form-actions {
+      text-align: center;
+      margin-top: 20px;
+    }
+    .btn {
+      background: #667eea;
+      border: none;
+      color: white;
+      padding: 12px 20px;
+      font-size: 15px;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+    .btn:hover {
+      background: #556cd6;
+    }
+  </style>
+</head>
+<body>
+  <div class="form-container">
+    <h2>Biểu mẫu Demo</h2>
+    <form>
+      <div class="form-group">
+        <label><svg class="icon" width="16" height="16" viewBox="0 0 24 24"><path d="M12 12c2.7 0 4.8-2.1 4.8-4.8S14.7 2.4 12 2.4 7.2 4.5 7.2 7.2 9.3 12 12 12zm0 2.4c-3.2 0-9.6 1.6-9.6 4.8V22h19.2v-2.8c0-3.2-6.4-4.8-9.6-4.8z"/></svg>Họ và Tên</label>
+        <input type="text" name="fullname" placeholder="Nhập họ tên" required />
+      </div>
+
+      <div class="form-group">
+        <label>Email</label>
+        <input type="email" name="email" placeholder="Nhập email" required />
+      </div>
+
+      <div class="form-group">
+        <label>Mật khẩu</label>
+        <input type="password" name="password" placeholder="Nhập mật khẩu" required />
+      </div>
+
+      <div class="form-group">
+        <label>Số điện thoại</label>
+        <input type="tel" name="phone" placeholder="0123-456-789" />
+      </div>
+
+      <div class="form-group">
+        <label>Ngày sinh</label>
+        <input type="date" name="dob" />
+      </div>
+
+      <div class="form-group">
+        <label>Giới tính</label>
+        <select name="gender">
+          <option value="">-- Chọn --</option>
+          <option value="male">Nam</option>
+          <option value="female">Nữ</option>
+          <option value="other">Khác</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label>Upload CV</label>
+        <input type="file" name="cv" />
+      </div>
+
+      <div class="form-group">
+        <label>Màu yêu thích</label>
+        <input type="color" name="favcolor" />
+      </div>
+
+      <div class="form-group">
+        <label>Mô tả bản thân</label>
+        <textarea name="about" rows="4" placeholder="Viết vài dòng..." ></textarea>
+      </div>
+
+      <div class="form-actions">
+        <button type="submit" class="btn">Gửi</button>
+      </div>
+    </form>
+  </div>
+</body>
+</html>

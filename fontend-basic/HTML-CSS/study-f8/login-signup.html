@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Trang Chủ Đơn Giản</title>
+  <style>
+    /* Reset */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: "Segoe UI", sans-serif;
+    }
+
+    body {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* ===== MENU ===== */
+    header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      background: #ff5722;
+      padding: 15px 30px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      color: #fff;
+      z-index: 1000;
+    }
+
+    header h1 {
+      font-size: 22px;
+    }
+
+    nav button {
+      background: #fff;
+      color: #ff5722;
+      border: none;
+      padding: 8px 16px;
+      margin-left: 10px;
+      border-radius: 6px;
+      cursor: pointer;
+      font-weight: bold;
+      transition: 0.3s;
+    }
+
+    nav button:hover {
+      background: #ffe2d5;
+    }
+
+    /* ===== FOOTER ===== */
+    footer {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      background: #333;
+      color: #fff;
+      padding: 12px;
+      text-align: center;
+      font-size: 14px;
+    }
+
+    main {
+      margin-top: 70px;
+      margin-bottom: 50px;
+      padding: 20px;
+      text-align: center;
+    }
+
+    /* ===== MODAL OVERLAY ===== */
+    .overlay {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: rgba(0,0,0,0.6);
+      display: none;
+      justify-content: center;
+      align-items: center;
+      z-index: 2000;
+    }
+
+    .overlay.active {
+      display: flex;
+    }
+
+    /* ===== FORM ===== */
+    .modal {
+      background: #fff;
+      border-radius: 12px;
+      padding: 30px;
+      width: 350px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+      animation: fadeIn 0.3s ease;
+      position: relative;
+    }
+
+    .modal h2 {
+      text-align: center;
+      color: #ff5722;
+      margin-bottom: 10px;
+    }
+
+    .modal label {
+      font-size: 14px;
+      font-weight: bold;
+      margin-top: 5px;
+    }
+
+    .modal input {
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      outline: none;
+      transition: border 0.3s;
+    }
+
+    .modal input:focus {
+      border: 1px solid #ff5722;
+    }
+
+    .error {
+      font-size: 13px;
+      color: red;
+      display: none;
+    }
+
+    .modal button {
+      padding: 10px;
+      border: none;
+      border-radius: 6px;
+      background: #ff5722;
+      color: #fff;
+      font-weight: bold;
+      cursor: pointer;
+      transition: 0.3s;
+      margin-top: 10px;
+    }
+
+    .modal button:hover {
+      background: #e64a19;
+    }
+
+    .close {
+      position: absolute;
+      top: 10px;
+      right: 15px;
+      font-size: 22px;
+      cursor: pointer;
+      color: #888;
+      transition: 0.2s;
+    }
+    .close:hover {
+      color: #000;
+    }
+
+    @keyframes fadeIn {
+      from { transform: translateY(-20px); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
+    }
+  </style>
+</head>
+<body>
+  <!-- MENU -->
+  <header>
+    <h1>My Website</h1>
+    <nav>
+      <button onclick="openModal('login')">Đăng nhập</button>
+      <button onclick="openModal('register')">Đăng ký</button>
+    </nav>
+  </header>
+
+  <!-- CONTENT -->
+  <main>
+    <h2>Chào mừng đến với trang chủ!</h2>
+    <p>Nội dung demo website đơn giản.</p>
+  </main>
+
+  <!-- FOOTER -->
+  <footer>
+    © 2025 - Demo Website
+  </footer>
+
+  <!-- MODAL OVERLAY -->
+  <div class="overlay" id="overlay">
+    <div class="modal" id="modal">
+      <span class="close" onclick="closeModal()">&times;</span>
+      <h2 id="modal-title">Đăng nhập</h2>
+
+      <label for="username">Tên đăng nhập / Email</label>
+      <input type="text" id="username" placeholder="Nhập email...">
+      <div class="error" id="user-error">Vui lòng nhập đúng email!</div>
+
+      <label for="password">Mật khẩu</label>
+      <input type="password" id="password" placeholder="Mật khẩu...">
+      <div class="error" id="pass-error">Mật khẩu ít nhất 6 ký tự!</div>
+
+      <button id="submit-btn">Xác nhận</button>
+    </div>
+  </div>
+
+<script>
+  let currentMode = "login";
+
+  function openModal(type) {
+    document.getElementById("overlay").classList.add("active");
+    currentMode = type;
+    if (type === "login") {
+      document.getElementById("modal-title").innerText = "Đăng nhập";
+      document.getElementById("submit-btn").innerText = "Đăng nhập";
+    } else {
+      document.getElementById("modal-title").innerText = "Đăng ký";
+      document.getElementById("submit-btn").innerText = "Đăng ký";
+    }
+  }
+
+  function closeModal() {
+    document.getElementById("overlay").classList.remove("active");
+    resetForm();
+  }
+
+  function resetForm() {
+    document.getElementById("username").value = "";
+    document.getElementById("password").value = "";
+    document.getElementById("user-error").style.display = "none";
+    document.getElementById("pass-error").style.display = "none";
+  }
+
+  document.getElementById("submit-btn").addEventListener("click", function () {
+    let username = document.getElementById("username").value.trim();
+    let password = document.getElementById("password").value.trim();
+    let userError = document.getElementById("user-error");
+    let passError = document.getElementById("pass-error");
+    let valid = true;
+
+    // Validate email
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(username)) {
+      userError.style.display = "block";
+      valid = false;
+    } else {
+      userError.style.display = "none";
+    }
+
+    // Validate password
+    if (password.length < 6) {
+      passError.style.display = "block";
+      valid = false;
+    } else {
+      passError.style.display = "none";
+    }
+
+    // Nếu hợp lệ
+    if (valid) {
+      alert("Thành công (" + (currentMode === "login" ? "Đăng nhập" : "Đăng ký") + ")");
+      closeModal(); // sẽ gọi resetForm()
+    }
+  });
+</script>
+
+</body>
+</html>

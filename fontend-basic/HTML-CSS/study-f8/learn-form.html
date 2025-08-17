@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Form Demo — Đủ Thuộc Tính + CSS Đẹp + Icon</title>
+  <style>
+    :root{
+      --bg-start:#0f172a; /* slate-900 */
+      --bg-end:#1f2937;   /* gray-800 */
+      --card:#0b1224ee;
+      --muted:#94a3b8;    /* slate-400 */
+      --text:#e5e7eb;     /* gray-200 */
+      --accent:#38bdf8;   /* sky-400 */
+      --accent-2:#a78bfa; /* violet-400 */
+      --ok:#22c55e;       /* green-500 */
+      --warn:#f59e0b;     /* amber-500 */
+      --err:#ef4444;      /* red-500 */
+      --ring: 0 0 0 .2rem rgba(56,189,248,.28);
+      --radius: 18px;
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0; min-height:100svh; color:var(--text); font:16px/1.6 system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,"Helvetica Neue",Arial;
+      background: radial-gradient(1200px 600px at 10% 10%, #0ea5e9 0%, transparent 50%),
+                  radial-gradient(900px 500px at 90% 0%, #7c3aed55 0%, transparent 60%),
+                  linear-gradient(160deg,var(--bg-start),var(--bg-end));
+    }
+    header{max-width:1120px;margin:40px auto 0;padding:0 20px}
+    h1{font-size: clamp(24px, 3.5vw, 40px); margin:0 0 10px;letter-spacing:.3px}
+    p.lead{color:var(--muted);margin:0 0 24px}
+
+    .wrap{max-width:1120px;margin:0 auto 60px;padding:0 20px}
+    .card{
+      background:var(--card); backdrop-filter: blur(10px);
+      border:1px solid rgba(148,163,184,.16);
+      box-shadow:0 30px 60px -20px #000a;
+      border-radius: var(--radius);
+      overflow:hidden;
+    }
+    .bar{display:flex;gap:10px;align-items:center;padding:14px 18px;border-bottom:1px solid rgba(148,163,184,.16);
+      background:linear-gradient(180deg,rgba(148,163,184,.12),transparent);}
+    .dot{width:10px;height:10px;border-radius:50%}
+    .dot.red{background:#ef4444}.dot.yellow{background:#f59e0b}.dot.green{background:#22c55e}
+
+    form{display:grid;gap:22px;padding:22px}
+    .grid{display:grid;gap:16px}
+    .cols-2{grid-template-columns:repeat(2,minmax(0,1fr))}
+    .cols-3{grid-template-columns:repeat(3,minmax(0,1fr))}
+    @media (max-width:900px){.cols-3{grid-template-columns:1fr}}
+    @media (max-width:720px){.cols-2{grid-template-columns:1fr}}
+
+    fieldset{border:1px dashed rgba(148,163,184,.25);border-radius:14px;padding:16px}
+    legend{padding:0 8px;color:#c7d2fe}
+
+    label{display:flex;align-items:center;gap:10px;font-weight:600}
+    .row{display:grid;gap:8px}
+    .hint{font-size:12px;color:var(--muted)}
+
+    .inp{
+      display:flex;align-items:center;gap:10px;background:#0b1229; border:1px solid transparent;
+      padding:10px 12px;border-radius:12px; transition:.2s ease; box-shadow: inset 0 0 0 1px rgba(148,163,184,.15);
+    }
+    .inp:focus-within{box-shadow: var(--ring); border-color: var(--accent)}
+    .inp input,.inp select,.inp textarea{background:transparent;border:0;outline:none;color:var(--text);width:100%;font:inherit}
+    .inp input::file-selector-button{border:0;padding:8px 10px;border-radius:10px;background:#0ea5e9;color:white;cursor:pointer}
+    .icon{width:18px;height:18px;opacity:.85;flex:0 0 auto}
+
+    .checkline{display:flex;flex-wrap:wrap;gap:12px}
+    .chip{display:inline-flex;align-items:center;gap:8px;padding:8px 10px;border-radius:999px;background:#0b1229;border:1px solid rgba(148,163,184,.2)}
+
+    .actions{display:flex;flex-wrap:wrap;gap:12px}
+    button, input[type=submit], input[type=reset]{
+      appearance: none; border:0; padding:12px 16px; border-radius:14px; cursor:pointer; font-weight:700;
+      background:linear-gradient(180deg,#38bdf8,#0284c7); color:white; box-shadow:0 10px 20px -8px #0284c7aa;
+    }
+    button.alt{background:linear-gradient(180deg,#a78bfa,#6d28d9); box-shadow:0 10px 20px -8px #6d28d9aa}
+    .ghost{background:transparent;color:var(--text);border:1px solid rgba(148,163,184,.32)}
+
+    .note{font-size:12px;color:var(--muted)}
+    .two{display:grid;grid-template-columns:1fr auto;gap:10px;align-items:center}
+
+    .inline{display:flex;gap:10px;align-items:center}
+    .kbd{font:12px/1 ui-monospace,SFMono-Regular,Menlo,monospace;background:#111827;border:1px solid rgba(148,163,184,.3);padding:2px 6px;border-radius:6px}
+
+    .status{display:flex;gap:10px;align-items:center;font-size:14px}
+    .status.ok{color:var(--ok)}
+    .status.warn{color:var(--warn)}
+    .status.err{color:var(--err)}
+
+    .footer{padding:14px 18px;border-top:1px solid rgba(148,163,184,.16);color:var(--muted);display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap}
+
+    .preview{display:grid;gap:10px}
+    .img-preview{width:100%;max-height:220px;object-fit:cover;border-radius:12px;border:1px solid rgba(148,163,184,.2)}
+
+    .counter{font-size:12px;color:var(--muted);text-align:right}
+  </style>
+</head>
+<body>
+  <!-- SVG icon sprites -->
+  <svg xmlns="http://www.w3.org/2000/svg" style="position:absolute;width:0;height:0;overflow:hidden">
+    <symbol id="i-user" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21a8 8 0 1 0-16 0"/><circle cx="12" cy="7" r="4"/></symbol>
+    <symbol id="i-mail" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6h16v12H4z"/><path d="m4 8 8 5 8-5"/></symbol>
+    <symbol id="i-lock" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="10" width="16" height="10" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/></symbol>
+    <symbol id="i-phone" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.12.93.31 1.84.57 2.72a2 2 0 0 1-.45 2.11L8 9a16 16 0 0 0 7 7l.45-.23a2 2 0 0 1 2.11-.45c.88.26 1.79.45 2.72.57A2 2 0 0 1 22 16.92z"/></symbol>
+    <symbol id="i-link" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10 13a5 5 0 0 0 7.07 0l3-3a5 5 0 1 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.07 0l-3 3a5 5 0 0 0 7.07 7.07L12.72 20"/></symbol>
+    <symbol id="i-hash" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 9h14M5 15h14M9 3 7 21M17 3l-2 18"/></symbol>
+    <symbol id="i-calendar" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></symbol>
+    <symbol id="i-clock" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></symbol>
+    <symbol id="i-color" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22a5 5 0 0 0 5-5 5 5 0 0 0-5-5H7a5 5 0 0 0 0 10z"/><circle cx="7" cy="7" r="3"/></symbol>
+    <symbol id="i-file" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/></symbol>
+    <symbol id="i-search" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></symbol>
+    <symbol id="i-image" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="m3 17 6-6 4 4 5-5 2 2"/></symbol>
+    <symbol id="i-toggle" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="7" width="20" height="10" rx="5"/><circle cx="9" cy="12" r="4"/></symbol>
+    <symbol id="i-select" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></symbol>
+    <symbol id="i-text" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6h16M8 6v12"/></symbol>
+    <symbol id="i-progress" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/></symbol>
+  </svg>
+
+  <header>
+    <h1>Form mẫu đầy đủ thuộc tính 🧩</h1>
+    <p class="lead">Một trang form HTML tổng hợp gần như mọi <strong>input type</strong>, <strong>thuộc tính</strong> thường dùng, kèm CSS hiện đại và <strong>icon SVG</strong>. Bạn có thể copy dùng làm template cho dự án.</p>
+  </header>
+
+  <div class="wrap">
+    <div class="card">
+      <div class="bar"><span class="dot red"></span><span class="dot yellow"></span><span class="dot green"></span> <span class="hint">Demo Form</span></div>
+
+      <form id="demoForm" action="#" method="post" enctype="multipart/form-data" target="_self" autocomplete="on">
+        <input type="hidden" name="_token" value="DEMO123456" />
+
+        <div class="grid cols-2">
+          <fieldset>
+            <legend>Thông tin cơ bản</legend>
+            <div class="row">
+              <label for="fullname"><svg class="icon"><use href="#i-user"/></svg> Họ và tên</label>
+              <div class="inp"><input id="fullname" name="fullname" type="text" placeholder="VD: Nguyễn Văn A" required minlength="3" maxlength="40" autocomplete="name" /></div>
+              <div class="counter" data-countfor="fullname"></div>
+            </div>
+
+            <div class="row">
+              <label for="email"><svg class="icon"><use href="#i-mail"/></svg> Email</label>
+              <div class="inp"><input id="email" name="email" type="email" placeholder="ban@vidu.com" required autocomplete="email" inputmode="email" /></div>
+            </div>
+
+            <div class="row">
+              <label for="password"><svg class="icon"><use href="#i-lock"/></svg> Mật khẩu</label>
+              <div class="inp"><input id="password" name="password" type="password" placeholder="Tối thiểu 8 ký tự" required minlength="8" /></div>
+              <span class="hint">Dùng chữ hoa, số và ký tự đặc biệt để mạnh hơn.</span>
+            </div>
+
+            <div class="row">
+              <label for="tel"><svg class="icon"><use href="#i-phone"/></svg> Điện thoại</label>
+              <div class="inp"><input id="tel" name="tel" type="tel" placeholder="090-xxx-xxxx" pattern="^\+?\d[\d\s-]{8,}$" inputmode="tel" /></div>
+              <span class="hint">Hỗ trợ số bắt đầu bằng +84 hoặc 0.</span>
+            </div>
+
+            <div class="row">
+              <label for="url"><svg class="icon"><use href="#i-link"/></svg> Website / LinkedIn</label>
+              <div class="inp"><input id="url" name="url" type="url" placeholder="https://..." /></div>
+            </div>
+
+            <div class="row">
+              <label for="username"><svg class="icon"><use href="#i-hash"/></svg> Username (search)</label>
+              <div class="inp"><input id="username" name="username" type="search" placeholder="Tìm username" /></div>
+            </div>
+          </fieldset>
+
+          <fieldset>
+            <legend>Thời gian & số liệu</legend>
+            <div class="grid cols-3">
+              <div class="row">
+                <label for="date"><svg class="icon"><use href="#i-calendar"/></svg> Ngày</label>
+                <div class="inp"><input id="date" name="date" type="date" required /></div>
+              </div>
+              <div class="row">
+                <label for="time"><svg class="icon"><use href="#i-clock"/></svg> Giờ</label>
+                <div class="inp"><input id="time" name="time" type="time" /></div>
+              </div>
+              <div class="row">
+                <label for="dt"><svg class="icon"><use href="#i-clock"/></svg> DateTime</label>
+                <div class="inp"><input id="dt" name="dt" type="datetime-local" /></div>
+              </div>
+            </div>
+
+            <div class="grid cols-3">
+              <div class="row">
+                <label for="month"><svg class="icon"><use href="#i-calendar"/></svg> Tháng</label>
+                <div class="inp"><input id="month" name="month" type="month" /></div>
+              </div>
+              <div class="row">
+                <label for="week"><svg class="icon"><use href="#i-calendar"/></svg> Tuần</label>
+                <div class="inp"><input id="week" name="week" type="week" /></div>
+              </div>
+              <div class="row">
+                <label for="color"><svg class="icon"><use href="#i-color"/></svg> Màu yêu thích</label>
+                <div class="inp"><input id="color" name="color" type="color" value="#38bdf8" /></div>
+              </div>
+            </div>
+
+            <div class="grid cols-3">
+              <div class="row">
+                <label for="age"><svg class="icon"><use href="#i-hash"/></svg> Tuổi (number)</label>
+                <div class="inp"><input id="age" name="age" type="number" min="1" max="100" step="1" placeholder="18" /></div>
+              </div>
+              <div class="row">
+                <label for="exp"><svg class="icon"><use href="#i-progress"/></svg> Kinh nghiệm (range)</label>
+                <div class="two">
+                  <div class="inp"><input id="exp" name="exp" type="range" min="0" max="10" step="1" value="3" oninput="expOut.value=this.value" /></div>
+                  <output id="expOut" name="expOut">3</output>
+                </div>
+              </div>
+              <div class="row">
+                <label for="salary"><svg class="icon"><use href="#i-hash"/></svg> Mức lương (step)</label>
+                <div class="inp"><input id="salary" name="salary" type="number" min="0" max="5000" step="100" placeholder="1000" /></div>
+              </div>
+            </div>
+          </fieldset>
+        </div>
+
+        <div class="grid cols-2">
+          <fieldset>
+            <legend>Tùy chọn & chọn lựa</legend>
+            <div class="row">
+              <label for="position" class="inline"><svg class="icon"><use href="#i-select"/></svg> Vị trí ứng tuyển</label>
+              <div class="inp">
+                <select id="position" name="position" required>
+                  <option value="">-- Chọn vị trí --</option>
+                  <optgroup label="Frontend">
+                    <option>HTML/CSS</option>
+                    <option>React</option>
+                  </optgroup>
+                  <optgroup label="Backend">
+                    <option>Node.js</option>
+                    <option>Java</option>
+                    <option>.NET</option>
+                  </optgroup>
+                </select>
+              </div>
+              <span class="hint">Dùng <span class="kbd">required</span> + <span class="kbd">optgroup</span>.</span>
+            </div>
+
+            <div class="row">
+              <label for="skills"><svg class="icon"><use href="#i-select"/></svg> Kỹ năng (multiple)</label>
+              <div class="inp">
+                <select id="skills" name="skills" multiple size="4">
+                  <option>Git</option>
+                  <option>Docker</option>
+                  <option>SQL</option>
+                  <option>REST API</option>
+                  <option>Testing</option>
+                </select>
+              </div>
+              <span class="hint">Giữ <span class="kbd">Ctrl</span>/<span class="kbd">Cmd</span> để chọn nhiều.</span>
+            </div>
+
+            <div class="row">
+              <label for="country"><svg class="icon"><use href="#i-select"/></svg> Quốc gia (datalist)</label>
+              <div class="inp">
+                <input id="country" name="country" list="countries" placeholder="Gõ để gợi ý..." />
+                <datalist id="countries">
+                  <option value="Việt Nam"></option>
+                  <option value="United States"></option>
+                  <option value="Japan"></option>
+                  <option value="Korea"></option>
+                  <option value="Germany"></option>
+                </datalist>
+              </div>
+            </div>
+
+            <div class="row">
+              <span class="inline"><svg class="icon"><use href="#i-toggle"/></svg> Hình thức làm việc</span>
+              <div class="checkline">
+                <label class="chip"><input type="radio" name="work" value="onsite" checked> Onsite</label>
+                <label class="chip"><input type="radio" name="work" value="remote"> Remote</label>
+                <label class="chip"><input type="radio" name="work" value="hybrid"> Hybrid</label>
+              </div>
+            </div>
+
+            <div class="row">
+              <span class="inline"><svg class="icon"><use href="#i-toggle"/></svg> Quyền hạn</span>
+              <div class="checkline">
+                <label class="chip"><input type="checkbox" name="perm" value="read" checked> Read</label>
+                <label class="chip"><input type="checkbox" name="perm" value="write"> Write</label>
+                <label class="chip"><input type="checkbox" name="perm" value="deploy"> Deploy</label>
+              </div>
+            </div>
+
+          </fieldset>
+
+          <fieldset>
+            <legend>Tệp & mô tả</legend>
+            <div class="row">
+              <label for="avatar"><svg class="icon"><use href="#i-image"/></svg> Ảnh đại diện (accept)</label>
+              <div class="inp"><input id="avatar" name="avatar" type="file" accept="image/*" /></div>
+              <div class="preview"><img id="imgPrev" class="img-preview" alt="Xem trước ảnh" /></div>
+            </div>
+
+            <div class="row">
+              <label for="cv"><svg class="icon"><use href="#i-file"/></svg> CV (PDF/DOCX)</label>
+              <div class="inp"><input id="cv" name="cv" type="file" accept="application/pdf,.doc,.docx" /></div>
+            </div>
+
+            <div class="row">
+              <label for="about"><svg class="icon"><use href="#i-text"/></svg> Giới thiệu</label>
+              <div class="inp"><textarea id="about" name="about" rows="4" placeholder="Viết vài dòng về bản thân..." maxlength="300"></textarea></div>
+              <div class="counter" data-countfor="about"></div>
+            </div>
+
+            <div class="row">
+              <label for="query"><svg class="icon"><use href="#i-search"/></svg> Từ khóa (pattern)</label>
+              <div class="inp"><input id="query" name="query" type="text" placeholder="chỉ chữ, số và - _" pattern="^[A-Za-z0-9_-]+$" /></div>
+              <span class="hint">Regex: <code>^[A-Za-z0-9_-]+$</code></span>
+            </div>
+
+            <div class="row">
+              <label class="inline"><svg class="icon"><use href="#i-progress"/></svg> Trạng thái</label>
+              <progress id="prog" max="100" value="30">30%</progress>
+              <meter id="meter" min="0" max="1" low=".3" high=".7" optimum=".9" value=".5">50%</meter>
+            </div>
+          </fieldset>
+        </div>
+
+        <fieldset>
+          <legend>Điều khiển gửi form</legend>
+          <div class="actions">
+            <input type="submit" value="Gửi hồ sơ" />
+            <input type="reset" value="Xóa dữ liệu" class="ghost" />
+            <button type="button" class="alt" id="validateBtn">Kiểm tra tính hợp lệ</button>
+            <label class="chip"><input id="noValidate" type="checkbox"> Bỏ kiểm tra (novalidate)</label>
+            
+            <!-- submit bằng ảnh (type=image) -->
+            <input type="image" alt="Gửi" title="Submit bằng ảnh" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='36'%3E%3Crect rx='8' width='120' height='36' fill='%230ea5e9'/%3E%3Ctext x='60' y='23' font-size='14' text-anchor='middle' fill='white' font-family='Arial'%3EGửi%3C/text%3E%3C/svg%3E" />
+          </div>
+          <p class="note">Mẹo: Nhấn <span class="kbd">Alt</span> + <span class="kbd">S</span> để submit (accesskey).</p>
+        </fieldset>
+
+      </form>
+
+      <div class="footer">
+        <div class="status" id="status"><svg class="icon"><use href="#i-progress"/></svg> Sẵn sàng.</div>
+        <div class="note">Bao gồm: text, email, password, tel, url, search, date, time, datetime-local, month, week, color, number, range + output, select (optgroup & multiple), datalist, radio, checkbox, file (accept), textarea, hidden, image submit, progress, meter.</div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Toggle novalidate
+    const form = document.getElementById('demoForm');
+    const noVal = document.getElementById('noValidate');
+    const status = document.getElementById('status');
+    const validateBtn = document.getElementById('validateBtn');
+
+    noVal.addEventListener('change', e => {
+      if(e.target.checked){
+        form.setAttribute('novalidate','');
+        setStatus('Đã bật novalidate (bỏ kiểm tra).', 'warn');
+      }else{
+        form.removeAttribute('novalidate');
+        setStatus('Đã tắt novalidate. Trình duyệt sẽ kiểm tra form.', 'ok');
+      }
+    });
+
+    // Live counters for fullname & about
+    function bindCounter(id){
+      const el = document.getElementById(id);
+      const counter = document.querySelector('[data-countfor="'+id+'"]');
+      if(!el || !counter) return;
+      const max = el.getAttribute('maxlength') || 40;
+      const update = ()=> counter.textContent = `${el.value.length}/${max} ký tự`;
+      el.addEventListener('input', update); update();
+    }
+    bindCounter('fullname');
+    bindCounter('about');
+
+    // Image preview
+    const avatar = document.getElementById('avatar');
+    const imgPrev = document.getElementById('imgPrev');
+    avatar.addEventListener('change', e => {
+      const file = e.target.files?.[0];
+      if(file){
+        const url = URL.createObjectURL(file);
+        imgPrev.src = url;
+      } else {
+        imgPrev.removeAttribute('src');
+      }
+    });
+
+    // Validate button
+    validateBtn.addEventListener('click', () => {
+      if(form.reportValidity()){
+        setStatus('Form hợp lệ ✓ Có thể gửi.', 'ok');
+      }else{
+        setStatus('Form chưa hợp lệ ✗ Kiểm tra các trường bắt buộc.', 'err');
+      }
+    });
+
+    // Accesskey: Alt+S submit
+    document.addEventListener('keydown', (e)=>{
+      if(e.altKey && (e.key === 's' || e.key === 'S')){
+        form.requestSubmit();
+      }
+    });
+
+    function setStatus(text, type){
+      status.className = 'status ' + (type||'');
+      status.lastChild.nodeValue = ' ' + text; // keep icon, update text
+    }
+  </script>
+</body>
+</html>

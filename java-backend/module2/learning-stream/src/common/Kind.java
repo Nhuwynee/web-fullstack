@@ -1,4 +1,5 @@
-package bean;
+package common;
 
-public class Kind {
+public enum Kind {
+    FISH, MEAT, EGG, OTHER
 }

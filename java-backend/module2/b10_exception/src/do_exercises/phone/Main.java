@@ -1,10 +1,8 @@
 package do_exercises.phone;
 
 import java.math.BigDecimal;
-import java.util.ArrayList;
-import java.util.Comparator;
-import java.util.InputMismatchException;
-import java.util.Scanner;
+import java.util.*;
+import java.util.function.Predicate;
 
 public class Main {
     private static ArrayList<Phone> phones = new ArrayList<>();
@@ -58,20 +56,20 @@ public class Main {
     }
 
     // valid id
-    private static boolean isValidId(String id) {
-        if (id == null || id.length() != 6) return false;
-        String prefix = id.substring(0, 3);
-        String numberPart = id.substring(3);
-        if (!prefix.equals("DTC") && !prefix.equals("DTM")) return false;
+        private static boolean isValidId(String id) {
+            if (id == null || id.length() != 6) return false;
+            String prefix = id.substring(0, 3);
+            String numberPart = id.substring(3);
+            if (!prefix.equals("DTC") && !prefix.equals("DTM")) return false;
 
-        for (char c : numberPart.toCharArray()) {
-            if (!Character.isDigit(c)) {
-                return false;
+            for (char c : numberPart.toCharArray()) {
+                if (!Character.isDigit(c)) {
+                    return false;
+                }
             }
-        }
 
-        return true;
-    }
+            return true;
+        }
 
     // menu 1
     private static void menuXemDanhSach() {
@@ -209,7 +207,8 @@ public class Main {
             phones.add(phone);
             System.out.println("Thêm điện thoại thành công!\n");
         } catch (Exception e) {
-            System.out.println("Lỗi khi thêm điện thoại: " + e.getMessage());
+            System.out.println("Lỗi không xác định: " + e.getMessage());
+            e.printStackTrace();
         }
     }
 
@@ -244,6 +243,8 @@ public class Main {
         do {
             System.out.println("Vui lòng nhập id điện thoại muốn sửa chữa (DTCxxx, DTMxxx):");
             id = sc.nextLine();
+
+            // isValid
             if (isValidId(id)) {
                 check = true;
             } else {
@@ -370,7 +371,6 @@ public class Main {
             System.out.println("2. Giảm dần");
             System.out.println("3. Trở về menu chính");
 
-
             try {
                 System.out.print("Lựa chọn của bạn: ");
                 choose = Integer.parseInt(sc.nextLine());
@@ -392,6 +392,13 @@ public class Main {
                                 return compareScore;
                             }
                         });
+
+                        // nhanh hơn
+//                        phones.sort(
+//                                Comparator.comparing(Phone::getPrice).reversed()
+//                                        .thenComparing(Phone::getId)
+//                        );
+
                         printSortedPhones();
                         break;
                     case 2:
@@ -451,8 +458,8 @@ public class Main {
                 switch (choose) {
                     case 1:
                         boolean check = true;
-                        BigDecimal from = BigDecimal.ZERO;
-                        BigDecimal to = BigDecimal.ZERO;
+                        BigDecimal from;
+                        BigDecimal to;
                         do {
                             check = false;
                             System.out.print("Nhập giá từ: ");
@@ -492,6 +499,84 @@ public class Main {
             }
         }
     }
+
+    // cách gọn hơn
+    private static void menuDetailSearch2(Class<?> clazz) {
+        String loaiDienThoai = clazz == Phone.class ? ""
+                : clazz == OldPhone.class ? "Điện thoại cũ"
+                : "Điện thoại mới";
+
+        while (true) {
+            System.out.println("\n--- " + loaiDienThoai + " - Menu Tìm Kiếm Chi Tiết ---");
+            System.out.println("1. Tìm kiếm theo khoảng giá");
+            System.out.println("2. Tìm kiếm theo tên");
+            System.out.println("3. Tìm kiếm theo hãng");
+            System.out.println("4. Trở về menu Tìm kiếm");
+            System.out.print("Lựa chọn của bạn: ");
+
+            try {
+                int choose = Integer.parseInt(sc.nextLine());
+                switch (choose) {
+                    case 1 -> {
+                        BigDecimal from, to;
+                        while (true) {
+                            try {
+                                System.out.print("Nhập giá từ: ");
+                                from = new BigDecimal(sc.nextLine().trim());
+                                System.out.print("Đến: ");
+                                to = new BigDecimal(sc.nextLine().trim());
+                                if (from.compareTo(to) > 0) {
+                                    System.out.println("Khoảng giá không hợp lệ, vui lòng nhập lại!");
+                                } else break;
+                            } catch (Exception e) {
+                                System.out.println("Vui lòng nhập số hợp lệ!");
+                            }
+                        }
+                        System.out.println("Tìm " + loaiDienThoai + " trong khoảng giá " + from + " - " + to);
+                        BigDecimal tempFrom = from;
+                        BigDecimal tempTo = to;
+                        searchPhone(clazz, p -> p.getPrice().compareTo(tempFrom) >= 0 && p.getPrice().compareTo(tempTo) <= 0);
+                    }
+                    case 2 -> {
+                        System.out.print("Nhập tên cần tìm: ");
+                        String ten = sc.nextLine();
+                        searchPhone(clazz, p -> p.getName().toLowerCase().contains(ten.toLowerCase()));
+                    }
+                    case 3 -> {
+                        System.out.print("Nhập hãng cần tìm: ");
+                        String hang = sc.nextLine();
+                        searchPhone(clazz, p -> p.getManufacturer().toLowerCase().contains(hang.toLowerCase()));
+                    }
+                    case 4 -> { return; }
+                    default -> System.out.println("Lựa chọn không hợp lệ.");
+                }
+            } catch (NumberFormatException e) {
+                System.out.println("Vui lòng nhập số hợp lệ!");
+            }
+        }
+    }
+
+    /**
+     * Hàm search dùng chung, gọn nhờ Predicate
+     */
+    private static void searchPhone(Class<?> clazz, Predicate<Phone> condition) {
+        if (phones == null || phones.isEmpty()) {
+            System.out.println("Danh sách điện thoại trống!");
+            return;
+        }
+
+        List<Phone> result = phones.stream()
+                .filter(clazz::isInstance)   // lọc đúng loại
+                .filter(condition)           // lọc theo điều kiện truyền vào
+                .toList();
+
+        if (result.isEmpty()) {
+            System.out.println("Không tìm thấy điện thoại phù hợp!");
+        } else {
+            result.forEach(System.out::println);
+        }
+    }
+
 
     private static void searchPhoneByName(Class<?> clazz, String ten) {
         if (phones == null || phones.isEmpty()) {

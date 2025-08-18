@@ -1,0 +1,401 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="70e7b4f1-47d4-41e8-a450-0fb275b2683e" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/module2/practice/src/practice.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/module2/practice/src/view/document.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../New folder/java-core-oop/src/module1_core/lesson01/Main.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../New folder/java-core-oop/src/module1_core/lesson02/Ex01.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../New folder/java-core-oop/src/module1_core/lesson02/Ex02.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../New folder/java-core-oop/src/module1_core/lesson02/Ex03.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../New folder/java-core-oop/src/module1_core/lesson02/Main.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../New folder/java-core-oop/src/module1_core/lesson02/ex_afternoon/Ex01Salary.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../New folder/java-core-oop/src/module1_core/lesson02/ex_afternoon/Ex02Date.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../New folder/java-core-oop/src/module1_core/lesson02/ex_afternoon/Ex03ASCII.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../New folder/java-core-oop/src/module1_core/lesson02/ex_afternoon/Ex04Sqrt.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../New folder/java-core-oop/src/module1_core/lesson02/ex_afternoon/Ex05LastDayAndNextDay.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../New folder/java-core-oop/src/module1_core/lesson02/ex_morning/Ex01SwitchCase.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../New folder/java-core-oop/src/module1_core/lesson02/ex_morning/Ex02C1.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../New folder/java-core-oop/src/module1_core/lesson02/ex_morning/Ex02C2.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../New folder/java-core-oop/src/module1_core/lesson02/ex_morning/Ex03IfElse.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../New folder/java-core-oop/src/module1_core/lesson02/ex_morning/Ex03Math.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../New folder/java-core-oop/src/module1_core/lesson02/ex_morning/Ex03TernaryOperator.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../New folder/java-core-oop/src/module1_core/lesson02/ex_morning/Ex04.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../New folder/java-core-oop/src/module1_core/lesson02/ex_morning/Ex05.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../New folder/java-core-oop/src/module1_core/lesson03/Ex01.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../New folder/java-core-oop/src/module1_core/lesson03/Ex02.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../New folder/java-core-oop/src/module1_core/lesson03/Ex03.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../New folder/java-core-oop/src/module1_core/lesson03/Ex04.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../New folder/java-core-oop/src/module1_core/lesson03/Ex05.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../New folder/java-core-oop/src/module1_core/lesson03/Ex06.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../New folder/java-core-oop/src/module1_core/lesson03/Main.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../New folder/java-core-oop/src/module1_core/lesson03/ex_afternoon/ConvertBinaryNumber.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../New folder/java-core-oop/src/module1_core/lesson03/ex_afternoon/Ex01.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../New folder/java-core-oop/src/module1_core/lesson03/ex_afternoon/Ex01Employee.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../New folder/java-core-oop/src/module1_core/lesson03/ex_afternoon/Ex02Fibonacci.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../New folder/java-core-oop/src/module1_core/lesson03/ex_afternoon/Ex03.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../New folder/java-core-oop/src/module1_core/lesson03/ex_afternoon/Ex04.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../New folder/java-core-oop/src/module1_core/lesson03/ex_afternoon/Ex05.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../New folder/java-core-oop/src/module1_core/lesson03/ex_afternoon/Ex06.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../New folder/java-core-oop/src/module1_core/lesson03/ex_afternoon/Star.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../New folder/java-core-oop/src/module1_core/lesson03/ex_afternoon/TinhTienThoi.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../New folder/java-core-oop/src/module1_core/lesson03/ex_morning/Ex01.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../New folder/java-core-oop/src/module1_core/lesson03/ex_morning/Ex02.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../New folder/java-core-oop/src/module1_core/lesson03/ex_morning/Ex03.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../New folder/java-core-oop/src/module1_core/lesson03/ex_morning/Ex04.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../New folder/java-core-oop/src/module1_core/lesson03/ex_morning/Ex05.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../New folder/java-core-oop/src/module1_core/lesson03/ex_morning/Ex06.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../New folder/java-core-oop/src/module1_core/lesson04_string/Main.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../New folder/java-core-oop/src/module1_core/lesson04_string/ex_afternoon/Ex01.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../New folder/java-core-oop/src/module1_core/lesson04_string/ex_afternoon/Ex02.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../New folder/java-core-oop/src/module1_core/lesson04_string/ex_afternoon/Ex03.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../New folder/java-core-oop/src/module1_core/lesson04_string/ex_afternoon/Ex04.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../New folder/java-core-oop/src/module1_core/lesson04_string/ex_afternoon/Ex05.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../New folder/java-core-oop/src/module1_core/lesson04_string/ex_afternoon/Ex06.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../New folder/java-core-oop/src/module1_core/lesson04_string/ex_morning/Ex01.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../New folder/java-core-oop/src/module1_core/lesson04_string/ex_morning/Ex02.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../New folder/java-core-oop/src/module1_core/lesson04_string/ex_morning/Ex03.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../New folder/java-core-oop/src/module1_core/lesson04_string/ex_morning/Ex04.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../New folder/java-core-oop/src/module1_core/lesson04_string/ex_morning/Ex05.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../New folder/java-core-oop/src/module1_core/lesson05_array/Main.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../New folder/java-core-oop/src/module1_core/lesson05_array/ex_afternoon/Ex01.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../New folder/java-core-oop/src/module1_core/lesson05_array/ex_afternoon/Ex02.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../New folder/java-core-oop/src/module1_core/lesson05_array/ex_afternoon/Ex03.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../New folder/java-core-oop/src/module1_core/lesson05_array/ex_afternoon/Ex04.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../New folder/java-core-oop/src/module1_core/lesson05_array/ex_morning/Ex01.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../New folder/java-core-oop/src/module1_core/lesson05_array/ex_morning/Ex02.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../New folder/java-core-oop/src/module1_core/lesson05_array/ex_morning/Ex03.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../New folder/java-core-oop/src/module1_core/lesson06_2Darray/Ex01.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../New folder/java-core-oop/src/module1_core/lesson06_2Darray/Ex02.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../New folder/java-core-oop/src/module1_core/lesson06_2Darray/Ex03.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../New folder/java-core-oop/src/module1_core/lesson06_2Darray/Main.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../New folder/java-core-oop/src/module1_core/lesson06_2Darray/ex_afternoon/Ex01.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../New folder/java-core-oop/src/module1_core/lesson06_2Darray/ex_afternoon/Ex02.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../New folder/java-core-oop/src/module1_core/lesson06_2Darray/ex_morning/Ex01.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../New folder/java-core-oop/src/module1_core/lesson07_arraylist/Ex01.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../New folder/java-core-oop/src/module1_core/lesson07_arraylist/Ex02.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../New folder/java-core-oop/src/module1_core/lesson07_arraylist/Main.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../New folder/java-core-oop/src/module1_core/lesson07_arraylist/utils/Math.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../New folder/java-core-oop/src/module1_core/yennhu_test/Main.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../New folder/java-core-oop/src/module1_core/yennhu_test/ex_afternoon/App.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../New folder/java-core-oop/src/module1_core/yennhu_test/ex_afternoon/Task2.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../New folder/java-core-oop/src/module1_core/yennhu_test/ex_afternoon/Task3.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../New folder/java-core-oop/src/module1_core/yennhu_test/ex_afternoon/Task4.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../New folder/java-core-oop/src/module1_core/yennhu_test/test_morning/Ex01.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../New folder/java-core-oop/src/module1_core/yennhu_test/test_morning/Ex02.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../New folder/java-core-oop/src/module1_core/yennhu_test/test_morning/Ex03.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../New folder/java-core-oop/src/module1_core/yennhu_test/test_morning/Ex04.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../New folder/java-core-oop/src/module1_core/yennhu_test/test_morning/Ex05.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../New folder/java-core-oop/src/module2_oop/lesson01_oop/Main.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../New folder/java-core-oop/src/module2_oop/lesson01_oop/Student.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../New folder/java-core-oop/src/module2_oop/lesson01_oop/StudentMain.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../New folder/java-core-oop/src/module2_oop/lesson01_oop/StudentManager.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../New folder/java-core-oop/src/module2_oop/lesson01_oop/ex01/Student.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../New folder/java-core-oop/src/module2_oop/lesson01_oop/ex01/StudentManager.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../New folder/java-core-oop/src/module2_oop/lesson01_oop/ex01/ex01-preview" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../New folder/java-core-oop/src/module2_oop/lesson01_oop/ex_afternoon/ex01/Fraction.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../New folder/java-core-oop/src/module2_oop/lesson01_oop/ex_afternoon/ex01/FractionMain.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../New folder/java-core-oop/src/module2_oop/lesson01_oop/ex_afternoon/ex02/OXY.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../New folder/java-core-oop/src/module2_oop/lesson01_oop/ex_afternoon/ex02/OXYMain.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../New folder/java-core-oop/src/module2_oop/lesson02_constructor_accessmodifier/Main.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../New folder/java-core-oop/src/module2_oop/lesson02_constructor_accessmodifier/Teacher.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../New folder/java-core-oop/src/module2_oop/lesson02_constructor_accessmodifier/TeacherManager.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../New folder/java-core-oop/src/module2_oop/lesson02_constructor_accessmodifier/ex_team/Student.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../New folder/java-core-oop/src/module2_oop/lesson02_constructor_accessmodifier/ex_team/StudentManager.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../New folder/java-core-oop/src/module2_oop/lesson02_constructor_accessmodifier/note/note.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../New folder/java-core-oop/src/module2_oop/lesson02_constructor_accessmodifier/note/noteRegex.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../New folder/java-core-oop/src/module2_oop/lesson02_constructor_accessmodifier/note/noteStudent.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../New folder/java-core-oop/src/module2_oop/lesson03_04_inheritance_static/BaiTapChieu2/Main.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../New folder/java-core-oop/src/module2_oop/lesson03_04_inheritance_static/BaiTapChieu2/Person2.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../New folder/java-core-oop/src/module2_oop/lesson03_04_inheritance_static/BaiTapChieu2/Student2.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../New folder/java-core-oop/src/module2_oop/lesson03_04_inheritance_static/BaiTapChieu2/StudentBE.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../New folder/java-core-oop/src/module2_oop/lesson03_04_inheritance_static/BaiTapChieu2/StudentFT.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../New folder/java-core-oop/src/module2_oop/lesson03_04_inheritance_static/BaiTapChieu2/Teacher.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../New folder/java-core-oop/src/module2_oop/lesson03_04_inheritance_static/btvn/GiangVien.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../New folder/java-core-oop/src/module2_oop/lesson03_04_inheritance_static/btvn/MainManager.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../New folder/java-core-oop/src/module2_oop/lesson03_04_inheritance_static/btvn/NhanSu.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../New folder/java-core-oop/src/module2_oop/lesson03_04_inheritance_static/btvn/TroGiang.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../New folder/java-core-oop/src/module2_oop/lesson03_04_inheritance_static/ex_afternoon/Person.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../New folder/java-core-oop/src/module2_oop/lesson03_04_inheritance_static/ex_afternoon/Student.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../New folder/java-core-oop/src/module2_oop/lesson03_04_inheritance_static/ex_afternoon/StudentBE.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../New folder/java-core-oop/src/module2_oop/lesson03_04_inheritance_static/ex_afternoon/StudentFT.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../New folder/java-core-oop/src/module2_oop/lesson03_04_inheritance_static/ex_afternoon/Teacher.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../New folder/java-core-oop/src/module2_oop/lesson03_04_inheritance_static/ex_morning/Employee.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../New folder/java-core-oop/src/module2_oop/lesson03_04_inheritance_static/ex_morning/Main.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../New folder/java-core-oop/src/module2_oop/lesson03_04_inheritance_static/ex_morning/ManagementEmployee.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../New folder/java-core-oop/src/module2_oop/lesson03_04_inheritance_static/ex_morning/Overload.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../New folder/java-core-oop/src/module2_oop/lesson03_04_inheritance_static/ex_morning/ProductionEmployee.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../New folder/java-core-oop/src/module2_oop/lesson03_04_inheritance_static/note.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../New folder/java-core-oop/src/module2_oop/lesson05_abstract_class_interface/bai_tap_05_abstract_interface.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../New folder/java-core-oop/src/module2_oop/lesson05_abstract_class_interface/chieu/Lecturer.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../New folder/java-core-oop/src/module2_oop/lesson05_abstract_class_interface/chieu/Main.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../New folder/java-core-oop/src/module2_oop/lesson05_abstract_class_interface/chieu/Person.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../New folder/java-core-oop/src/module2_oop/lesson05_abstract_class_interface/chieu/Student.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../New folder/java-core-oop/src/module2_oop/lesson05_abstract_class_interface/chieu/StudentBE.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../New folder/java-core-oop/src/module2_oop/lesson05_abstract_class_interface/chieu/StudentFS.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../New folder/java-core-oop/src/module2_oop/lesson05_abstract_class_interface/chieu/Teacher.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../New folder/java-core-oop/src/module2_oop/lesson05_abstract_class_interface/chieu/TeachingAssistant.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../New folder/java-core-oop/src/module2_oop/lesson05_abstract_class_interface/do_exercise/Main.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../New folder/java-core-oop/src/module2_oop/lesson05_abstract_class_interface/do_exercise/NewPhone.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../New folder/java-core-oop/src/module2_oop/lesson05_abstract_class_interface/do_exercise/OSPhone.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../New folder/java-core-oop/src/module2_oop/lesson05_abstract_class_interface/do_exercise/OldPhone.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../New folder/java-core-oop/src/module2_oop/lesson05_abstract_class_interface/do_exercise/Phone.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../New folder/java-core-oop/src/module2_oop/lesson05_abstract_class_interface/do_exercise/Promotion.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../New folder/java-core-oop/src/module2_oop/lesson05_abstract_class_interface/ex_team/ITeacher.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../New folder/java-core-oop/src/module2_oop/lesson05_abstract_class_interface/ex_team/MainManager.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../New folder/java-core-oop/src/module2_oop/lesson05_abstract_class_interface/ex_team/Person.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../New folder/java-core-oop/src/module2_oop/lesson05_abstract_class_interface/ex_team/Student.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../New folder/java-core-oop/src/module2_oop/lesson05_abstract_class_interface/ex_team/StudentBE.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../New folder/java-core-oop/src/module2_oop/lesson05_abstract_class_interface/ex_team/StudentFT.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../New folder/java-core-oop/src/module2_oop/lesson05_abstract_class_interface/ex_team/Teacher.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../New folder/java-core-oop/src/module2_oop/lesson05_abstract_class_interface/ex_team/TeacherSupport.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../New folder/java-core-oop/src/module2_oop/lesson05_abstract_class_interface/ss5_abstract_interface/Employee.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../New folder/java-core-oop/src/module2_oop/lesson05_abstract_class_interface/ss5_abstract_interface/Exercise.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../New folder/java-core-oop/src/module2_oop/lesson05_abstract_class_interface/ss5_abstract_interface/Main.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../New folder/java-core-oop/src/module2_oop/lesson05_abstract_class_interface/ss5_abstract_interface/TimeKeeping.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../New folder/java-core-oop/src/module2_oop/lesson06_polymorphism/Casting.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../New folder/java-core-oop/src/module2_oop/lesson06_polymorphism/CompileTime.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../New folder/java-core-oop/src/module2_oop/lesson06_polymorphism/Main.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../New folder/java-core-oop/src/module2_oop/lesson06_polymorphism/Runtime.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../New folder/java-core-oop/src/module2_oop/lesson06_polymorphism/Student.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../New folder/java-core-oop/src/module2_oop/lesson06_polymorphism/employee_manager/Employee.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../New folder/java-core-oop/src/module2_oop/lesson06_polymorphism/employee_manager/IEmployee.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../New folder/java-core-oop/src/module2_oop/lesson06_polymorphism/employee_manager/Main.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../New folder/java-core-oop/src/module2_oop/lesson06_polymorphism/employee_manager/ManagementEmployee.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../New folder/java-core-oop/src/module2_oop/lesson06_polymorphism/employee_manager/ProductionEmployee.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../New folder/java-core-oop/src/module2_oop/lesson07_collection/do_exercise/Main.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../New folder/java-core-oop/src/module2_oop/lesson07_collection/do_exercise/MyArrayList.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../New folder/java-core-oop/src/module2_oop/lesson07_collection/do_exercise/MyLinkedList.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../New folder/java-core-oop/src/module2_oop/lesson07_collection/ex_team/Course.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../New folder/java-core-oop/src/module2_oop/lesson07_collection/ex_team/Lecturer.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../New folder/java-core-oop/src/module2_oop/lesson07_collection/ex_team/Main.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../New folder/java-core-oop/src/module2_oop/lesson07_collection/ex_team/Person.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../New folder/java-core-oop/src/module2_oop/lesson07_collection/ex_team/Schedule.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../New folder/java-core-oop/src/module2_oop/lesson07_collection/ex_team/Student.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../New folder/java-core-oop/src/module2_oop/lesson07_collection/ex_team/StudentBE.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../New folder/java-core-oop/src/module2_oop/lesson07_collection/ex_team/StudentFS.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../New folder/java-core-oop/src/module2_oop/lesson07_collection/ex_team/Teacher.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../New folder/java-core-oop/src/module2_oop/lesson07_collection/ex_team/TeachingAssistant.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../New folder/java-core-oop/src/module2_oop/lesson07_collection/ss7_list/Main.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../New folder/java-core-oop/src/module2_oop/lesson07_collection/ss7_list/MyArrayList.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../New folder/java-core-oop/src/module2_oop/lesson07_collection/ss7_list/MyLinkedList.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../New folder/java-core-oop/src/module2_oop/lesson07_collection/ss7_list_exercise.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../New folder/java-core-oop/src/module2_oop/lesson08_generic_stack_queue/do_exercise/Task.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../New folder/java-core-oop/src/module2_oop/lesson08_generic_stack_queue/do_exercise/TaskManager.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../New folder/java-core-oop/src/module2_oop/lesson08_generic_stack_queue/do_exercise/TaskManagerMain.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../New folder/java-core-oop/src/module2_oop/lesson08_generic_stack_queue/ss8_generic_stack_queue/Generic.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../New folder/java-core-oop/src/module2_oop/lesson08_generic_stack_queue/ss8_generic_stack_queue/Main.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../New folder/java-core-oop/src/module2_oop/lesson08_generic_stack_queue/ss8_generic_stack_queue/MyLinkedList.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../New folder/java-core-oop/src/module2_oop/lesson08_generic_stack_queue/ss8_generic_stack_queue/QueueStudy.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../New folder/java-core-oop/src/module2_oop/lesson08_generic_stack_queue/ss8_generic_stack_queue/StackStudy.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../New folder/java-core-oop/src/module2_oop/lesson08_generic_stack_queue/ss8_generic_stack_queue/Task.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../New folder/java-core-oop/src/module2_oop/lesson08_generic_stack_queue/ss8_generic_stack_queue/bai_tap_08_generic_stack_queue.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../New folder/java-core-oop/src/module2_oop/lesson09_set_map/do_exercises/phone/Main.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../New folder/java-core-oop/src/module2_oop/lesson09_set_map/do_exercises/phone/NewPhone.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../New folder/java-core-oop/src/module2_oop/lesson09_set_map/do_exercises/phone/OSPhone.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../New folder/java-core-oop/src/module2_oop/lesson09_set_map/do_exercises/phone/OldPhone.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../New folder/java-core-oop/src/module2_oop/lesson09_set_map/do_exercises/phone/Phone.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../New folder/java-core-oop/src/module2_oop/lesson09_set_map/do_exercises/phone/Promotion.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../New folder/java-core-oop/src/module2_oop/lesson09_set_map/do_exercises/set_map/MapMain.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../New folder/java-core-oop/src/module2_oop/lesson09_set_map/do_exercises/set_map/SetMain.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../New folder/java-core-oop/src/module2_oop/lesson09_set_map/ex_team/Course.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../New folder/java-core-oop/src/module2_oop/lesson09_set_map/ex_team/Lecturer.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../New folder/java-core-oop/src/module2_oop/lesson09_set_map/ex_team/Main.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../New folder/java-core-oop/src/module2_oop/lesson09_set_map/ex_team/Person.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../New folder/java-core-oop/src/module2_oop/lesson09_set_map/ex_team/Schedule.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../New folder/java-core-oop/src/module2_oop/lesson09_set_map/ex_team/Student.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../New folder/java-core-oop/src/module2_oop/lesson09_set_map/ex_team/StudentBE.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../New folder/java-core-oop/src/module2_oop/lesson09_set_map/ex_team/StudentFS.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../New folder/java-core-oop/src/module2_oop/lesson09_set_map/ex_team/Teacher.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../New folder/java-core-oop/src/module2_oop/lesson09_set_map/ex_team/TeachingAssistant.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../New folder/java-core-oop/src/module2_oop/lesson09_set_map/set-map.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../New folder/java-core-oop/src/module2_oop/lesson09_set_map/ss9_set_map/CompareStudy.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../New folder/java-core-oop/src/module2_oop/lesson09_set_map/ss9_set_map/HashSetStudy.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../New folder/java-core-oop/src/module2_oop/lesson09_set_map/ss9_set_map/LinkedHashSetStudy.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../New folder/java-core-oop/src/module2_oop/lesson09_set_map/ss9_set_map/MapStudy.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../New folder/java-core-oop/src/module2_oop/lesson09_set_map/ss9_set_map/ScoreASCIdDESCComparator.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../New folder/java-core-oop/src/module2_oop/lesson09_set_map/ss9_set_map/Student.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../New folder/java-core-oop/src/module2_oop/lesson09_set_map/ss9_set_map/TreeSetStudy.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../New folder/java-core-oop/src/module2_oop/lesson10_exception/do_exercises/Ex01TryCatchFinally.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../New folder/java-core-oop/src/module2_oop/lesson10_exception/do_exercises/Ex02ThrowThrows.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../New folder/java-core-oop/src/module2_oop/lesson10_exception/do_exercises/phone/Main.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../New folder/java-core-oop/src/module2_oop/lesson10_exception/do_exercises/phone/NewPhone.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../New folder/java-core-oop/src/module2_oop/lesson10_exception/do_exercises/phone/OSPhone.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../New folder/java-core-oop/src/module2_oop/lesson10_exception/do_exercises/phone/OldPhone.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../New folder/java-core-oop/src/module2_oop/lesson10_exception/do_exercises/phone/Phone.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../New folder/java-core-oop/src/module2_oop/lesson10_exception/do_exercises/phone/Promotion.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../New folder/java-core-oop/src/module2_oop/lesson10_exception/ex_team/Course.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../New folder/java-core-oop/src/module2_oop/lesson10_exception/ex_team/Lecturer.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../New folder/java-core-oop/src/module2_oop/lesson10_exception/ex_team/Main.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../New folder/java-core-oop/src/module2_oop/lesson10_exception/ex_team/Person.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../New folder/java-core-oop/src/module2_oop/lesson10_exception/ex_team/Schedule.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../New folder/java-core-oop/src/module2_oop/lesson10_exception/ex_team/Student.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../New folder/java-core-oop/src/module2_oop/lesson10_exception/ex_team/StudentBE.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../New folder/java-core-oop/src/module2_oop/lesson10_exception/ex_team/StudentFS.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../New folder/java-core-oop/src/module2_oop/lesson10_exception/ex_team/Teacher.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../New folder/java-core-oop/src/module2_oop/lesson10_exception/ex_team/TeachingAssistant.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../New folder/java-core-oop/src/module2_oop/lesson10_exception/ex_team/custom_exception/InvalidAgeException.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../New folder/java-core-oop/src/module2_oop/lesson10_exception/ex_team/custom_exception/InvalidEmailException.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../New folder/java-core-oop/src/module2_oop/lesson10_exception/ex_team/custom_exception/NullOrEmptyException.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../New folder/java-core-oop/src/module2_oop/lesson10_exception/ex_team/custom_exception/PersonNotFoundException.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../New folder/java-core-oop/src/module2_oop/lesson10_exception/ex_team/custom_exception/StudentNotFoundException.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../New folder/java-core-oop/src/module2_oop/lesson10_exception/ex_team/custom_exception/TeacherNotFoundException.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../New folder/java-core-oop/src/module2_oop/lesson10_exception/ss10_exception/CustomException.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../New folder/java-core-oop/src/module2_oop/lesson10_exception/ss10_exception/ExceptionClassification.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../New folder/java-core-oop/src/module2_oop/lesson10_exception/ss10_exception/ExceptionStudy.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../New folder/java-core-oop/src/module2_oop/lesson10_exception/ss10_exception/HandleExceptionByThrow.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../New folder/java-core-oop/src/module2_oop/lesson10_exception/ss10_exception/HandleExceptionByTryCatch.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../New folder/java-core-oop/src/module2_oop/lesson10_exception/ss10_exception/ProcessingException.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../New folder/java-core-oop/src/module2_oop/lesson10_exception/ss10_exception/bai_tap_10_exception.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../New folder/java-core-oop/src/module2_oop/lesson10_exception/ss10_exception/exception/Under18YearsOldException.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/java-backend.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/java-backend.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/java-backend2.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/module2/.idea/module2.iml" beforeDir="false" afterPath="$PROJECT_DIR$/module2/.idea/module2.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/module2/b10_exception/src/do_exercises/phone/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/module2/b10_exception/src/do_exercises/phone/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/module2/b10_exception/src/do_exercises/phone/NewPhone.java" beforeDir="false" afterPath="$PROJECT_DIR$/module2/b10_exception/src/do_exercises/phone/NewPhone.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/module2/b11_12_file_regex/src/ss11_file_regex/ReadFileStudy.java" beforeDir="false" afterPath="$PROJECT_DIR$/module2/b11_12_file_regex/src/ss11_file_regex/ReadFileStudy.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/module2/practice/src/bean/Book.java" beforeDir="false" afterPath="$PROJECT_DIR$/module2/practice/src/bean/Book.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/module2/practice/src/bean/Document.java" beforeDir="false" afterPath="$PROJECT_DIR$/module2/practice/src/bean/Document.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/module2/practice/src/bean/Magazine.java" beforeDir="false" afterPath="$PROJECT_DIR$/module2/practice/src/bean/Magazine.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/module2/practice/src/view/MainDocument.java" beforeDir="false" afterPath="$PROJECT_DIR$/module2/practice/src/view/MainDocument.java" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;Nhuwynee&quot;
+  }
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/Nhuwynee/web-fullstack&quot;,
+    &quot;accountId&quot;: &quot;91621b69-2695-44c7-8857-e72b31e47052&quot;
+  }
+}</component>
+  <component name="ProjectColorInfo">{
+  &quot;customColor&quot;: &quot;&quot;,
+  &quot;associatedIndex&quot;: 4
+}</component>
+  <component name="ProjectId" id="31GakMZQQ138OUoP6SHReFbcbqg" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Application.Main.executor&quot;: &quot;Run&quot;,
+    &quot;Application.ReadFileStudy.executor&quot;: &quot;Run&quot;,
+    &quot;Application.TransactionApp.executor&quot;: &quot;Run&quot;,
+    &quot;Application.do_exercises.phone.Main.executor&quot;: &quot;Run&quot;,
+    &quot;Application.ex_team.Main.executor&quot;: &quot;Run&quot;,
+    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;java1&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;E:/web-fullstack/java-backend&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;
+  }
+}</component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="E:\web-fullstack\java-backend\module2" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Application.ex_team.Main">
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Main" />
+      <module name="b1-oop" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ReadFileStudy" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="ss11_file_regex.ReadFileStudy" />
+      <module name="b11_12_file_regex" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="ss11_file_regex.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="TransactionApp" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="view.TransactionApp" />
+      <module name="java-backend" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="view.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="do_exercises.phone.Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="do_exercises.phone.Main" />
+      <module name="b11_12_file_regex" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="do_exercises.phone.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ex_team.Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="ex_team.Main" />
+      <module name="b10_exception" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="ex_team.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.ex_team.Main" />
+        <item itemvalue="Application.ReadFileStudy" />
+        <item itemvalue="Application.do_exercises.phone.Main" />
+        <item itemvalue="Application.TransactionApp" />
+        <item itemvalue="Application.Main" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="70e7b4f1-47d4-41e8-a450-0fb275b2683e" name="Changes" comment="" />
+      <created>1755153004112</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1755153004112</updated>
+    </task>
+    <servers />
+  </component>
+</project>

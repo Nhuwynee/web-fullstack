@@ -11,7 +11,7 @@ public class ReadFileStudy {
     private static final Logger logger = Logger.getLogger(ReadFileStudy.class.getName());
 
     public static void main(String[] args) {
-        File file = new File("src/ss11_file_regex/data/input.txt");
+        File file = new File("E:\\web-fullstack\\java-backend\\module2\\b11_12_file_regex\\src\\ss11_file_regex\\data\\input.txt");
         BufferedReader bufferedReader = null;
 
 

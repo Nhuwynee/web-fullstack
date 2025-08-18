@@ -2,6 +2,17 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/module2/b1-oop/b1-oop.iml" filepath="$PROJECT_DIR$/module2/b1-oop/b1-oop.iml" />
+      <module fileurl="file://$PROJECT_DIR$/module2/b10_exception/b10_exception.iml" filepath="$PROJECT_DIR$/module2/b10_exception/b10_exception.iml" />
+      <module fileurl="file://$PROJECT_DIR$/module2/b11_12_file_regex/b11_12_file_regex.iml" filepath="$PROJECT_DIR$/module2/b11_12_file_regex/b11_12_file_regex.iml" />
+      <module fileurl="file://$PROJECT_DIR$/module2/b2-constructor-accessmodifier/b2-constructor-accessmodifier.iml" filepath="$PROJECT_DIR$/module2/b2-constructor-accessmodifier/b2-constructor-accessmodifier.iml" />
+      <module fileurl="file://$PROJECT_DIR$/module2/b3-4-inheritance-static/b3-4-inheritance-static.iml" filepath="$PROJECT_DIR$/module2/b3-4-inheritance-static/b3-4-inheritance-static.iml" />
+      <module fileurl="file://$PROJECT_DIR$/module2/b5-abstractclass-interface/b5-abstractclass-interface.iml" filepath="$PROJECT_DIR$/module2/b5-abstractclass-interface/b5-abstractclass-interface.iml" />
+      <module fileurl="file://$PROJECT_DIR$/module2/b6-polymorphism/b6-polymorphism.iml" filepath="$PROJECT_DIR$/module2/b6-polymorphism/b6-polymorphism.iml" />
+      <module fileurl="file://$PROJECT_DIR$/module2/b7-collection-list/b7-collection-list.iml" filepath="$PROJECT_DIR$/module2/b7-collection-list/b7-collection-list.iml" />
+      <module fileurl="file://$PROJECT_DIR$/module2/b8_generic_stack_queue/b8_generic_stack_queue.iml" filepath="$PROJECT_DIR$/module2/b8_generic_stack_queue/b8_generic_stack_queue.iml" />
+      <module fileurl="file://$PROJECT_DIR$/module2/b9_set_map/b9_set_map.iml" filepath="$PROJECT_DIR$/module2/b9_set_map/b9_set_map.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/java-backend.iml" filepath="$PROJECT_DIR$/.idea/java-backend.iml" />
       <module fileurl="file://$PROJECT_DIR$/module1/java-backend-2Darray/java-backend-2Darray.iml" filepath="$PROJECT_DIR$/module1/java-backend-2Darray/java-backend-2Darray.iml" />
       <module fileurl="file://$PROJECT_DIR$/module1/java-backend-array/java-backend-array.iml" filepath="$PROJECT_DIR$/module1/java-backend-array/java-backend-array.iml" />
       <module fileurl="file://$PROJECT_DIR$/module1/java-backend-arraylist/java-backend-arraylist.iml" filepath="$PROJECT_DIR$/module1/java-backend-arraylist/java-backend-arraylist.iml" />
@@ -9,8 +20,6 @@
       <module fileurl="file://$PROJECT_DIR$/module1/java-backend-b2/java-backend-b2.iml" filepath="$PROJECT_DIR$/module1/java-backend-b2/java-backend-b2.iml" />
       <module fileurl="file://$PROJECT_DIR$/module1/java-backend-b3/java-backend-b3.iml" filepath="$PROJECT_DIR$/module1/java-backend-b3/java-backend-b3.iml" />
       <module fileurl="file://$PROJECT_DIR$/module1/java-backend-string/java-backend-string.iml" filepath="$PROJECT_DIR$/module1/java-backend-string/java-backend-string.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/java-backend2.iml" filepath="$PROJECT_DIR$/.idea/java-backend2.iml" />
-      <module fileurl="file://$PROJECT_DIR$/module2/module2.iml" filepath="$PROJECT_DIR$/module2/module2.iml" />
       <module fileurl="file://$PROJECT_DIR$/module1/yennhu-test1/yennhu-test1.iml" filepath="$PROJECT_DIR$/module1/yennhu-test1/yennhu-test1.iml" />
     </modules>
   </component>

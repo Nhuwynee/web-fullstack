@@ -20,6 +20,7 @@ public class NewPhone extends Phone {
     public void setId(String id) {
         super.setId("DTM" + id);
     }
+
     public int getQuantity() {
         return quantity;
     }

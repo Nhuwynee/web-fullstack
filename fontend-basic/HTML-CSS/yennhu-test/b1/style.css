@@ -1,0 +1,84 @@
+* {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+#container,
+#container .section {
+    display: flex;
+    justify-content: center;
+    text-align: left;
+}
+
+h1, .tacgia h2 {
+    text-align: center;
+    color: rgb(0, 89, 56);
+}
+
+#container .section {
+    flex-direction: column;
+    width: 60%;
+}
+
+.content h2 {
+    color: rgb(2, 199, 133);
+}
+
+.content {
+    background-color: rgb(224, 255, 245);
+    border-left: rgb(2, 199, 133) solid 5px;
+    padding-left: 30px;
+    margin-top: 30px;
+    transition: 0.3s;
+}
+
+.main-content {
+    display: flex;
+    flex-direction: column;
+}
+
+.content:nth-child(1):hover {
+    background-color: rgb(255, 243, 227);
+}
+
+.content:nth-child(2):hover {
+    background-color: rgb(255, 220, 230);
+}
+
+.content:nth-child(3):hover {
+    background-color: rgb(228, 227, 255);
+}
+
+.content:nth-child(4):hover {
+    background-color: rgb(255, 227, 252);
+}
+
+.content:hover {
+    transform: translateX(8px);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    border-left-color: #06b6d4;
+}
+
+.line {
+    margin-top: 30px;
+    border: 2px dashed #06d48f;
+}
+
+.tacgia img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    margin-right: 10px;
+    float: left;
+    border: 2px solid #06b6d4;
+}
+
+.tacgia img:hover {
+    transform: scale(1.1);
+    transition: 0.3s;
+}
+
+.information {
+    margin-left: 120px;
+    align-content: center;
+    justify-content: center;
+}

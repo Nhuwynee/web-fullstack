@@ -1,0 +1,85 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: linear-gradient(to right, #ffe3f0, #aefff883, #c4d2ff);
+}
+
+th, td {
+    border: 1px solid #312d2d;
+    text-align: center;
+    font-weight: 700;
+    padding: 10px 20px;
+}
+
+td:hover {
+    transform: scale(1.1);
+    background-color: #ff8383 !important;
+    color: white;
+}
+
+thead {
+    background: linear-gradient(to right, #ffe3f0, #feb3ff, #7bf2ff);
+}
+
+table {
+    width: 1000px;
+    border-collapse: collapse;
+    border: 2px solid #171616 !important;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+
+table thead tr:first-child th:first-child {
+    border-top-left-radius: 10px;
+}
+
+table thead tr:first-child th:last-child {
+    border-top-right-radius: 10px;
+}
+
+table tbody tr:last-child td:first-child {
+    border-bottom-left-radius: 10px;
+}
+
+table tbody tr:last-child td:last-child {
+    border-bottom-right-radius: 10px;
+}
+
+
+.khtn { 
+    color: rgb(12, 148, 0); 
+}
+.khxh { 
+    color: rgb(148, 0, 0); 
+}
+.ngoaiNgu { 
+    color: rgb(0, 79, 148); 
+}
+.theChat { 
+    color: rgb(255, 136, 0); 
+}
+.col-colpan { 
+    color: rgb(59, 3, 66); 
+}
+
+td:nth-child(1) { 
+    background-color: #ffffff; 
+}
+td:nth-child(2) { 
+    background-color: #ffe3f0; 
+}
+td:nth-child(3) { 
+    background-color: #dbcfff; 
+}
+td:nth-child(4) { 
+    background-color: #e3ffec; 
+}
+td:nth-child(5) { 
+    background-color: #fbffe3; 
+}
+td:nth-child(6) { 
+    background-color: #e3fcff; 
+}

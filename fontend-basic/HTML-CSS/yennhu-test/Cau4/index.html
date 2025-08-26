@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            display: grid;
+            grid-template-areas:
+                "header header header"
+                "sidebar main extra"
+                "footer footer footer";
+            grid-template-rows: auto 1fr auto;
+            grid-template-columns: 1fr 3fr 1fr;
+            gap: 10px;
+            background: linear-gradient(to bottom, #f0f0f0, #e0e0e0);
+        }
+
+        header, sidebar, main, extra, footer {
+            display: flex;
+            justify-content: center; 
+            align-items: center;     
+            text-align: center;      
+        }
+        header {
+            grid-area: header;
+            background: linear-gradient(to right,  #e9b2b2, #fae8e8  ) ;
+            padding: 20px;
+            text-align: center;
+        }
+
+        sidebar {
+            grid-area: sidebar;
+            background: linear-gradient(to bottom,  #e5ddf3,  #ccb3ff) ;
+            padding: 20px;
+        }
+
+        main {
+            grid-area: main;
+            background: linear-gradient(to bottom, #ccffcc, #73cec4) ;
+            padding: 20px;
+        }
+
+        extra {
+            grid-area: extra;
+            background: linear-gradient(to bottom,  #f4e7da,  #ffe6cc) ;
+            padding: 20px;
+        }
+
+        footer {
+            grid-area: footer;
+            background: linear-gradient(to right, #e8aa9b,  #f3d9d2) ;
+            padding: 20px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <header>HEADER</header>
+    <sidebar>SIDEBAR</sidebar>
+    <main>MAIN CONTENT</main>
+    <extra>EXTRA</extra>
+    <footer>FOOTER</footer>
+</body>
+</html>

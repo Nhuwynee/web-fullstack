@@ -166,6 +166,8 @@ LIMIT 100
 -- B1.		
 create index idx_customer_id on orders using hash (customer_id);
 
+-- Tắt index scan
+
 
 SELECT indexname, indexdef FROM pg_indexes WHERE tablename = 'orders';
 
@@ -187,15 +189,41 @@ EXPLAIN ANALYZE
 SELECT *																											
 FROM orders																											
 WHERE customer_id BETWEEN 80000 AND 99000;																											
-																													
--- B3.	
+
+SET enable_indexscan = on;
+SET enable_bitmapscan = on;
+SET enable_seqscan = on;
+-- B3.
+DROP INDEX IF EXISTS idx_orders_customer_id_full
+CREATE INDEX idx_orders_customer_id_full ON orders(customer_id) include (status, payment_method)
+
+-- include (id,
+--     order_number,
+--     order_date,
+--     status,
+--     payment_method,
+--     shipping_method,
+--     channel,
+--     currency,
+--     coupon_code,
+--     subtotal_amount,
+--     discount_amount,
+--     tax_amount,
+--     shipping_fee,
+--     total_amount,
+--     created_at,
+--     updated_at);
+
+-- ANALYZE orders
+
 EXPLAIN ANALYZE
-SELECT *																											
-		FROM orders																											
-		WHERE customer_id BETWEEN 90000 AND 90100;																											
+SELECT customer_id, status, payment_method																							
+FROM orders																											
+WHERE customer_id BETWEEN 90000 AND 99000;																											
 																													
 -- B4.	
 CREATE INDEX idx_orders_status_date ON orders(status, order_date);
+SELECT indexname, indexdef FROM pg_indexes WHERE tablename = 'orders';
 
 DROP INDEX IF EXISTS idx_orders_status_date
 
@@ -206,8 +234,12 @@ SELECT COUNT(*)
 		  AND order_date >= CURRENT_DATE - INTERVAL '30 days';																											
 																													
 -- B5.	
+DROP INDEX IF EXISTS idx_orders_status_date
 CREATE INDEX idx_orders_status_date_number 
 ON orders(status, order_date DESC, order_number ASC) INCLUDE (customer_id, total_amount);
+
+CREATE INDEX idx_orders_status_date_number2
+ON orders(status, order_date DESC, order_number ASC);
 
 DROP INDEX IF EXISTS idx_orders_status_date_number
 
@@ -215,8 +247,7 @@ EXPLAIN ANALYZE
 SELECT order_number, customer_id, order_date, total_amount																											
 		FROM orders																											
 		WHERE status = 'DELIVERED'																											
-		ORDER BY order_date DESC, order_number ASC																											
-		LIMIT 50 OFFSET 0;																											
+		ORDER BY order_date DESC, order_number ASC																										
 																													
 -- B6.	
 																									

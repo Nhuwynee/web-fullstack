@@ -6,9 +6,10 @@
 CREATE SCHEMA IF NOT EXISTS lab;
 SET search_path TO lab, public;
 
+
+show search_path
 DROP TABLE IF EXISTS orders2 CASCADE;
 DROP TABLE IF EXISTS customers2 CASCADE;
-DROP TYPE IF EXISTS order_status;
 
 -- A) Cấu trúc bảng, kiểu dữ liệu & ràng buộc
 -- Yêu cầu:
@@ -28,7 +29,7 @@ CREATE TABLE customers2 (
 	phone_number VARCHAR(15) CHECK (phone_number ~ '^[0-9]+$'),
 	birth_date	 DATE,
 	is_active	 BOOLEAN DEFAULT TRUE,
-	created_at	 TIMESTAMPTZ DEFAULT CURRENT_TIMESTAMP
+	created_at	 TIMESTAMPTZ DEFAULT CURRENT_TIMESTAMPr
 );
 
 -- 2. Giải thích vì sao phone_number nên là VARCHAR thay vì INT
@@ -54,6 +55,7 @@ VALUES ('Sai Phone Number', 'bad@example.com', '09-123-456');
 -- Yêu cầu:
 -- 1. Tạo TYPE order_status AS ENUM ('pending','completed','canceled')
 CREATE TYPE ORDER_STATUS AS ENUM('pending','completed','canceled')
+-- DROP TYPE IF EXISTS order_status;
 
 -- 2. Tạo bảng orders2 có FK đến customers2(customer_id)
 -- - order_id: khóa chính
@@ -71,7 +73,8 @@ CREATE TABLE orders2 (
 	ON UPDATE CASCADE
 	ON DELETE CASCADE
 );
-
+-- select * from pg_enum
+select * from pg_type where oid = 17042
 -- C) INSERT – thêm dữ liệu & kiểm tra ràng buộc
 -- Yêu cầu:
 -- 1. Thêm 3 khách hàng mới với dữ liệu hợp lệ vào customers2
@@ -95,7 +98,7 @@ VALUES 	('Phone number chứa khoảng trắng', 'yu@gmail.com', '0912 345 678',
 
 -- - Một khách có birth_date để trống
 INSERT INTO customers2 (full_name, email, phone_number, birth_date)
-VALUES 	('Birth_date để trống', 'birthdate@gmail.com', '0909345670', null);
+VALUES 	('Birth_date để trống', 'birthdate3@gmail.com', '0909345670', null);
 
 -- ERROR:  invalid input syntax for type date: " "
 -- LINE 3: ...h_date để trống', 'birthdate@gmail.com', '0909345670', ' ');
@@ -181,19 +184,21 @@ WHERE email LIKE '%@yahoo.com'
 UPDATE customers2
 SET full_name = REGEXP_REPLACE(full_name, '^\[NEW\]\s*', '', '');
 
+UPDATE customers2
+SET full_name = REPLACE(full_name, '[NEW] ', '')
+
 -- 4. Cập nhật status = 'canceled' cho tất cả đơn hàng của các khách hàng có is_active = FALSE
 UPDATE orders2 o
 SET status = 'canceled'
-WHERE customer_id IN (SELECT customer_id 
-					  FROM customers2 c 
-					  WHERE c.customer_id = o.customer_id 
-					  	AND is_active = false)
+FROM customers2 c
+WHERE o.customer_id = c.customer_id
+  AND c.is_active = false
 
 -- 5. Thử cập nhật email của 2 khách hàng khác nhau thành cùng một giá trị để quan sát lỗi ràng buộc UNIQUE
 UPDATE customers2
 SET email = 'emailtrung@yahoo.com'
 WHERE customer_id in (1, 5)
-
+select * from customers2
 -- ERROR:  duplicate key value violates unique constraint "customers2_email_key"
 -- Key (email)=(emailtrung@yahoo.com) already exists. 
 
@@ -205,11 +210,10 @@ WHERE total_amount > 900000 and status <> 'canceled'
 
 -- 2. Xóa tất cả đơn hàng thuộc các khách hàng không có birth_date (dùng điều kiện trên bảng customers2)
 DELETE FROM orders2 o
-WHERE customer_id in (select customer_id 
-					  from customers2 c 
-					  where o.customer_id = c.customer_id 
-					  	and c.birth_date is null)
-
+USING customers2 c
+WHERE o.customer_id = c.customer_id
+  AND c.birth_date IS NULL
+  
 -- 3. Xóa các khách hàng có email IS NULL và is_active = FALSE
 DELETE FROM customers2
 WHERE email is null and is_active = FALSE
@@ -222,18 +226,15 @@ WHERE email is null and is_active = FALSE
 -- - ROLLBACK và xác nhận dữ liệu quay về như cũ
 begin;
 
-SAVEPOINT before_update;
-
 update orders2
 set status = 'pending'
 where customer_id = 4;
 
-rollback to savepoint before_update;
-
 select * from orders2 where customer_id = 4;
 
-SELECT * FROM customers2;
-SELECT * FROM orders2;
+rollback;
+show search_path
+set search_path to ops, lab, public
 -- 2. Mở transaction khác:
 BEGIN;
 
@@ -246,6 +247,7 @@ WHERE NOT EXISTS (
     WHERE o.customer_id = c.customer_id
 );
 
+select * from customers2
 -- - Tạo SAVEPOINT
 SAVEPOINT before_delete;
 
@@ -295,4 +297,10 @@ CREATE INDEX idx_orders_customer_id_orders_date ON orders2(customer_id, order_da
 -- 4. Đổi kiểu email của customers2 từ VARCHAR(150) sang VARCHAR(200)
 ALTER TABLE lab.customers2
 ALTER COLUMN email TYPE VARCHAR(200)
+
+-- 3.3. Bài tập nâng cao	
+-- 	3.4.1. Bài tập lý thuyết
+-- 	C1. Hãy tìm hiểu cách sử dụng từ khóa CONCURRENTLY khi tạo Index
+-- 	C2. Hãy tìm hiểu để phân biệt Composite & Covering Index
+-- 	C3. Hãy tìm hiểu sự khác biệt Index Scan hoặc Index Only Scan
 

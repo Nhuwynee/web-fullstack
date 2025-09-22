@@ -1,0 +1,41 @@
+Table students {
+  id serial [pk]
+  name varchar [not null]
+  birthdate date
+  phone varchar [unique]
+  email varchar [unique]
+}
+
+Table teachers {
+  id serial [pk]
+  name varchar [not null]
+  expertise varchar
+  phone varchar [unique]
+  email varchar [unique]
+}
+
+Table courses {
+  id serial [pk]
+  name varchar [not null]
+  duration numeric(5,2) [default: 0.00]
+  tuition numeric(12,2)
+}
+
+Table registration {
+  student_id int [ref: > students.id, not null] 
+  course_id int [ref: > courses.id, not null]
+  indexes { (student_id, course_id) }
+  registration_date TIMESTAMPTZ
+  final_grade numeric(5,2)
+}
+
+Table class {
+  id serial [pk]
+  student_id int [ref: < students.id, not null] 
+  course_id int [ref: > courses.id, not null]
+  teacher_id int [ref: > teachers.id, not null]
+  name varchar [not null]
+  opening_date TIMESTAMPTZ
+  closing_date TIMESTAMPTZ
+}
+
